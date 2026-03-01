@@ -17,68 +17,68 @@ const SkillIcon = ({ name, size = "w-5 h-5" }) => {
 // --- DATA ---
 const PORTFOLIO_DATA = {
   skills: [
-    { id: 'produit', title: " Développer et industrialiser des produits innovants", level: 4.5, icon: "package", consistsOf: "Capacité à transformer une vision en un produit physique manufacturé, packagé et prêt pour le marché de masse.", subskills: [{ id: 'branding', name: "1.1 Concevoir une marque et un positionnement", level: 4.5, consistsOf: "Création de l'univers visuel, du logo, du packaging et de l'identité différenciante sur un marché saturé." }, { id: 'industrialisation', name: "1.2 Passer du prototype à la production", level: 4.7, consistsOf: "Passage du prototype fait-main aux patrons industriels, sourcing usine et suivi qualité." }] },
-    { id: 'business', title: " Structurer un modèle économique et générer du CA", level: 4.2, icon: "trendingUp", consistsOf: "Conception de modèles économiques rentables et pilotage de la croissance via l'acquisition payante.", subskills: [{ id: 'pricing', name: "2.1 Construire une stratégie de pricing et rentabilité", level: 4.0, consistsOf: "Calcul des marges et structuration des prix B2B/B2C." }, { id: 'acquisition', name: "2.2 Piloter l'acquisition payante", level: 4.3, consistsOf: "Mise en place et optimisation de campagnes publicitaires ROI-centric." }, { id: 'ecommerce', name: "2.3 Lancer et tester un e-commerce", level: 4.1, consistsOf: "Validation de marché rapide et scalabilité des opérations de vente." }] },
-    { id: 'supply', title: " Gérer une chaîne d'approvisionnement internationale", level: 4.4, icon: "globe", consistsOf: "Gestion complète du flux mondial : sourcing, transport international et douanes.", subskills: [{ id: 'sourcing', name: "3.1 Sourcer et négocier", level: 4.3, consistsOf: "Identification de fournisseurs exclusifs et négociation des conditions de production." }, { id: 'logistique', name: "3.2 Gérer transport, douane et stock", level: 4.5, consistsOf: "Coordination du transit international et gestion physique des stocks." }] },
-    { id: 'tech', title: " Développer et automatiser des solutions technologiques", level: 4.6, icon: "terminal", consistsOf: "Ingénierie de solutions logicielles et intégration d'IA pour optimiser les process métiers.", subskills: [{ id: 'software', name: "4.1 Créer des logiciels internes", level: 4.5, consistsOf: "Développement d'outils métiers (gestion de sinistres, affichage vitrine)." }, { id: 'ia', name: "4.3 Automatiser via IA", level: 4.7, consistsOf: "Intégration d'agents IA (GPT) pour la vente et le contenu." }] },
-    { id: 'sales', title: " Prospecter, négocier et conclure des ventes", level: 4.0, icon: "target", consistsOf: "Développement commercial terrain et conclusion de transactions immobilières ou B2B.", subskills: [{ id: 'portefeuille', name: "5.1 Démarcher et développer un portefeuille", level: 4.0, consistsOf: "Ouverture de nouveaux marchés et vente directe." }, { id: 'nego', name: "5.2 Négociation immobilière", level: 3.9, consistsOf: "Conduite de négociations de mandats et closing." }] },
-    { id: 'management', title: " Développer et structurer un projet entrepreneurial", level: 4.3, icon: "users", consistsOf: "Pilotage global de projets, recrutement et validation de marché sur le terrain.", subskills: [{ id: 'marche', name: "6.2 Valider le marché terrain", level: 4.4, consistsOf: "Présentation sur salons et recueil de feedbacks clients." }] }
+    { id: 'produit', title: " Developper et industrialiser des produits innovants", level: 4.5, icon: "package", consistsOf: "Capacite à transformer une vision en un produit physique manufacture, package et prêt pour le marche de masse.", subskills: [{ id: 'branding', name: "1.1 Concevoir une marque et un positionnement", level: 4.5, consistsOf: "Creation de l'univers visuel, du logo, du packaging et de l'identite differenciante sur un marche sature." }, { id: 'industrialisation', name: "1.2 Passer du prototype à la production", level: 4.7, consistsOf: "Passage du prototype fait-main aux patrons industriels, sourcing usine et suivi qualite." }] },
+    { id: 'business', title: " Structurer un modèle economique et generer du CA", level: 4.2, icon: "trendingUp", consistsOf: "Conception de modèles economiques rentables et pilotage de la croissance via l'acquisition payante.", subskills: [{ id: 'pricing', name: "2.1 Construire une strategie de pricing et rentabilite", level: 4.0, consistsOf: "Calcul des marges et structuration des prix B2B/B2C." }, { id: 'acquisition', name: "2.2 Piloter l'acquisition payante", level: 4.3, consistsOf: "Mise en place et optimisation de campagnes publicitaires ROI-centric." }, { id: 'ecommerce', name: "2.3 Lancer et tester un e-commerce", level: 4.1, consistsOf: "Validation de marche rapide et scalabilite des operations de vente." }] },
+    { id: 'supply', title: " Gerer une chaîne d'approvisionnement internationale", level: 4.4, icon: "globe", consistsOf: "Gestion complète du flux mondial : sourcing, transport international et douanes.", subskills: [{ id: 'sourcing', name: "3.1 Sourcer et negocier", level: 4.3, consistsOf: "Identification de fournisseurs exclusifs et negociation des conditions de production." }, { id: 'logistique', name: "3.2 Gerer transport, douane et stock", level: 4.5, consistsOf: "Coordination du transit international et gestion physique des stocks." }] },
+    { id: 'tech', title: " Developper et automatiser des solutions technologiques", level: 4.6, icon: "terminal", consistsOf: "Ingenierie de solutions logicielles et integration d'IA pour optimiser les process metiers.", subskills: [{ id: 'software', name: "4.1 Creer des logiciels internes", level: 4.5, consistsOf: "Developpement d'outils metiers (gestion de sinistres, affichage vitrine)." }, { id: 'ia', name: "4.3 Automatiser via IA", level: 4.7, consistsOf: "Integration d'agents IA (GPT) pour la vente et le contenu." }] },
+    { id: 'sales', title: " Prospecter, negocier et conclure des ventes", level: 4.0, icon: "target", consistsOf: "Developpement commercial terrain et conclusion de transactions immobilières ou B2B.", subskills: [{ id: 'portefeuille', name: "5.1 Demarcher et developper un portefeuille", level: 4.0, consistsOf: "Ouverture de nouveaux marches et vente directe." }, { id: 'nego', name: "5.2 Negociation immobilière", level: 3.9, consistsOf: "Conduite de negociations de mandats et closing." }] },
+    { id: 'management', title: " Developper et structurer un projet entrepreneurial", level: 4.3, icon: "users", consistsOf: "Pilotage global de projets, recrutement et validation de marche sur le terrain.", subskills: [{ id: 'marche', name: "6.2 Valider le marche terrain", level: 4.4, consistsOf: "Presentation sur salons et recueil de feedbacks clients." }] }
   ],
   proofs: [
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identité & Direction Artistique", projectObjective: "Créer une marque textile thermochromique premium différenciante.", folder: "chroma", file: "logo chroma.png", type: "image", label: "Logo Final", caption: "Logo final représentant l'identité visuelle de la marque." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identité & Direction Artistique", folder: "chroma", file: "idée charte graphique 1.jpeg", type: "image", label: "Charte Graphique 1", caption: "Première exploration créative des couleurs et univers visuel." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identité & Direction Artistique", folder: "chroma", file: "idée charte graphique 2.jpeg", type: "image", label: "Charte Graphique 2", caption: "Variante de direction artistique testée avant validation." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identité & Direction Artistique", folder: "chroma", file: "idée charte graphique 3.jpeg", type: "image", label: "Charte Graphique 3", caption: "Ajustements esthétiques pour affiner le positionnement premium." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identité & Direction Artistique", folder: "chroma", file: "dimensions veste.png", type: "image", label: "Spécifications", caption: "Spécifications techniques et proportions du produit." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identité & Direction Artistique", folder: "chroma", file: "2ieme prix de l'etudiant entrepreuners de la promo (tc et mmi) projet chroma.jpeg", type: "image", label: "Prix Innovation", caption: "Reconnaissance académique officielle validant la crédibilité du projet." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "DIGITAG MEMORY — Concept & Packaging", projectObjective: "Transformer le souvenir en expérience digitale permanente.", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "Photo prototype initial fais main.png", type: "image", label: "Prototype Artisanal", caption: "Prototype artisanal initial permettant de tester la faisabilité." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "DIGITAG MEMORY — Concept & Packaging", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "packaging fini et reçu.png", type: "image", label: "Packaging Industriel", caption: "Packaging industriel premium validé et reçu en production réelle." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "REMAX — Design supports physiques", projectObjective: "Renforcer la visibilité terrain via supports personnalisés.", folder: "Remax", file: "photo des portes clés recu .jpeg", type: "image", label: "Portes-clés", caption: "Goodies conçus, produits et réceptionnés pour diffusion locale." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "REMAX — Design supports physiques", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Sacs promotionnels", caption: "Sacs promotionnels designés, sourcés et produits en usine." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet académique — Audit Digital Gioia Aperitivo", projectObjective: "Analyser et structurer le positionnement d'une entreprise réelle.", folder: "academic", file: "Personas_detailles.pdf", type: "pdf", label: "Personas détaillés", caption: "Construction stratégique de profils clients réalistes." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet académique — Audit Digital Gioia Aperitivo", folder: "academic", file: "Analyse_positionnement.pdf", type: "pdf", label: "Analyse positionnement", caption: "Étude complète image de marque & axes d'amélioration." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "Maquette Echantillion n-1.jpg", type: "image", label: "Validation Matériaux", caption: "Première validation physique des matériaux." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "photo patron tissus.jpeg", type: "image", label: "Patron Industriel", caption: "Patron textile validé pour production industrielle." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "Image fournisseur 2 veste.jpeg", type: "image", label: "Échange Fournisseur", caption: "Échange et validation technique avec le fournisseur." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "vestes chroma finis et porté par moi meme.jpeg", type: "image", label: "Produit Final", caption: "Produit final réellement fabriqué et porté." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG MEMORY — Prototype → Installation réelle", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "Photo prototype initial fais main.png", type: "image", label: "Proto Initial", caption: "Version initiale avant industrialisation." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG MEMORY — Prototype → Installation réelle", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "Photo plaque installée réelle.jpeg", type: "image", label: "Installation Site", caption: "Produit final réellement installé sur site." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", type: "image", label: "Contrôle Usine", caption: "Contrôle qualité et production en usine." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor fini.png", type: "image", label: "Plaques Finies", caption: "Produit final prêt à être livré." },
-    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Sourcing Usine", caption: "Sourcing fournisseur spécialisé en plaques NFC." },
-    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "DIGITAG PRO — Pricing B2B & Marges", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "Tableaux_commissions.pdf", type: "pdf", label: "Tableaux Commissions", caption: "Structuration du modèle économique et des marges commerciales." },
-    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet académique — Plan de communication Éclat Naturel", folder: "academic", file: "Segmentation_PRIZM_VALS.pdf", type: "pdf", label: "Segmentation Avancée", caption: "Application méthodologique avancée de segmentation marketing." },
-    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet académique — Plan de communication Éclat Naturel", folder: "academic", file: "Plan_strategique.pdf", type: "pdf", label: "Plan Stratégique", caption: "Définition d'une stratégie cohérente de lancement." },
-    { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Google Ads", folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06 €.png", type: "image", label: "Google Ads (2.4k)", caption: "Pilotage réel d'un budget publicitaire avec suivi des KPI." },
-    { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Meta Ads", folder: "site internet", file: "tableau example de mes depenses meta ads sur une boutique ecomerce en testing total 229.90€.png", type: "image", label: "Meta Ads Test", caption: "Campagne test visant validation produit via acquisition payante." },
-    { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "trophée 1k club yomi denzel ecomerce.jpeg", type: "image", label: "Trophée 1K Club", caption: "Validation d'un palier de performance e-commerce significatif." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", projectObjective: "Creer une marque textile thermochromique premium differenciante.", folder: "chroma", file: "logo chroma.png", type: "image", label: "Logo Final", caption: "Logo final representant l'identite visuelle de la marque." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "idee charte graphique 1.jpeg", type: "image", label: "Charte Graphique 1", caption: "Première exploration creative des couleurs et univers visuel." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "idee charte graphique 2.jpeg", type: "image", label: "Charte Graphique 2", caption: "Variante de direction artistique testee avant validation." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "idee charte graphique 3.jpeg", type: "image", label: "Charte Graphique 3", caption: "Ajustements esthetiques pour affiner le positionnement premium." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "dimensions veste.png", type: "image", label: "Specifications", caption: "Specifications techniques et proportions du produit." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "2ieme prix de l'etudiant entrepreuners de la promo (tc et mmi) projet chroma.jpeg", type: "image", label: "Prix Innovation", caption: "Reconnaissance academique officielle validant la credibilite du projet." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "DIGITAG MEMORY — Concept & Packaging", projectObjective: "Transformer le souvenir en experience digitale permanente.", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "Photo prototype initial fais main.png", type: "image", label: "Prototype Artisanal", caption: "Prototype artisanal initial permettant de tester la faisabilite." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "DIGITAG MEMORY — Concept & Packaging", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "packaging fini et reçu.png", type: "image", label: "Packaging Industriel", caption: "Packaging industriel premium valide et reçu en production reelle." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "REMAX — Design supports physiques", projectObjective: "Renforcer la visibilite terrain via supports personnalises.", folder: "Remax", file: "photo des portes cles recu .jpeg", type: "image", label: "Portes-cles", caption: "Goodies conçus, produits et receptionnes pour diffusion locale." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "REMAX — Design supports physiques", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Sacs promotionnels", caption: "Sacs promotionnels designes, sources et produits en usine." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Audit Digital Gioia Aperitivo", projectObjective: "Analyser et structurer le positionnement d'une entreprise reelle.", folder: "academic", file: "Personas_detailles.pdf", type: "pdf", label: "Personas detailles", caption: "Construction strategique de profils clients realistes." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Audit Digital Gioia Aperitivo", folder: "academic", file: "Analyse_positionnement.pdf", type: "pdf", label: "Analyse positionnement", caption: "etude complète image de marque & axes d'amelioration." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "Maquette Echantillion n-1.jpg", type: "image", label: "Validation Materiaux", caption: "Première validation physique des materiaux." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "photo patron tissus.jpeg", type: "image", label: "Patron Industriel", caption: "Patron textile valide pour production industrielle." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "Image fournisseur 2 veste.jpeg", type: "image", label: "echange Fournisseur", caption: "echange et validation technique avec le fournisseur." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "vestes chroma finis et porte par moi meme.jpeg", type: "image", label: "Produit Final", caption: "Produit final reellement fabrique et porte." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG MEMORY — Prototype → Installation reelle", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "Photo prototype initial fais main.png", type: "image", label: "Proto Initial", caption: "Version initiale avant industrialisation." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG MEMORY — Prototype → Installation reelle", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "Photo plaque installee reelle.jpeg", type: "image", label: "Installation Site", caption: "Produit final reellement installe sur site." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", type: "image", label: "Contrôle Usine", caption: "Contrôle qualite et production en usine." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor fini.png", type: "image", label: "Plaques Finies", caption: "Produit final prêt à être livre." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Sourcing Usine", caption: "Sourcing fournisseur specialise en plaques NFC." },
+    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "DIGITAG PRO — Pricing B2B & Marges", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "Tableaux_commissions.pdf", type: "pdf", label: "Tableaux Commissions", caption: "Structuration du modèle economique et des marges commerciales." },
+    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet academique — Plan de communication eclat Naturel", folder: "academic", file: "Segmentation_PRIZM_VALS.pdf", type: "pdf", label: "Segmentation Avancee", caption: "Application methodologique avancee de segmentation marketing." },
+    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet academique — Plan de communication eclat Naturel", folder: "academic", file: "Plan_strategique.pdf", type: "pdf", label: "Plan Strategique", caption: "Definition d'une strategie coherente de lancement." },
+    { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Google Ads", folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", type: "image", label: "Google Ads (2.4k)", caption: "Pilotage reel d'un budget publicitaire avec suivi des KPI." },
+    { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Meta Ads", folder: "site internet", file: "tableau example de mes depenses meta ads sur une boutique ecomerce en testing total 229.90.png", type: "image", label: "Meta Ads Test", caption: "Campagne test visant validation produit via acquisition payante." },
+    { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "trophee 1k club yomi denzel ecomerce.jpeg", type: "image", label: "Trophee 1K Club", caption: "Validation d'un palier de performance e-commerce significatif." },
     { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "dashbord stripe de paiments a linternational suisse belgique turquie luxembourg.png", type: "image", label: "Stripe International", caption: "Preuve de ventes internationales multi-pays." },
-    { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Identification Usine", caption: "Identification et sélection fournisseur stratégique." },
-    { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", type: "image", label: "Validation Qualité", caption: "Validation qualité en usine." },
-    { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "REMAX — Production goodies", folder: "Remax", file: "video production sac de course remax fournisseur.mp4", type: "video", label: "Vidéo Production", caption: "Suivi direct de la production chez le fournisseur." },
-    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG PRO — Expédition internationale", folder: "digitag pro", file: "plaques nfc google et instagram envoyer lituanie.png", type: "image", label: "Export Lituanie", caption: "Livraison internationale effective (export UE)." },
-    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Réception marchandise", folder: "Remax", file: "photo des portes clés recu .jpeg", type: "image", label: "Réception Stock", caption: "Réception physique marchandise importée." },
-    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Réception marchandise", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Contrôle Produit", caption: "Contrôle réception produits personnalisés." },
-    { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Logiciel gestion sinistres", folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", type: "image", label: "Logiciel Sinistres", caption: "Application métier développée pour automatiser le suivi des sinistres." },
-    { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Logiciel écran vitrine", folder: "Remax", file: "screen du logiciel pour lecran dune agence immobiliere.png", type: "image", label: "Affichage Dynamique", caption: "Interface dynamique automatisant l'affichage vitrine." },
-    { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT annonces immobilières", folder: "Remax", file: "gpt annonce immobiliere.png", type: "image", label: "Outil Interne", caption: "Outil interne standardisant la rédaction des annonces." },
-    { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT annonces immobilières", folder: "Remax", file: "gpt annonce immobiliere example de prompte et de resultat.png", type: "image", label: "Résultats d'Annonces", caption: "Démonstration du gain de cohérence et de productivité." },
-    { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT coach appels commerciaux", folder: "Remax", file: "gpt Coach d'Appels Commerciaux – Simulation Prospects screen.png", type: "image", label: "Simulateur Appels", caption: "Simulateur d'entraînement commercial basé sur IA." },
-    { competenceId: "sales", subCompetenceId: "portefeuille", projectTitle: "DIGITAG PRO — Plaques NFC Google", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "quelques photo de plaques nfc google instagram et tripadvisor chez les clients.png", type: "image", label: "Vente Terrain", caption: "Installations réelles prouvant validation marché B2B." },
+    { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Identification Usine", caption: "Identification et selection fournisseur strategique." },
+    { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", type: "image", label: "Validation Qualite", caption: "Validation qualite en usine." },
+    { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "REMAX — Production goodies", folder: "Remax", file: "video production sac de course remax fournisseur.mp4", type: "video", label: "Video Production", caption: "Suivi direct de la production chez le fournisseur." },
+    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG PRO — Expedition internationale", folder: "digitag pro", file: "plaques nfc google et instagram envoyer lituanie.png", type: "image", label: "Export Lituanie", caption: "Livraison internationale effective (export UE)." },
+    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Reception marchandise", folder: "Remax", file: "photo des portes cles recu .jpeg", type: "image", label: "Reception Stock", caption: "Reception physique marchandise importee." },
+    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Reception marchandise", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Contrôle Produit", caption: "Contrôle reception produits personnalises." },
+    { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Logiciel gestion sinistres", folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", type: "image", label: "Logiciel Sinistres", caption: "Application metier developpee pour automatiser le suivi des sinistres." },
+    { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Logiciel ecran vitrine", folder: "Remax", file: "screen du logiciel pour lecran dune agence immobiliere.png", type: "image", label: "Affichage Dynamique", caption: "Interface dynamique automatisant l'affichage vitrine." },
+    { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT annonces immobilières", folder: "Remax", file: "gpt annonce immobiliere.png", type: "image", label: "Outil Interne", caption: "Outil interne standardisant la redaction des annonces." },
+    { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT annonces immobilières", folder: "Remax", file: "gpt annonce immobiliere example de prompte et de resultat.png", type: "image", label: "Resultats d'Annonces", caption: "Demonstration du gain de coherence et de productivite." },
+    { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT coach appels commerciaux", folder: "Remax", file: "gpt Coach d'Appels Commerciaux – Simulation Prospects screen.png", type: "image", label: "Simulateur Appels", caption: "Simulateur d'entraînement commercial base sur IA." },
+    { competenceId: "sales", subCompetenceId: "portefeuille", projectTitle: "DIGITAG PRO — Plaques NFC Google", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "quelques photo de plaques nfc google instagram et tripadvisor chez les clients.png", type: "image", label: "Vente Terrain", caption: "Installations reelles prouvant validation marche B2B." },
     { competenceId: "sales", subCompetenceId: "nego", projectTitle: "REMAX — Optimisation annonces", folder: "Remax", file: "gpt annonce immobiliere example de prompte et de resultat.png", type: "image", label: "Support Vente", caption: "Outil facilitant la performance commerciale terrain." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funéraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accréditation Exposant", caption: "Accréditation officielle exposant professionnel." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funéraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "salon funeraire photo entrée et dans le salon.png", type: "image", label: "Photos Stand", caption: "Présence réelle sur événement sectoriel stratégique." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet académique — Tesla Europe", folder: "academic", file: "Gantt_Tesla.pdf", type: "pdf", label: "Planification Gantt", caption: "Planification structurée avec dépendances." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet académique — Tesla Europe", folder: "academic", file: "Analyse_Risques_Tesla.pdf", type: "pdf", label: "Analyse Risques", caption: "Identification préventive des scénarios critiques." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accreditation Exposant", caption: "Accreditation officielle exposant professionnel." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "salon funeraire photo entree et dans le salon.png", type: "image", label: "Photos Stand", caption: "Presence reelle sur evenement sectoriel strategique." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — Tesla Europe", folder: "academic", file: "Gantt_Tesla.pdf", type: "pdf", label: "Planification Gantt", caption: "Planification structuree avec dependances." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — Tesla Europe", folder: "academic", file: "Analyse_Risques_Tesla.pdf", type: "pdf", label: "Analyse Risques", caption: "Identification preventive des scenarios critiques." },
     
-    // -- NOUVEAUX PROJETS CANVA (ACADÉMIQUES) --
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet académique — Benchmark Chroma", projectLink: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view", type: "canva", label: "Analyse Positionnement", caption: "Analyse du marché et du positionnement stratégique d'une marque textile innovante." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet académique — Étude visionnaire", projectLink: "https://www.canva.com/design/DAGWkEHzSIg/RrjDI0WuwxL3GZiBpqCgdg/view", type: "canva", label: "Étude de marché", caption: "Étude approfondie du marché textile et des tendances émergentes." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet académique — Audit GioiA Aperitivo", projectLink: "https://www.canva.com/design/DAG-Uhz-9aM/MYAlyebATOSuqP7blmOlpw/view", type: "canva", label: "Audit Digital", caption: "Audit digital complet avec recommandations stratégiques et axes d'optimisation." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet académique — Le Jardin de Zazou", projectLink: "https://www.canva.com/design/DAG7xw_R1uM/wC9JJn3jyDkqACq-k9qEhQ/view", type: "canva", label: "Rapport Stratégique", caption: "Plan stratégique de développement digital pour une entreprise locale." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet académique — Stratégie Veja", projectLink: "https://www.canva.com/design/DAG7AdZHu28/PgAdCqwlU9W1g4ZDNM2ctA/view", type: "canva", label: "Stratégie de marque", caption: "Analyse approfondie de la stratégie social media d'une marque internationale." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet académique — Événement Tesla", projectLink: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view", type: "canva", label: "Orga. Événementielle", caption: "Organisation stratégique d'un événement corporate international." },
-    { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Projet académique — Analyse K-Way", projectLink: "https://www.canva.com/design/DAGfADJ7pK8/1gaH3eVoidephzvcQvKuxA/view", type: "canva", label: "Analyse e-commerce", caption: "Analyse de l'expérience utilisateur et des leviers d'optimisation d'un site e-commerce." }
+    // -- NOUVEAUX PROJETS CANVA (ACADeMIQUES) --
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Benchmark Chroma", projectLink: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view", type: "canva", label: "Analyse Positionnement", caption: "Analyse du marche et du positionnement strategique d'une marque textile innovante." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — etude visionnaire", projectLink: "https://www.canva.com/design/DAGWkEHzSIg/RrjDI0WuwxL3GZiBpqCgdg/view", type: "canva", label: "etude de marche", caption: "etude approfondie du marche textile et des tendances emergentes." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — Audit GioiA Aperitivo", projectLink: "https://www.canva.com/design/DAG-Uhz-9aM/MYAlyebATOSuqP7blmOlpw/view", type: "canva", label: "Audit Digital", caption: "Audit digital complet avec recommandations strategiques et axes d'optimisation." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — Le Jardin de Zazou", projectLink: "https://www.canva.com/design/DAG7xw_R1uM/wC9JJn3jyDkqACq-k9qEhQ/view", type: "canva", label: "Rapport Strategique", caption: "Plan strategique de developpement digital pour une entreprise locale." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Strategie Veja", projectLink: "https://www.canva.com/design/DAG7AdZHu28/PgAdCqwlU9W1g4ZDNM2ctA/view", type: "canva", label: "Strategie de marque", caption: "Analyse approfondie de la strategie social media d'une marque internationale." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — evenement Tesla", projectLink: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view", type: "canva", label: "Orga. evenementielle", caption: "Organisation strategique d'un evenement corporate international." },
+    { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Projet academique — Analyse K-Way", projectLink: "https://www.canva.com/design/DAGfADJ7pK8/1gaH3eVoidephzvcQvKuxA/view", type: "canva", label: "Analyse e-commerce", caption: "Analyse de l'experience utilisateur et des leviers d'optimisation d'un site e-commerce." }
   ]
 };
 
@@ -122,7 +122,7 @@ const Navbar = ({ currentPage, setPage }) => {
           <span className="text-[13px] font-black tracking-[0.25em] text-white uppercase">Roman<span className="text-neutral-500 font-light hidden sm:inline"> Layani</span></span>
         </button>
         <div className="flex gap-6 md:gap-10">
-          {[['home', 'Accueil'], ['maitrise', 'Compétences'], ['contact', 'Contact']].map(([id, label]) => (
+          {[['home', 'Accueil'], ['maitrise', 'Competences'], ['contact', 'Contact']].map(([id, label]) => (
             <button key={id} onClick={() => { setPage(id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className={`text-[10px] uppercase tracking-[0.35em] font-bold transition-all duration-300 ${currentPage === id ? 'text-[#D7B56D]' : 'text-neutral-500 hover:text-neutral-200'}`}>
               {label}
@@ -140,24 +140,24 @@ const Navbar = ({ currentPage, setPage }) => {
 const Home = ({ setPage }) => {
 
   const featuredProofs = [
-    { folder: "chroma", file: "vestes chroma finis et porté par moi meme.jpeg", label: "Veste CHROMA portée" },
-    { folder: "digitag memory", file: "Photo plaque installée réelle.jpeg", label: "Digitag installée sur site" },
+    { folder: "chroma", file: "vestes chroma finis et porte par moi meme.jpeg", label: "Veste CHROMA portee" },
+    { folder: "digitag memory", file: "Photo plaque installee reelle.jpeg", label: "Digitag installee sur site" },
     { folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", label: "Production usine NFC", isPdf: true },
-    { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06 €.png", label: "Dashboard Google Ads" },
-    { folder: "digitag memory", file: "badge pour le salon du funeraire.png", label: "Badge Salon Funéraire" },
+    { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06 .png", label: "Dashboard Google Ads" },
+    { folder: "digitag memory", file: "badge pour le salon du funeraire.png", label: "Badge Salon Funeraire" },
     { folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", label: "Logiciel Sinistres" },
   ];
 
   const projects = [
-    { title: "CHROMA", desc: "Chroma réinvente le vêtement comme une surface vivante qui réagit à son environnement.", img: "/chroma/vestes chroma finis et porté par moi meme.jpeg", tag: "Textile Tech" },
-    { title: "DIGITAG MEMORY", desc: "Une mémoire connectée et intemporelle : les souvenirs ne s'effacent jamais.", img: "/digitag memory/Photo plaque installée réelle.jpeg", tag: "NFC · Mémoire" },
-    { title: "DIGITAG PRO", desc: "Plaques NFC Google & réseaux pour acquisition B2B.", img: "/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC" },
+    { title: "CHROMA", desc: "Chroma reinvente le vêtement comme une surface vivante qui reagit à son environnement.", img: "/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech" },
+    { title: "DIGITAG MEMORY", desc: "Une memoire connectee et intemporelle : les souvenirs ne s'effacent jamais.", img: "/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Memoire" },
+    { title: "DIGITAG PRO", desc: "Plaques NFC Google & reseaux pour acquisition B2B.", img: "/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC" },
     { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA" },
   ];
 
   const systemBlocks = [
     { key: "package", title: "Produit", desc: "Prototype → design → industrialisation", color: "from-amber-900/20" },
-    { key: "globe", title: "Supply", desc: "Sourcing → négociation → import/export", color: "from-emerald-900/20" },
+    { key: "globe", title: "Supply", desc: "Sourcing → negociation → import/export", color: "from-emerald-900/20" },
     { key: "trendingUp", title: "Acquisition", desc: "Google Ads → Meta Ads → conversion", color: "from-blue-900/20" },
     { key: "terminal", title: "Tech & IA", desc: "Logiciels internes → GPT → automatisation", color: "from-violet-900/20" },
   ];
@@ -166,43 +166,43 @@ const Home = ({ setPage }) => {
     {
       title: "Benchmark Chroma",
       category: "Analyse & Positionnement",
-      desc: "Analyse du marché et du positionnement stratégique d’une marque textile innovante, en cohérence avec mon projet Chroma.",
+      desc: "Analyse du marche et du positionnement strategique d’une marque textile innovante, en coherence avec mon projet Chroma.",
       link: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view"
     },
     {
-      title: "Étude de marché visionnaire",
-      category: "Analyse marché & validation",
-      desc: "Étude approfondie du marché textile et des tendances émergentes.",
+      title: "etude de marche visionnaire",
+      category: "Analyse marche & validation",
+      desc: "etude approfondie du marche textile et des tendances emergentes.",
       link: "https://www.canva.com/design/DAGWkEHzSIg/RrjDI0WuwxL3GZiBpqCgdg/view"
     },
     {
       title: "Audit digital – GioiA Aperitivo",
-      category: "Audit & Stratégie digitale",
-      desc: "Audit digital complet avec recommandations stratégiques et axes d’optimisation.",
+      category: "Audit & Strategie digitale",
+      desc: "Audit digital complet avec recommandations strategiques et axes d’optimisation.",
       link: "https://www.canva.com/design/DAG-Uhz-9aM/MYAlyebATOSuqP7blmOlpw/view"
     },
     {
       title: "Rapport digital – Jardin de Zazou",
-      category: "Développement & Structuration",
-      desc: "Plan stratégique de développement digital pour une entreprise locale.",
+      category: "Developpement & Structuration",
+      desc: "Plan strategique de developpement digital pour une entreprise locale.",
       link: "https://www.canva.com/design/DAG7xw_R1uM/wC9JJn3jyDkqACq-k9qEhQ/view"
     },
     {
-      title: "Stratégie de Com – Veja",
-      category: "Stratégie & Réseaux sociaux",
-      desc: "Analyse approfondie de la stratégie social media d’une marque internationale.",
+      title: "Strategie de Com – Veja",
+      category: "Strategie & Reseaux sociaux",
+      desc: "Analyse approfondie de la strategie social media d’une marque internationale.",
       link: "https://www.canva.com/design/DAG7AdZHu28/PgAdCqwlU9W1g4ZDNM2ctA/view"
     },
     {
-      title: "Événement corporate – Tesla",
+      title: "evenement corporate – Tesla",
       category: "Gestion de projet & Event",
-      desc: "Organisation stratégique d’un événement corporate international.",
+      desc: "Organisation strategique d’un evenement corporate international.",
       link: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view"
     },
     {
       title: "Analyse e-commerce – K-Way",
       category: "Analyse UX & Performance",
-      desc: "Analyse de l’expérience utilisateur et des leviers d’optimisation d’un site e-commerce.",
+      desc: "Analyse de l’experience utilisateur et des leviers d’optimisation d’un site e-commerce.",
       link: "https://www.canva.com/design/DAGfADJ7pK8/1gaH3eVoidephzvcQvKuxA/view"
     }
   ];
@@ -249,14 +249,14 @@ const Home = ({ setPage }) => {
                 </h1>
               </Reveal>
 
-              {/* Sous-titre doré */}
+              {/* Sous-titre dore */}
               <Reveal delay={0.15}>
                 <div className="text-[clamp(1.1rem,2.5vw,1.8rem)] font-light tracking-wide text-neutral-400 mb-2 flex items-center gap-3 flex-wrap">
                   Produit <span className="text-[#D7B56D] font-bold">×</span> Tech <span className="text-[#D7B56D] font-bold">×</span> Acquisition
                 </div>
               </Reveal>
 
-              {/* Ligne dorée */}
+              {/* Ligne doree */}
               <Reveal delay={0.2}>
                 <div className="w-24 h-[1.5px] bg-gradient-to-r from-[#D7B56D] to-transparent my-8" />
               </Reveal>
@@ -265,10 +265,10 @@ const Home = ({ setPage }) => {
               <Reveal delay={0.25}>
                 <div className="space-y-3 mb-12 max-w-[540px]">
                   <p className="text-[1.05rem] md:text-[1.15rem] text-neutral-300 font-light leading-[1.75]">
-                    Je développe des produits physiques, je structure leur modèle économique et j'automatise les systèmes qui permettent leur croissance.
+                    Je developpe des produits physiques, je structure leur modèle economique et j'automatise les systèmes qui permettent leur croissance.
                   </p>
                   <p className="text-[0.95rem] text-neutral-500 font-light italic leading-relaxed">
-                    De la conception à la production. De la production à la rentabilité.
+                    De la conception à la production. De la production à la rentabilite.
                   </p>
                 </div>
               </Reveal>
@@ -282,7 +282,7 @@ const Home = ({ setPage }) => {
                     onClick={() => setPage('maitrise')}
                     className="px-8 py-4 bg-white text-black font-black rounded-full text-[11px] uppercase tracking-[0.25em] hover:bg-[#D7B56D] transition-colors duration-300 shadow-[0_8px_30px_rgba(255,255,255,0.12)]"
                   >
-                    Explorer mes compétences
+                    Explorer mes competences
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
@@ -300,11 +300,11 @@ const Home = ({ setPage }) => {
             <div className="flex justify-center lg:justify-end">
               <Reveal delay={0.2} y={30}>
                 <div className="relative w-full max-w-[340px] md:max-w-[400px] lg:max-w-[460px]">
-                  {/* Halo doré diffus */}
+                  {/* Halo dore diffus */}
                   <div className="absolute -inset-8 bg-[#D7B56D]/15 blur-[70px] rounded-[50px] pointer-events-none" />
                   {/* Cadre photo */}
                   <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
-                    {/* Overlay dégradé bas */}
+                    {/* Overlay degrade bas */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
                     <img
                       src="/Photo pro roman costume 2026.jpeg"
@@ -328,7 +328,7 @@ const Home = ({ setPage }) => {
                   >
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Google Ads</div>
                     <div className="text-2xl font-black text-white">ROAS 1,93</div>
-                    <div className="text-[10px] text-neutral-500 mt-0.5">sur 2 439 € investis</div>
+                    <div className="text-[10px] text-neutral-500 mt-0.5">sur 2 439  investis</div>
                   </motion.div>
 
                   <motion.div
@@ -339,7 +339,7 @@ const Home = ({ setPage }) => {
                     className="absolute -right-6 bottom-1/4 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl"
                   >
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">International</div>
-                    <div className="text-lg font-black text-white">4 marchés</div>
+                    <div className="text-lg font-black text-white">4 marches</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5">CH · BE · LU · TR</div>
                   </motion.div>
                 </div>
@@ -358,20 +358,20 @@ const Home = ({ setPage }) => {
       </section>
 
       {/* ══════════════════════════════════
-          2. RÉSULTATS CONCRETS
+          2. ReSULTATS CONCRETS
       ══════════════════════════════════ */}
       <section className="py-28 md:py-36 px-8 border-t border-white/[0.04] bg-[#060606]">
         <div className="max-w-[1400px] mx-auto">
           <Reveal>
             <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Données réelles · vérifiables</div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Donnees reelles · verifiables</div>
                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                  Résultats <GoldText>concrets</GoldText>
+                  Resultats <GoldText>concrets</GoldText>
                 </h2>
               </div>
               <button onClick={() => setPage('maitrise')} className="text-[10px] uppercase tracking-[0.3em] font-black text-neutral-500 hover:text-[#D7B56D] transition-colors flex items-center gap-2">
-                Voir les résultats <ArrowRight size={12} />
+                Voir les resultats <ArrowRight size={12} />
               </button>
             </div>
           </Reveal>
@@ -384,7 +384,7 @@ const Home = ({ setPage }) => {
                 <div className="absolute top-0 right-0 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full group-hover:bg-[#D7B56D]/[0.08] transition-all duration-700" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Google Ads</div>
-                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">2 439<span className="text-xl text-neutral-600">,06 €</span></div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">2 439<span className="text-xl text-neutral-600">,06 </span></div>
                   <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-10">investis</div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">
@@ -411,7 +411,7 @@ const Home = ({ setPage }) => {
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Meta Ads <span className="text-neutral-700">(test)</span></div>
-                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">229<span className="text-xl text-neutral-600">,90 €</span></div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">229<span className="text-xl text-neutral-600">,90 </span></div>
                   <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-10">investis</div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">
@@ -420,7 +420,7 @@ const Home = ({ setPage }) => {
                     </div>
                     <div className="flex justify-between items-center pt-1">
                       <span className="text-xs text-neutral-500">CPC moyen</span>
-                      <span className="text-sm font-bold text-white">0,44 €</span>
+                      <span className="text-sm font-bold text-white">0,44 </span>
                     </div>
                   </div>
                 </div>
@@ -434,7 +434,7 @@ const Home = ({ setPage }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#D7B56D]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Ventes Internationales</div>
-                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-8">Marchés actifs</div>
+                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-8">Marches actifs</div>
                   <div className="flex flex-col gap-5">
                     {[["🇨🇭", "Suisse"], ["🇧🇪", "Belgique"], ["🇱🇺", "Luxembourg"], ["🇹🇷", "Turquie"]].map(([flag, country], i) => (
                       <motion.div key={i}
@@ -465,7 +465,7 @@ const Home = ({ setPage }) => {
             <div className="mb-16">
               <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Architecture complète</div>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                Un système complet,<br />pas juste des idées.
+                Un système complet,<br />pas juste des idees.
               </h2>
             </div>
           </Reveal>
@@ -506,9 +506,9 @@ const Home = ({ setPage }) => {
           <Reveal>
             <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Projets réels · de A à Z</div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Projets reels · de A à Z</div>
                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                  Projets <GoldText>développés</GoldText>
+                  Projets <GoldText>developpes</GoldText>
                 </h2>
               </div>
             </div>
@@ -567,16 +567,16 @@ const Home = ({ setPage }) => {
       </section>
 
       {/* ══════════════════════════════════
-          4.5 PROJETS ACADÉMIQUES & STRATÉGIQUES
+          4.5 PROJETS ACADeMIQUES & STRATeGIQUES
       ══════════════════════════════════ */}
       <section className="py-28 md:py-36 px-8 border-t border-white/[0.04] bg-[#080808]">
         <div className="max-w-[1400px] mx-auto">
           <Reveal>
             <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Stratégie & Analyse</div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Strategie & Analyse</div>
                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                  Projets <GoldText>Académiques</GoldText>
+                  Projets <GoldText>Academiques</GoldText>
                 </h2>
               </div>
             </div>
@@ -589,7 +589,7 @@ const Home = ({ setPage }) => {
                   whileHover={{ y: -6 }}
                   className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 group transition-all duration-500 overflow-hidden flex flex-col h-full shadow-lg"
                 >
-                  {/* Glow doré discret */}
+                  {/* Glow dore discret */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#D7B56D]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full group-hover:bg-[#D7B56D]/[0.08] transition-all duration-700 pointer-events-none" />
 
@@ -625,7 +625,7 @@ const Home = ({ setPage }) => {
           <Reveal>
             <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Documentation réelle</div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Documentation reelle</div>
                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
                   Des preuves,<br />pas des promesses.
                 </h2>
@@ -687,7 +687,7 @@ const Home = ({ setPage }) => {
             <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-black uppercase tracking-tighter leading-[0.92] text-white mb-16">
               Vous cherchez quelqu'un<br />capable de structurer<br />un projet de <GoldText>A à Z</GoldText> ?
             </h2>
-            {/* Ligne décorative */}
+            {/* Ligne decorative */}
             <div className="w-px h-16 bg-gradient-to-b from-transparent via-[#D7B56D]/40 to-transparent mx-auto mb-12" />
             <motion.button
               whileHover={{ scale: 1.04 }}
@@ -831,7 +831,7 @@ const MasteryLayout = () => {
                       <GaugeLevel level={currentComp.level} />
                     </div>
                     <div className="border-t border-white/[0.05] pt-7">
-                      <h4 className="text-[10px] uppercase font-black text-neutral-600 tracking-widest mb-4">Sous-compétences :</h4>
+                      <h4 className="text-[10px] uppercase font-black text-neutral-600 tracking-widest mb-4">Sous-competences :</h4>
                       <div className="flex flex-wrap gap-3">
                         {currentComp.subskills.map(sub => (
                           <button key={sub.id} onClick={() => setActiveSub(sub.id)}
@@ -909,7 +909,7 @@ const MasteryLayout = () => {
                       </div>
                     )) : (
                       <div className="py-24 text-center border border-white/[0.04] border-dashed rounded-[32px] opacity-30">
-                        <p className="text-neutral-600 font-mono text-sm uppercase tracking-widest">Aucune archive indexée.</p>
+                        <p className="text-neutral-600 font-mono text-sm uppercase tracking-widest">Aucune archive indexee.</p>
                       </div>
                     )}
                   </div>

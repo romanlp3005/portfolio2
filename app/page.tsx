@@ -151,10 +151,10 @@ const Home = ({ setPage }) => {
   ];
 
   const projects = [
-    { title: "CHROMA", desc: "Chroma reinvente le vêtement comme une surface vivante qui reagit à son environnement.", img: "/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech" },
-    { title: "DIGITAG MEMORY", desc: "Une memoire connectee et intemporelle : les souvenirs ne s'effacent jamais.", img: "/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Memoire" },
-    { title: "DIGITAG PRO", desc: "Plaques NFC Google & reseaux pour acquisition B2B.", img: "/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC" },
-    { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA" },
+    { title: "CHROMA", desc: "Chroma reinvente le vêtement comme une surface vivante qui reagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech" },
+    { title: "DIGITAG MEMORY", desc: "Une memoire connectee et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Memoire" },
+    { title: "DIGITAG PRO", desc: "Plaques NFC Google & reseaux pour acquisition B2B.", img: "/portfolio2/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC" },
+    { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/portfolio2/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA" },
   ];
 
   const systemBlocks = [
@@ -309,7 +309,7 @@ const Home = ({ setPage }) => {
                     {/* Overlay degrade bas */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
                     <img
-                      src="/Photo pro roman costume 2026.jpeg"
+                      src="/portfolio2/Photo pro roman costume 2026.jpeg"
                       alt="Roman Layani"
                       className="w-full h-full object-cover"
                     />

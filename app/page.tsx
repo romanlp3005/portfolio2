@@ -727,7 +727,7 @@ const MasteryLayout = () => {
     return groups;
   }, [activeSub]);
 
-  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : `/${proof.folder}/${proof.file}`;
+  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : `/portfolio2/${proof.folder}/${proof.file}`;
 
   const renderAccordion = (isMobile = false) => (
     <div className="space-y-3">

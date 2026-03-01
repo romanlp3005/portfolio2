@@ -652,7 +652,7 @@ const Home = ({ setPage }) => {
                     </div>
                   ) : (
                     <img
-                      src={`/${p.folder}/${p.file}`}
+  src={`/portfolio2/${p.folder}/${p.file}`}
                       alt={p.label}
                       className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700"
                     />

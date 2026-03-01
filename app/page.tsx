@@ -52,8 +52,8 @@ const PORTFOLIO_DATA = {
     { competenceId: "business", subCompetenceId: "pricing", projectTitle: "DIGITAG PRO — Pricing B2B & Marges", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "Tableaux_commissions.pdf", type: "pdf", label: "Tableaux Commissions", caption: "Structuration du modèle economique et des marges commerciales." },
     { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet academique — Plan de communication eclat Naturel", folder: "academic", file: "Segmentation_PRIZM_VALS.pdf", type: "pdf", label: "Segmentation Avancee", caption: "Application methodologique avancee de segmentation marketing." },
     { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet academique — Plan de communication eclat Naturel", folder: "academic", file: "Plan_strategique.pdf", type: "pdf", label: "Plan Strategique", caption: "Definition d'une strategie coherente de lancement." },
-    { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Google Ads", folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", type: "image", label: "Google Ads (2.4k)", caption: "Pilotage reel d'un budget publicitaire avec suivi des KPI." },
-    { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Meta Ads", folder: "site internet", file: "tableau example de mes depenses meta ads sur une boutique ecomerce en testing total 229.90.png", type: "image", label: "Meta Ads Test", caption: "Campagne test visant validation produit via acquisition payante." },
+    { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Google Ads", folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06 .png", type: "image", label: "Google Ads (2.4k)", caption: "Pilotage reel d'un budget publicitaire avec suivi des KPI." },
+    { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Meta Ads", folder: "site internet", file: "tableau example de mes depenses meta ads sur une boutique ecomerce en testing total 229.90 .png", type: "image", label: "Meta Ads Test", caption: "Campagne test visant validation produit via acquisition payante." },
     { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "trophee 1k club yomi denzel ecomerce.jpeg", type: "image", label: "Trophee 1K Club", caption: "Validation d'un palier de performance e-commerce significatif." },
     { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "dashbord stripe de paiments a linternational suisse belgique turquie luxembourg.png", type: "image", label: "Stripe International", caption: "Preuve de ventes internationales multi-pays." },
     { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Identification Usine", caption: "Identification et selection fournisseur strategique." },
@@ -86,8 +86,6 @@ const PORTFOLIO_DATA = {
 };
 
 // ─── MODIFICATION 1 : données des projets Digitag pour la modale ───
-// On définit les "preuves synthétiques" pour Digitag Memory et Digitag Pro
-// afin qu'ils s'ouvrent dans la lightbox au lieu de rediriger.
 const DIGITAG_MEMORY_PROOF = {
   type: "image",
   label: "DIGITAG MEMORY",
@@ -141,7 +139,7 @@ const Navbar = ({ currentPage, setPage }) => {
     return () => window.removeEventListener('scroll', fn);
   }, []);
   return (
-    <nav className={`fixed top-0 w-full z-[100] transition-all duration-700 ${scrolled ? 'bg-[#080808]/90 backdrop-blur-2xl py-4 border-b border-white/[0.04]' : 'py-7'}`}>
+    <nav className={`fixed top-0 w-full z- transition-all duration-700 ${scrolled ? 'bg-[#080808]/90 backdrop-blur-2xl py-4 border-b border-white/[0.04]' : 'py-7'}`}>
       <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between">
         <button onClick={() => setPage('home')} className="flex items-center gap-2.5 group">
           <div className="w-1.5 h-1.5 rounded-full bg-[#D7B56D] group-hover:scale-150 transition-transform duration-300" />
@@ -334,7 +332,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                     {/* Overlay degrade bas */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
                     <img
-                      src="/portfolio2/Photo pro roman costume 2026.jpeg"
+                      src={encodeURI("/portfolio2/Photo pro roman costume 2026.jpeg")}
                       alt="Roman Layani"
                       className="w-full h-full object-cover"
                     />
@@ -378,7 +376,7 @@ const Home = ({ setPage, setSelectedProof }) => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
-          <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+          <motion.div animate={{ y: }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
             <div className="w-[1px] h-12 bg-gradient-to-b from-[#D7B56D] to-transparent" />
           </motion.div>
         </div>
@@ -551,7 +549,8 @@ const Home = ({ setPage, setSelectedProof }) => {
                 >
                   {/* Image */}
                   <motion.img
-                    src={proj.img} alt={proj.title}
+                    src={encodeURI(proj.img)}
+                    alt={proj.title}
                     className="absolute inset-0 w-full h-full object-cover"
                     variants={{ hover: { scale: 1.06 } }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -559,7 +558,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                   />
                   <motion.div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-600"
                     style={{ background: 'transparent' }}>
-                    <img src={proj.img} alt="" className="w-full h-full object-cover opacity-60" />
+                    <img src={encodeURI(proj.img)} alt="" className="w-full h-full object-cover opacity-60" />
                   </motion.div>
 
                   {/* Overlay */}
@@ -677,7 +676,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                     </div>
                   ) : (
                     <img
-                      src={`/portfolio2/${p.folder}/${p.file}`}
+                      src={encodeURI(`/portfolio2/${p.folder}/${p.file}`)}
                       alt={p.label}
                       className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700"
                     />
@@ -735,7 +734,7 @@ const Home = ({ setPage, setSelectedProof }) => {
 // MASTERY LAYOUT
 // ═══════════════════════════════════════════════════════════
 const MasteryLayout = () => {
-  const [activeComp, setActiveComp] = useState(PORTFOLIO_DATA.skills[0].id);
+  const [activeComp, setActiveComp] = useState(PORTFOLIO_DATA.skills.id);
   const [activeSub, setActiveSub] = useState(null);
   const [selectedProof, setSelectedProof] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -752,7 +751,8 @@ const MasteryLayout = () => {
     return groups;
   }, [activeSub]);
 
-  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : `/portfolio2/${proof.folder}/${proof.file}`;
+  // PROTECTION ENCODE_URI REMISE ICI
+  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : encodeURI(`/portfolio2/${proof.folder}/${proof.file}`);
 
   const renderAccordion = (isMobile = false) => (
     <div className="space-y-3">
@@ -820,7 +820,7 @@ const MasteryLayout = () => {
           {isMobileMenuOpen && (
             <motion.div initial={{ opacity: 0, y: "100%" }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: "100%" }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 z-[200] bg-[#080808] p-6 pt-24 overflow-y-auto lg:hidden">
+              className="fixed inset-0 z- bg-[#080808] p-6 pt-24 overflow-y-auto lg:hidden">
               <div className="flex justify-between items-center mb-10 pb-6 border-b border-white/[0.05]">
                 <div className="text-[10px] uppercase font-black tracking-[0.4em] text-[#D7B56D] flex items-center gap-2"><Layers size={14} /> Menu & Scores</div>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-white/[0.04] rounded-full"><X size={16} /></button>
@@ -843,7 +843,7 @@ const MasteryLayout = () => {
               {!activeSub && (
                 <motion.div key={`overview-${activeComp}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
                   className="bg-[#0f0f0f] p-8 md:p-12 rounded-[36px] border border-white/[0.05] relative overflow-hidden shadow-2xl">
-                  <div className="absolute top-0 right-0 p-12 opacity-[0.015] scale-[4] rotate-12 pointer-events-none text-[#D7B56D]">
+                  <div className="absolute top-0 right-0 p-12 opacity-[0.015] scale- rotate-12 pointer-events-none text-[#D7B56D]">
                     <SkillIcon name={currentComp.icon} size="w-8 h-8" />
                   </div>
                   <div className="relative z-10">
@@ -957,11 +957,9 @@ const MasteryLayout = () => {
 const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
   const iframeRef = useRef(null);
 
-  // ─── MODIFICATION 3 : Construire l'URL embed Canva correcte ───
-  // Format officiel : https://www.canva.com/design/[ID]/[TOKEN]/view?embed
+  // Construire l'URL embed Canva correcte
   const getCanvaEmbedUrl = (url) => {
     if (!url) return '';
-    // L'URL est déjà au bon format /view, on ajoute juste ?embed si pas déjà présent
     if (url.includes('?embed')) return url;
     return url.endsWith('/view') ? `${url}?embed` : `${url}&embed`;
   };
@@ -972,7 +970,7 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
     <AnimatePresence>
       {selectedProof && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-6 md:p-12"
+          className="fixed inset-0 z- bg-black/95 backdrop-blur-2xl flex items-center justify-center p-6 md:p-12"
           onClick={() => setSelectedProof(null)}>
           <motion.div initial={{ scale: 0.96, y: 20 }} animate={{ scale: 1, y: 0 }}
             className="max-w-6xl w-full bg-[#0f0f0f] rounded-[40px] overflow-hidden border border-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.9)] flex flex-col lg:flex-row"
@@ -987,7 +985,6 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
                   className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
                 />
               ) : selectedProof.type === 'canva' ? (
-                // ─── MODIFICATION 3 : iframe Canva native avec embed officiel ───
                 <div className="absolute inset-0 w-full h-full flex flex-col">
                   <iframe
                     ref={iframeRef}
@@ -999,7 +996,6 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
                     loading="lazy"
                     style={{ minHeight: 0 }}
                   />
-                  {/* Barre de navigation Canva : prev/next via postMessage */}
                   <div className="flex items-center justify-center gap-4 py-3 bg-black/80 border-t border-white/[0.06] shrink-0">
                     <button
                       onClick={() => iframeRef.current?.contentWindow?.postMessage({ action: 'PREVIOUS_PAGE' }, '*')}
@@ -1021,7 +1017,7 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
                 </div>
               )}
 
-              {/* Bouton ouvrir fichier (pas pour canva qui a déjà sa barre) */}
+              {/* Bouton ouvrir fichier */}
               {selectedProof.type !== 'canva' && (
                 <div className="absolute bottom-6 flex flex-col items-center gap-3 z-50">
                   <button onClick={() => window.open(selectedProof.projectLink || getProofSrc(selectedProof), '_blank')}
@@ -1040,7 +1036,7 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
               </div>
               <h2 className="text-3xl md:text-4xl font-black mb-5 tracking-tighter">{selectedProof.label}</h2>
               <div className="text-sm text-neutral-500 uppercase tracking-widest mb-8 pb-6 border-b border-white/[0.06]">
-                Projet : <span className="text-white">{selectedProof.projectTitle.split('—')[0]}</span>
+                Projet : <span className="text-white">{selectedProof.projectTitle.split('—')}</span>
               </div>
               <div className="space-y-6">
                 {selectedProof.caption.split(' / ').map((c, i) => {
@@ -1048,14 +1044,13 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
                   if (parts.length < 2) return <div key={i} className="border-l-2 border-white/10 pl-5"><p className="text-white font-light leading-relaxed">{c}</p></div>;
                   return (
                     <div key={i} className="border-l-2 border-[#D7B56D]/25 pl-5 hover:border-[#D7B56D] transition-colors">
-                      <div className="text-[9px] uppercase font-black text-neutral-600 mb-1.5 tracking-[0.2em]">{parts[0]}</div>
-                      <p className="text-white font-light leading-relaxed">{parts[1]}</p>
+                      <div className="text-[9px] uppercase font-black text-neutral-600 mb-1.5 tracking-[0.2em]">{parts}</div>
+                      <p className="text-white font-light leading-relaxed">{parts}</p>
                     </div>
                   );
                 })}
               </div>
 
-              {/* Lien externe pour Canva (optionnel, discret) */}
               {selectedProof.type === 'canva' && selectedProof.projectLink && (
                 <a href={selectedProof.projectLink} target="_blank" rel="noopener noreferrer"
                   className="mt-8 text-[10px] font-black text-neutral-600 hover:text-[#D7B56D] uppercase tracking-[0.3em] flex items-center gap-2 transition-colors">
@@ -1104,26 +1099,22 @@ const Contact = () => (
 // APP ROOT
 // ═══════════════════════════════════════════════════════════
 export default function PortfolioApp() {
-  // ─── MODIFICATION 2 : Persistance de la page via le hash URL ───
-  // Évite les erreurs d'hydratation Next.js (pas de localStorage, pas de mismatch SSR/CSR)
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedProof, setSelectedProof] = useState(null);
 
-  // Lire le hash au montage (côté client uniquement)
   useEffect(() => {
     const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#home': 'home' };
     const page = hashToPage[window.location.hash];
     if (page) setCurrentPage(page);
   }, []);
 
-  // Mettre à jour le hash quand la page change
   const setPage = (page) => {
     setCurrentPage(page);
     window.location.hash = page === 'home' ? '' : page;
   };
 
-  // Helper pour getProofSrc dans Home (même logique que dans MasteryLayout)
-  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : `/portfolio2/${proof.folder}/${proof.file}`;
+  // PROTECTION ENCODE_URI REMISE ICI
+  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : encodeURI(`/portfolio2/${proof.folder}/${proof.file}`);
 
   return (
     <div className="font-sans antialiased bg-[#080808] text-white selection:bg-[#D7B56D]/20">
@@ -1139,7 +1130,7 @@ export default function PortfolioApp() {
         Roman Layani — Hybrid Entrepreneur — 2026
       </footer>
 
-      {/* ─── MODIFICATION 1 : Lightbox globale pour les clics depuis Home ─── */}
+      {/* Lightbox globale pour les clics depuis Home */}
       <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} getProofSrc={getProofSrc} />
     </div>
   );

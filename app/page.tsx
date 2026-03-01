@@ -1,12 +1,13 @@
 // @ts-nocheck
 /* eslint-disable */
 "use client";
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight, ChevronRight, FileText, Video, X,
   Globe, TrendingUp, Package, Terminal, Users, Target,
-  Zap, ExternalLink, ArrowUpRight, Layers, Link as LinkIcon, Presentation
+  Zap, ExternalLink, ArrowUpRight, Layers, Link as LinkIcon, Presentation,
+  ChevronLeft, ChevronRight as ChevronRightIcon
 } from 'lucide-react';
 
 // --- ICON HELPER ---
@@ -84,6 +85,29 @@ const PORTFOLIO_DATA = {
   ]
 };
 
+// ─── MODIFICATION 1 : données des projets Digitag pour la modale ───
+// On définit les "preuves synthétiques" pour Digitag Memory et Digitag Pro
+// afin qu'ils s'ouvrent dans la lightbox au lieu de rediriger.
+const DIGITAG_MEMORY_PROOF = {
+  type: "image",
+  label: "DIGITAG MEMORY",
+  projectTitle: "DIGITAG MEMORY — Concept & Installation",
+  caption: "Une memoire connectee et intemporelle : les souvenirs ne s'effacent jamais. / Produit : Plaque NFC installee sur site reel. / Site : digitagmemory.fr",
+  projectLink: "https://digitagmemory.fr",
+  folder: "digitag memory",
+  file: "Photo plaque installee reelle.jpeg",
+};
+
+const DIGITAG_PRO_PROOF = {
+  type: "image",
+  label: "DIGITAG PRO",
+  projectTitle: "DIGITAG PRO — Plaques NFC B2B",
+  caption: "Plaques NFC Google & reseaux pour acquisition B2B. / Produit : Plaques NFC Google, Facebook, Instagram, Tripadvisor. / Site : digitagpro.fr",
+  projectLink: "https://digitagpro.fr",
+  folder: "digitag pro",
+  file: "photo fournisseurs plaque google.jpeg",
+};
+
 // --- UI ATOMS ---
 const GoldText = ({ children }) => (
   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9A84C] via-[#E8C97A] to-[#C9A84C]">{children}</span>
@@ -139,7 +163,7 @@ const Navbar = ({ currentPage, setPage }) => {
 // ═══════════════════════════════════════════════════════════
 // HOME PAGE — 6 SECTIONS
 // ═══════════════════════════════════════════════════════════
-const Home = ({ setPage }) => {
+const Home = ({ setPage, setSelectedProof }) => {
 
   const featuredProofs = [
     { folder: "chroma", file: "vestes chroma finis et porte par moi meme.jpeg", label: "Veste CHROMA portee" },
@@ -150,11 +174,12 @@ const Home = ({ setPage }) => {
     { folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", label: "Logiciel Sinistres" },
   ];
 
+  // ─── MODIFICATION 1 : projets avec proof pour modale au lieu de redirection externe ───
   const projects = [
-    { title: "CHROMA", desc: "Chroma reinvente le vêtement comme une surface vivante qui reagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech" },
-    { title: "DIGITAG MEMORY", desc: "Une memoire connectee et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Memoire" },
-    { title: "DIGITAG PRO", desc: "Plaques NFC Google & reseaux pour acquisition B2B.", img: "/portfolio2/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC" },
-    { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/portfolio2/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA" },
+    { title: "CHROMA", desc: "Chroma reinvente le vêtement comme une surface vivante qui reagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech", onClick: () => setPage('maitrise') },
+    { title: "DIGITAG MEMORY", desc: "Une memoire connectee et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Memoire", onClick: () => setSelectedProof(DIGITAG_MEMORY_PROOF) },
+    { title: "DIGITAG PRO", desc: "Plaques NFC Google & reseaux pour acquisition B2B.", img: "/portfolio2/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC", onClick: () => setSelectedProof(DIGITAG_PRO_PROOF) },
+    { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/portfolio2/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA", onClick: () => setPage('maitrise') },
   ];
 
   const systemBlocks = [
@@ -168,7 +193,7 @@ const Home = ({ setPage }) => {
     {
       title: "Benchmark Chroma",
       category: "Analyse & Positionnement",
-      desc: "Analyse du marche et du positionnement strategique d’une marque textile innovante, en coherence avec mon projet Chroma.",
+      desc: "Analyse du marche et du positionnement strategique d'une marque textile innovante, en coherence avec mon projet Chroma.",
       link: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view"
     },
     {
@@ -180,7 +205,7 @@ const Home = ({ setPage }) => {
     {
       title: "Audit digital – GioiA Aperitivo",
       category: "Audit & Strategie digitale",
-      desc: "Audit digital complet avec recommandations strategiques et axes d’optimisation.",
+      desc: "Audit digital complet avec recommandations strategiques et axes d'optimisation.",
       link: "https://www.canva.com/design/DAG-Uhz-9aM/MYAlyebATOSuqP7blmOlpw/view"
     },
     {
@@ -192,19 +217,19 @@ const Home = ({ setPage }) => {
     {
       title: "Strategie de Com – Veja",
       category: "Strategie & Reseaux sociaux",
-      desc: "Analyse approfondie de la strategie social media d’une marque internationale.",
+      desc: "Analyse approfondie de la strategie social media d'une marque internationale.",
       link: "https://www.canva.com/design/DAG7AdZHu28/PgAdCqwlU9W1g4ZDNM2ctA/view"
     },
     {
       title: "evenement corporate – Tesla",
       category: "Gestion de projet & Event",
-      desc: "Organisation strategique d’un evenement corporate international.",
+      desc: "Organisation strategique d'un evenement corporate international.",
       link: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view"
     },
     {
       title: "Analyse e-commerce – K-Way",
       category: "Analyse UX & Performance",
-      desc: "Analyse de l’experience utilisateur et des leviers d’optimisation d’un site e-commerce.",
+      desc: "Analyse de l'experience utilisateur et des leviers d'optimisation d'un site e-commerce.",
       link: "https://www.canva.com/design/DAGfADJ7pK8/1gaH3eVoidephzvcQvKuxA/view"
     }
   ];
@@ -521,7 +546,7 @@ const Home = ({ setPage }) => {
               <Reveal key={i} delay={i * 0.07}>
                 <motion.div
                   whileHover="hover"
-                  onClick={() => setPage('maitrise')}
+                  onClick={proj.onClick}
                   className="relative aspect-[16/10] rounded-[28px] overflow-hidden cursor-pointer group border border-white/[0.05] hover:border-[#D7B56D]/25 transition-all duration-600"
                 >
                   {/* Image */}
@@ -652,7 +677,7 @@ const Home = ({ setPage }) => {
                     </div>
                   ) : (
                     <img
-  src={`/portfolio2/${p.folder}/${p.file}`}
+                      src={`/portfolio2/${p.folder}/${p.file}`}
                       alt={p.label}
                       className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700"
                     />
@@ -922,63 +947,131 @@ const MasteryLayout = () => {
         </div>
       </div>
 
-      {/* LIGHTBOX */}
-      <AnimatePresence>
-        {selectedProof && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z- bg-black/95 backdrop-blur-2xl flex items-center justify-center p-6 md:p-12"
-            onClick={() => setSelectedProof(null)}>
-            <motion.div initial={{ scale: 0.96, y: 20 }} animate={{ scale: 1, y: 0 }}
-              className="max-w-6xl w-full bg-[#0f0f0f] rounded-[40px] overflow-hidden border border-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.9)] flex flex-col lg:flex-row"
-              onClick={e => e.stopPropagation()}>
-              <div className="bg-black flex flex-col items-center justify-center p-8 lg:p-16 relative group lg:w-1/2 min-h-[280px]">
-                {selectedProof.type === 'image' ? (
-                  <img src={getProofSrc(selectedProof)} alt={selectedProof.label} className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700" />
-                ) : selectedProof.type === 'canva' ? (
-                  <iframe src={`${selectedProof.projectLink}?embed`} className="absolute inset-0 w-full h-full border-0 lg:rounded-l-[40px]" allowFullScreen title={selectedProof.label} />
-                ) : (
-                  <div className="text-[#D7B56D]">
-                    {selectedProof.type === 'pdf' ? <FileText className="w-28 h-28" /> : <Video className="w-28 h-28" />}
+      {/* LIGHTBOX — partagée avec Home via prop */}
+      <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} getProofSrc={getProofSrc} />
+    </div>
+  );
+};
+
+// ─── MODIFICATION 3 : Lightbox extraite en composant avec navigation Canva ───
+const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
+  const iframeRef = useRef(null);
+
+  // ─── MODIFICATION 3 : Construire l'URL embed Canva correcte ───
+  // Format officiel : https://www.canva.com/design/[ID]/[TOKEN]/view?embed
+  const getCanvaEmbedUrl = (url) => {
+    if (!url) return '';
+    // L'URL est déjà au bon format /view, on ajoute juste ?embed si pas déjà présent
+    if (url.includes('?embed')) return url;
+    return url.endsWith('/view') ? `${url}?embed` : `${url}&embed`;
+  };
+
+  if (!selectedProof) return null;
+
+  return (
+    <AnimatePresence>
+      {selectedProof && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-6 md:p-12"
+          onClick={() => setSelectedProof(null)}>
+          <motion.div initial={{ scale: 0.96, y: 20 }} animate={{ scale: 1, y: 0 }}
+            className="max-w-6xl w-full bg-[#0f0f0f] rounded-[40px] overflow-hidden border border-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.9)] flex flex-col lg:flex-row"
+            onClick={e => e.stopPropagation()}>
+
+            {/* Zone média */}
+            <div className="bg-black flex flex-col items-center justify-center relative group lg:w-1/2 min-h-[280px] lg:min-h-[520px]">
+              {selectedProof.type === 'image' ? (
+                <img
+                  src={getProofSrc(selectedProof)}
+                  alt={selectedProof.label}
+                  className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+                />
+              ) : selectedProof.type === 'canva' ? (
+                // ─── MODIFICATION 3 : iframe Canva native avec embed officiel ───
+                <div className="absolute inset-0 w-full h-full flex flex-col">
+                  <iframe
+                    ref={iframeRef}
+                    src={getCanvaEmbedUrl(selectedProof.projectLink)}
+                    className="w-full flex-1 border-0"
+                    allowFullScreen
+                    allow="fullscreen"
+                    title={selectedProof.label}
+                    loading="lazy"
+                    style={{ minHeight: 0 }}
+                  />
+                  {/* Barre de navigation Canva : prev/next via postMessage */}
+                  <div className="flex items-center justify-center gap-4 py-3 bg-black/80 border-t border-white/[0.06] shrink-0">
+                    <button
+                      onClick={() => iframeRef.current?.contentWindow?.postMessage({ action: 'PREVIOUS_PAGE' }, '*')}
+                      className="flex items-center gap-2 px-5 py-2 bg-white/[0.06] hover:bg-[#D7B56D]/20 border border-white/[0.08] hover:border-[#D7B56D]/40 rounded-full text-[10px] uppercase tracking-widest font-black text-neutral-400 hover:text-[#D7B56D] transition-all"
+                    >
+                      <ChevronLeft size={13} /> Précédent
+                    </button>
+                    <button
+                      onClick={() => iframeRef.current?.contentWindow?.postMessage({ action: 'NEXT_PAGE' }, '*')}
+                      className="flex items-center gap-2 px-5 py-2 bg-white/[0.06] hover:bg-[#D7B56D]/20 border border-white/[0.08] hover:border-[#D7B56D]/40 rounded-full text-[10px] uppercase tracking-widest font-black text-neutral-400 hover:text-[#D7B56D] transition-all"
+                    >
+                      Suivant <ChevronRightIcon size={13} />
+                    </button>
                   </div>
-                )}
+                </div>
+              ) : (
+                <div className="text-[#D7B56D]">
+                  {selectedProof.type === 'pdf' ? <FileText className="w-28 h-28" /> : <Video className="w-28 h-28" />}
+                </div>
+              )}
+
+              {/* Bouton ouvrir fichier (pas pour canva qui a déjà sa barre) */}
+              {selectedProof.type !== 'canva' && (
                 <div className="absolute bottom-6 flex flex-col items-center gap-3 z-50">
                   <button onClick={() => window.open(selectedProof.projectLink || getProofSrc(selectedProof), '_blank')}
                     className="px-8 py-3 bg-white text-black font-black rounded-full text-[10px] uppercase tracking-widest flex items-center gap-3 hover:bg-[#D7B56D] transition-colors shadow-xl">
-                    {selectedProof.type === 'canva' ? "Ouvrir dans Canva" : "Ouvrir le fichier"} <ExternalLink size={13} />
+                    Ouvrir le fichier <ExternalLink size={13} />
                   </button>
                 </div>
+              )}
+            </div>
+
+            {/* Zone texte */}
+            <div className="p-8 lg:p-14 flex flex-col justify-center lg:w-1/2">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-2 h-2 rounded-full bg-[#D7B56D] animate-pulse" />
+                <div className="text-[10px] font-black text-[#D7B56D] uppercase tracking-[0.4em]">Analyse Documentaire</div>
               </div>
-              <div className="p-8 lg:p-14 flex flex-col justify-center lg:w-1/2">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-2 h-2 rounded-full bg-[#D7B56D] animate-pulse" />
-                  <div className="text-[10px] font-black text-[#D7B56D] uppercase tracking-[0.4em]">Analyse Documentaire</div>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-black mb-5 tracking-tighter">{selectedProof.label}</h2>
-                <div className="text-sm text-neutral-500 uppercase tracking-widest mb-8 pb-6 border-b border-white/[0.06]">
-                  Projet : <span className="text-white">{selectedProof.projectTitle.split('—')[0]}</span>
-                </div>
-                <div className="space-y-6">
-                  {selectedProof.caption.split(' / ').map((c, i) => {
-                    const parts = c.split(' : ');
-                    if (parts.length < 2) return <div key={i} className="border-l-2 border-white/10 pl-5"><p className="text-white font-light leading-relaxed">{c}</p></div>;
-                    return (
-                      <div key={i} className="border-l-2 border-[#D7B56D]/25 pl-5 hover:border-[#D7B56D] transition-colors">
-                        <div className="text-[9px] uppercase font-black text-neutral-600 mb-1.5 tracking-[0.2em]">{parts[0]}</div>
-                        <p className="text-white font-light leading-relaxed">{parts[1]}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-                <button onClick={() => setSelectedProof(null)}
-                  className="mt-12 text-[10px] font-black text-neutral-600 hover:text-white uppercase tracking-[0.4em] flex items-center gap-3 transition-all">
-                  <X size={13} /> Fermer
-                </button>
+              <h2 className="text-3xl md:text-4xl font-black mb-5 tracking-tighter">{selectedProof.label}</h2>
+              <div className="text-sm text-neutral-500 uppercase tracking-widest mb-8 pb-6 border-b border-white/[0.06]">
+                Projet : <span className="text-white">{selectedProof.projectTitle.split('—')[0]}</span>
               </div>
-            </motion.div>
+              <div className="space-y-6">
+                {selectedProof.caption.split(' / ').map((c, i) => {
+                  const parts = c.split(' : ');
+                  if (parts.length < 2) return <div key={i} className="border-l-2 border-white/10 pl-5"><p className="text-white font-light leading-relaxed">{c}</p></div>;
+                  return (
+                    <div key={i} className="border-l-2 border-[#D7B56D]/25 pl-5 hover:border-[#D7B56D] transition-colors">
+                      <div className="text-[9px] uppercase font-black text-neutral-600 mb-1.5 tracking-[0.2em]">{parts[0]}</div>
+                      <p className="text-white font-light leading-relaxed">{parts[1]}</p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Lien externe pour Canva (optionnel, discret) */}
+              {selectedProof.type === 'canva' && selectedProof.projectLink && (
+                <a href={selectedProof.projectLink} target="_blank" rel="noopener noreferrer"
+                  className="mt-8 text-[10px] font-black text-neutral-600 hover:text-[#D7B56D] uppercase tracking-[0.3em] flex items-center gap-2 transition-colors">
+                  Ouvrir dans Canva <ExternalLink size={11} />
+                </a>
+              )}
+
+              <button onClick={() => setSelectedProof(null)}
+                className="mt-12 text-[10px] font-black text-neutral-600 hover:text-white uppercase tracking-[0.4em] flex items-center gap-3 transition-all">
+                <X size={13} /> Fermer
+              </button>
+            </div>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
@@ -1011,13 +1104,33 @@ const Contact = () => (
 // APP ROOT
 // ═══════════════════════════════════════════════════════════
 export default function PortfolioApp() {
+  // ─── MODIFICATION 2 : Persistance de la page via le hash URL ───
+  // Évite les erreurs d'hydratation Next.js (pas de localStorage, pas de mismatch SSR/CSR)
   const [currentPage, setCurrentPage] = useState('home');
+  const [selectedProof, setSelectedProof] = useState(null);
+
+  // Lire le hash au montage (côté client uniquement)
+  useEffect(() => {
+    const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#home': 'home' };
+    const page = hashToPage[window.location.hash];
+    if (page) setCurrentPage(page);
+  }, []);
+
+  // Mettre à jour le hash quand la page change
+  const setPage = (page) => {
+    setCurrentPage(page);
+    window.location.hash = page === 'home' ? '' : page;
+  };
+
+  // Helper pour getProofSrc dans Home (même logique que dans MasteryLayout)
+  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : `/portfolio2/${proof.folder}/${proof.file}`;
+
   return (
     <div className="font-sans antialiased bg-[#080808] text-white selection:bg-[#D7B56D]/20">
-      <Navbar currentPage={currentPage} setPage={setCurrentPage} />
+      <Navbar currentPage={currentPage} setPage={setPage} />
       <AnimatePresence mode="wait">
         <motion.main key={currentPage} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-          {currentPage === 'home' && <Home setPage={setCurrentPage} />}
+          {currentPage === 'home' && <Home setPage={setPage} setSelectedProof={setSelectedProof} />}
           {currentPage === 'maitrise' && <MasteryLayout />}
           {currentPage === 'contact' && <Contact />}
         </motion.main>
@@ -1025,6 +1138,9 @@ export default function PortfolioApp() {
       <footer className="py-16 border-t border-white/[0.04] text-center text-neutral-700 text-[9px] font-black uppercase tracking-[0.8em] bg-[#060606]">
         Roman Layani — Hybrid Entrepreneur — 2026
       </footer>
+
+      {/* ─── MODIFICATION 1 : Lightbox globale pour les clics depuis Home ─── */}
+      <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} getProofSrc={getProofSrc} />
     </div>
   );
 }

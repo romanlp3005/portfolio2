@@ -226,8 +226,9 @@ const PORTFOLIO_DATA = {
     { competenceId: "sales", subCompetenceId: "nego", projectTitle: "REMAX — Closing & Mandats", folder: "Remax", file: "Logiciel pour saisie de bien pour faire mandat apres visite du bien et accrod avec le prorio .png", type: "image", label: "Saisie de Mandat", caption: "Outil de saisie de bien validant l'accord proprietaire et la prise de mandat." },
     
     // --- MANAGEMENT ---
-{ competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Kit Commercial", folder: "digitag pro", file: "Explication Plaque nfc   Avantages.pdf", type: "image", label: "Brochure Commerciale", caption: "Support de vente B2B détaillant la composition technique du produit et ses bénéfices d'acquisition pour les prospects." },
-    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Académiques", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Stratégie de Lancement", caption: "Élaboration d'une stratégie de mise en marché pour une boisson : positionnement, distribution et plan d'action." },
+// --- MANAGEMENT ---
+    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Kit Commercial", projectLink: "/portfolio2/digitag pro/Explication Plaque nfc Avantages.pdf", folder: "digitag pro", file: "Explication Plaque nfc Avantages.jpg", type: "image", label: "Brochure Commerciale", caption: "Support de vente B2B détaillant la composition technique du produit et ses bénéfices pour le client.", isPdfButton: true },
+    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Lancement Boisson — Go-to-Market", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Stratégie de Lancement", caption: "Élaboration de la stratégie de mise en marché : positionnement, distribution et plan d'action commercial." },
  ]
 };
 
@@ -1122,13 +1123,18 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
                 </div>
               )}
 
-              {/* Bouton dynamique : Voir le site OU Agrandir l'image */}
+              {/* Bouton dynamique : Voir le site / Ouvrir le PDF / Agrandir l'image */}
               {selectedProof.type !== 'canva' && (
                 <div className="absolute bottom-6 flex flex-col items-center gap-3 z-50">
                   {selectedProof.isWebsite ? (
                     <button onClick={() => window.open(selectedProof.projectLink, '_blank')}
                       className="px-8 py-3 bg-white text-black font-black rounded-full text-[10px] uppercase tracking-widest flex items-center gap-3 hover:bg-[#D7B56D] transition-colors shadow-xl">
                       Voir le site <ExternalLink size={13} />
+                    </button>
+                  ) : selectedProof.isPdfButton ? (
+                    <button onClick={() => window.open(encodeURI(selectedProof.projectLink), '_blank')}
+                      className="px-8 py-3 bg-white text-black font-black rounded-full text-[10px] uppercase tracking-widest flex items-center gap-3 hover:bg-[#D7B56D] transition-colors shadow-xl">
+                      Ouvrir le PDF <FileText size={13} />
                     </button>
                   ) : (
                     <button onClick={() => window.open(getProofSrc(selectedProof), '_blank')}
@@ -1138,7 +1144,6 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
                   )}
                 </div>
               )}
-            </div>
 
             {/* Zone texte */}
             <div className="p-8 lg:p-14 flex flex-col justify-center lg:w-1/2">

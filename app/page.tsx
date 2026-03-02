@@ -1004,20 +1004,6 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
                     loading="lazy"
                     style={{ minHeight: 0 }}
                   />
-                  <div className="flex items-center justify-center gap-4 py-3 bg-black/80 border-t border-white/[0.06] shrink-0">
-                    <button
-                      onClick={() => iframeRef.current?.contentWindow?.postMessage({ action: 'PREVIOUS_PAGE' }, '*')}
-                      className="flex items-center gap-2 px-5 py-2 bg-white/[0.06] hover:bg-[#D7B56D]/20 border border-white/[0.08] hover:border-[#D7B56D]/40 rounded-full text-[10px] uppercase tracking-widest font-black text-neutral-400 hover:text-[#D7B56D] transition-all"
-                    >
-                      <ChevronLeft size={13} /> Précédent
-                    </button>
-                    <button
-                      onClick={() => iframeRef.current?.contentWindow?.postMessage({ action: 'NEXT_PAGE' }, '*')}
-                      className="flex items-center gap-2 px-5 py-2 bg-white/[0.06] hover:bg-[#D7B56D]/20 border border-white/[0.08] hover:border-[#D7B56D]/40 rounded-full text-[10px] uppercase tracking-widest font-black text-neutral-400 hover:text-[#D7B56D] transition-all"
-                    >
-                      Suivant <ChevronRightIcon size={13} />
-                    </button>
-                  </div>
                 </div>
               ) : (
                 <div className="text-[#D7B56D]">
@@ -1059,6 +1045,7 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
                 })}
               </div>
 
+              {/* Lien externe pour Canva (optionnel, discret) */}
               {selectedProof.type === 'canva' && selectedProof.projectLink && (
                 <a href={selectedProof.projectLink} target="_blank" rel="noopener noreferrer"
                   className="mt-8 text-[10px] font-black text-neutral-600 hover:text-[#D7B56D] uppercase tracking-[0.3em] flex items-center gap-2 transition-colors">

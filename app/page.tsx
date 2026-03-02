@@ -226,7 +226,7 @@ const PORTFOLIO_DATA = {
     { competenceId: "sales", subCompetenceId: "nego", projectTitle: "REMAX — Closing & Mandats", folder: "Remax", file: "Logiciel pour saisie de bien pour faire mandat apres visite du bien et accrod avec le prorio .png", type: "image", label: "Saisie de Mandat", caption: "Outil de saisie de bien validant l'accord proprietaire et la prise de mandat." },
     
     // --- MANAGEMENT ---
-{ competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Kit Commercial", folder: "digitag pro", file: "Explication Plaque nfc   Avantages.pdf", type: "pdf", label: "Brochure Commerciale", caption: "Support de vente B2B détaillant la composition technique du produit et ses bénéfices d'acquisition pour les prospects." },
+{ competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Kit Commercial", folder: "digitag pro", file: "Explication Plaque nfc   Avantages.pdf", type: "image", label: "Brochure Commerciale", caption: "Support de vente B2B détaillant la composition technique du produit et ses bénéfices d'acquisition pour les prospects." },
     { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Académiques", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Stratégie de Lancement", caption: "Élaboration d'une stratégie de mise en marché pour une boisson : positionnement, distribution et plan d'action." },
  ]
 };

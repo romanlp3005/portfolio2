@@ -1,5 +1,5 @@
-// @ts-nocheck
 /* eslint-disable */
+// @ts-nocheck
 "use client";
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,7 +10,15 @@ import {
   ChevronLeft, ChevronRight as ChevronRightIcon
 } from 'lucide-react';
 
-// --- ICON HELPER ---
+// --- HELPERS GLOBAUX (Sécurisés pour éviter les erreurs de compilation) ---
+const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : encodeURI(`/portfolio2/${proof.folder}/${proof.file}`);
+
+const getCanvaEmbedUrl = (url) => {
+  if (!url) return '';
+  const embedUrl = url.includes('?embed') ? url : (url.endsWith('/view') ? `${url}?embed` : `${url}&embed`);
+  return `${embedUrl}&nav=false&panels=false`;
+};
+
 const SkillIcon = ({ name, size = "w-5 h-5" }) => {
   const map = { package: Package, trendingUp: TrendingUp, globe: Globe, terminal: Terminal, target: Target, users: Users };
   const Icon = map[name];
@@ -25,9 +33,13 @@ const PORTFOLIO_DATA = {
     { id: 'supply', title: " Gerer une chaîne d'approvisionnement internationale", level: 4.4, icon: "globe", consistsOf: "Gestion complète du flux mondial : sourcing, transport international et douanes.", subskills: [{ id: 'sourcing', name: "3.1 Sourcer et negocier", level: 4.3, consistsOf: "Identification de fournisseurs exclusifs et negociation des conditions de production." }, { id: 'logistique', name: "3.2 Gerer transport, douane et stock", level: 4.5, consistsOf: "Coordination du transit international et gestion physique des stocks." }] },
     { id: 'tech', title: " Developper et automatiser des solutions technologiques", level: 4.6, icon: "terminal", consistsOf: "Ingenierie de solutions logicielles et integration d'IA pour optimiser les process metiers.", subskills: [{ id: 'software', name: "4.1 Creer des logiciels internes", level: 4.5, consistsOf: "Developpement d'outils metiers (gestion de sinistres, affichage vitrine)." }, { id: 'ia', name: "4.3 Automatiser via IA", level: 4.7, consistsOf: "Integration d'agents IA (GPT) pour la vente et le contenu." }] },
     { id: 'sales', title: " Prospecter, negocier et conclure des ventes", level: 4.0, icon: "target", consistsOf: "Developpement commercial terrain et conclusion de transactions immobilières ou B2B.", subskills: [{ id: 'portefeuille', name: "5.1 Demarcher et developper un portefeuille", level: 4.0, consistsOf: "Ouverture de nouveaux marches et vente directe." }, { id: 'nego', name: "5.2 Negociation immobilière", level: 3.9, consistsOf: "Conduite de negociations de mandats et closing." }] },
-    { id: 'management', title: " Developper et structurer un projet entrepreneurial", level: 4.3, icon: "users", consistsOf: "Pilotage global de projets, recrutement et validation de marche sur le terrain.", subskills: [{ id: 'marche', name: "6.2 Valider le marche terrain", level: 4.4, consistsOf: "Presentation sur salons et recueil de feedbacks clients." }] }
+    { id: 'management', title: " Developper et structurer un projet entrepreneurial", level: 4.3, icon: "users", consistsOf: "Pilotage global de projets, recrutement et validation de marche sur le terrain.", subskills: [
+        { id: 'planification', name: "6.1 Planifier et gerer un projet", level: 4.5, consistsOf: "Structuration, ordonnancement (Gantt) et analyse des risques." },
+        { id: 'marche', name: "6.2 Valider le marche terrain", level: 4.4, consistsOf: "Presentation sur salons et recueil de feedbacks clients." }
+    ] }
   ],
   proofs: [
+    // --- PRODUIT : BRANDING ---
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", projectObjective: "Creer une marque textile thermochromique premium differenciante.", folder: "chroma", file: "logo chroma.png", type: "image", label: "Logo Final", caption: "Logo final representant l'identite visuelle de la marque." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "idee charte graphique 1.jpeg", type: "image", label: "Charte Graphique 1", caption: "Première exploration creative des couleurs et univers visuel." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "idee charte graphique 2.jpeg", type: "image", label: "Charte Graphique 2", caption: "Variante de direction artistique testee avant validation." },
@@ -40,6 +52,21 @@ const PORTFOLIO_DATA = {
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "REMAX — Design supports physiques", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Sacs promotionnels", caption: "Sacs promotionnels designes, sources et produits en usine." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Audit Digital Gioia Aperitivo", projectObjective: "Analyser et structurer le positionnement d'une entreprise reelle.", folder: "academic", file: "Personas_detailles.pdf", type: "pdf", label: "Personas detailles", caption: "Construction strategique de profils clients realistes." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Audit Digital Gioia Aperitivo", folder: "academic", file: "Analyse_positionnement.pdf", type: "pdf", label: "Analyse positionnement", caption: "etude complète image de marque & axes d'amelioration." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Plan de communication eclat Naturel", folder: "academic", file: "Segmentation_PRIZM_VALS.pdf", type: "pdf", label: "Segmentation Avancee", caption: "Application methodologique avancee de segmentation marketing." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Plan de communication eclat Naturel", folder: "academic", file: "Plan_strategique.pdf", type: "pdf", label: "Plan Strategique", caption: "Definition d'une strategie coherente de lancement." },
+    
+    // Nouveaux ajouts Canva & Design (Branding)
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Benchmark Chroma", projectLink: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view", type: "canva", label: "Analyse Positionnement", caption: "Analyse du marche et du positionnement strategique d'une marque textile innovante." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — etude visionnaire", projectLink: "https://www.canva.com/design/DAGWkEHzSIg/RrjDI0WuwxL3GZiBpqCgdg/view", type: "canva", label: "etude de marche", caption: "etude approfondie du marche textile et des tendances emergentes." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Audit GioiA Aperitivo", projectLink: "https://www.canva.com/design/DAG-Uhz-9aM/MYAlyebATOSuqP7blmOlpw/view", type: "canva", label: "Audit Digital", caption: "Audit digital complet avec recommandations strategiques et axes d'optimisation." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Le Jardin de Zazou", projectLink: "https://www.canva.com/design/DAG7xw_R1uM/wC9JJn3jyDkqACq-k9qEhQ/view", type: "canva", label: "Rapport Strategique", caption: "Plan strategique de developpement digital pour une entreprise locale." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Strategie Veja", projectLink: "https://www.canva.com/design/DAG7AdZHu28/PgAdCqwlU9W1g4ZDNM2ctA/view", type: "canva", label: "Strategie de marque", caption: "Analyse approfondie de la strategie social media d'une marque internationale." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Charte graphique SUÈNH", projectLink: "https://www.canva.com/design/DAGZEHUiy_Y/ZM3fNtnR3snuqxnE9VNjhA/view", type: "canva", label: "Design SUÈNH", caption: "Creation d'une charte graphique complète et d'une identite visuelle." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Charte graphique Graine Time", projectLink: "https://www.canva.com/design/DAGQ2agTW2o/roBnrOiz4h0_nZaATWEYXQ/view", type: "canva", label: "Design Graine Time", caption: "Conception de l'univers de marque et des codes couleurs." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Logo TC France", projectLink: "https://www.canva.com/design/DAF2UL6QMwg/0pzuUz_o6BE3ioGj_bCh2w/view", type: "canva", label: "Logo & Reseaux", caption: "Creation d'une identite reseaux sociaux pour un public etudiant." },
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Charte edito Camping des Grottes", projectLink: "https://www.canva.com/design/DAG1wE1JUC4/L-O9vMTp2KJaZIeGTibAXw/view", type: "canva", label: "Charte editoriale", caption: "Definition du ton et de la ligne editoriale pour les communications." },
+
+    // --- PRODUIT : INDUSTRIALISATION ---
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "Maquette Echantillion n-1.jpg", type: "image", label: "Validation Materiaux", caption: "Première validation physique des materiaux." },
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "photo patron tissus.jpeg", type: "image", label: "Patron Industriel", caption: "Patron textile valide pour production industrielle." },
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "Image fournisseur 2 veste.jpeg", type: "image", label: "echange Fournisseur", caption: "echange et validation technique avec le fournisseur." },
@@ -49,45 +76,48 @@ const PORTFOLIO_DATA = {
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", type: "image", label: "Contrôle Usine", caption: "Contrôle qualite et production en usine." },
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor fini.png", type: "image", label: "Plaques Finies", caption: "Produit final prêt à être livre." },
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Sourcing Usine", caption: "Sourcing fournisseur specialise en plaques NFC." },
+    { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "Projet academique — Jeu de societe", projectLink: "https://www.canva.com/design/DAGy4RH5kPE/wXqGJhTMJA0ISbg9KwRsYA/view", type: "canva", label: "Process Industrialisation", caption: "Infographie des etapes pour commercialiser et proteger un produit." },
+
+    // --- BUSINESS ---
     { competenceId: "business", subCompetenceId: "pricing", projectTitle: "DIGITAG PRO — Pricing B2B & Marges", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "Tableaux_commissions.pdf", type: "pdf", label: "Tableaux Commissions", caption: "Structuration du modèle economique et des marges commerciales." },
-    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet academique — Plan de communication eclat Naturel", folder: "academic", file: "Segmentation_PRIZM_VALS.pdf", type: "pdf", label: "Segmentation Avancee", caption: "Application methodologique avancee de segmentation marketing." },
-    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet academique — Plan de communication eclat Naturel", folder: "academic", file: "Plan_strategique.pdf", type: "pdf", label: "Plan Strategique", caption: "Definition d'une strategie coherente de lancement." },
+    { competenceId: "business", subCompetenceId: "pricing", projectTitle: "Projet academique — Lancement Boisson", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Go-to-market Boisson", caption: "Rapport sur la strategie de lancement et de positionnement." },
     { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Google Ads", folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", type: "image", label: "Google Ads (2.4k)", caption: "Pilotage reel d'un budget publicitaire avec suivi des KPI." },
     { competenceId: "business", subCompetenceId: "acquisition", projectTitle: "E-commerce — Meta Ads", folder: "site internet", file: "tableau example de mes depenses meta ads sur une boutique ecomerce en testing total 229.90.png", type: "image", label: "Meta Ads Test", caption: "Campagne test visant validation produit via acquisition payante." },
     { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "trophee 1k club yomi denzel ecomerce.jpeg", type: "image", label: "Trophee 1K Club", caption: "Validation d'un palier de performance e-commerce significatif." },
     { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "dashbord stripe de paiments a linternational suisse belgique turquie luxembourg.png", type: "image", label: "Stripe International", caption: "Preuve de ventes internationales multi-pays." },
+    { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Projet academique — Analyse K-Way", projectLink: "https://www.canva.com/design/DAGfADJ7pK8/1gaH3eVoidephzvcQvKuxA/view", type: "canva", label: "Analyse e-commerce", caption: "Analyse de l'experience utilisateur et des leviers d'optimisation d'un site e-commerce." },
+
+    // --- SUPPLY ---
     { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Identification Usine", caption: "Identification et selection fournisseur strategique." },
     { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", type: "image", label: "Validation Qualite", caption: "Validation qualite en usine." },
     { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "REMAX — Production goodies", folder: "Remax", file: "video production sac de course remax fournisseur.mp4", type: "video", label: "Video Production", caption: "Suivi direct de la production chez le fournisseur." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG PRO — Expedition internationale", folder: "digitag pro", file: "plaques nfc google et instagram envoyer lituanie.png", type: "image", label: "Export Lituanie", caption: "Livraison internationale effective (export UE)." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Reception marchandise", folder: "Remax", file: "photo des portes cles recu .jpeg", type: "image", label: "Reception Stock", caption: "Reception physique marchandise importee." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Reception marchandise", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Contrôle Produit", caption: "Contrôle reception produits personnalises." },
+
+    // --- TECH & IA ---
     { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Logiciel gestion sinistres", folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", type: "image", label: "Logiciel Sinistres", caption: "Application metier developpee pour automatiser le suivi des sinistres." },
     { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Logiciel ecran vitrine", folder: "Remax", file: "screen du logiciel pour lecran dune agence immobiliere.png", type: "image", label: "Affichage Dynamique", caption: "Interface dynamique automatisant l'affichage vitrine." },
+    { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Creation logicielle", folder: "Remax", file: "Logiciel pour saisie de bien pour faire mandat apres visite du bien et accrod avec le prorio .png", type: "image", label: "App de Saisie Mandat", caption: "Outil interne facilitant la saisie des biens sur le terrain." },
     { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT annonces immobilières", folder: "Remax", file: "gpt annonce immobiliere.png", type: "image", label: "Outil Interne", caption: "Outil interne standardisant la redaction des annonces." },
     { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT annonces immobilières", folder: "Remax", file: "gpt annonce immobiliere example de prompte et de resultat.png", type: "image", label: "Resultats d'Annonces", caption: "Demonstration du gain de coherence et de productivite." },
     { competenceId: "tech", subCompetenceId: "ia", projectTitle: "GPT coach appels commerciaux", folder: "Remax", file: "gpt Coach d Appels Commerciaux Simulation Prospects screen.png", type: "image", label: "Simulateur Appels", caption: "Simulateur d'entraînement commercial base sur IA." },
+
+    // --- SALES ---
     { competenceId: "sales", subCompetenceId: "portefeuille", projectTitle: "DIGITAG PRO — Plaques NFC Google", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "quelques photo de plaques nfc google instagram et tripadvisor chez les clients.png", type: "image", label: "Vente Terrain", caption: "Installations reelles prouvant validation marche B2B." },
-    { competenceId: "sales", subCompetenceId: "nego", projectTitle: "REMAX — Optimisation annonces", folder: "Remax", file: "gpt annonce immobiliere example de prompte et de resultat.png", type: "image", label: "Support Vente", caption: "Outil facilitant la performance commerciale terrain." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accreditation Exposant", caption: "Accreditation officielle exposant professionnel." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funeraire", folder: "digitag memory", file: "salon funeraire photo entree et dans le salon.png", type: "image", label: "Photos Stand", caption: "Presence reelle sur evenement sectoriel strategique." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — Tesla Europe", folder: "academic", file: "Gantt_Tesla.pdf", type: "pdf", label: "Planification Gantt", caption: "Planification structuree avec dependances." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — Tesla Europe", folder: "academic", file: "Analyse_Risques_Tesla.pdf", type: "pdf", label: "Analyse Risques", caption: "Identification preventive des scenarios critiques." },
+    { competenceId: "sales", subCompetenceId: "portefeuille", projectTitle: "REMAX — Prospection terrain", projectLink: "https://www.canva.com/design/DAG-UrTp4Ik/EMIuPlTXNiORD0yH7osrcw/view", type: "canva", label: "Flyer d'Acquisition", caption: "Creation d'un support physique pour demarcher les prospects immobiliers." },
+    { competenceId: "sales", subCompetenceId: "nego", projectTitle: "REMAX — Closing & Mandats", folder: "Remax", file: "Logiciel pour saisie de bien pour faire mandat apres visite du bien et accrod avec le prorio .png", type: "image", label: "Saisie de Mandat", caption: "Outil de saisie de bien validant l'accord proprietaire et la prise de mandat." },
     
-    // -- NOUVEAUX PROJETS CANVA (ACADeMIQUES) --
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Benchmark Chroma", projectLink: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view", type: "canva", label: "Analyse Positionnement", caption: "Analyse du marche et du positionnement strategique d'une marque textile innovante." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — etude visionnaire", projectLink: "https://www.canva.com/design/DAGWkEHzSIg/RrjDI0WuwxL3GZiBpqCgdg/view", type: "canva", label: "etude de marche", caption: "etude approfondie du marche textile et des tendances emergentes." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — Audit GioiA Aperitivo", projectLink: "https://www.canva.com/design/DAG-Uhz-9aM/MYAlyebATOSuqP7blmOlpw/view", type: "canva", label: "Audit Digital", caption: "Audit digital complet avec recommandations strategiques et axes d'optimisation." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — Le Jardin de Zazou", projectLink: "https://www.canva.com/design/DAG7xw_R1uM/wC9JJn3jyDkqACq-k9qEhQ/view", type: "canva", label: "Rapport Strategique", caption: "Plan strategique de developpement digital pour une entreprise locale." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projet academique — Strategie Veja", projectLink: "https://www.canva.com/design/DAG7AdZHu28/PgAdCqwlU9W1g4ZDNM2ctA/view", type: "canva", label: "Strategie de marque", caption: "Analyse approfondie de la strategie social media d'une marque internationale." },
-    { competenceId: "management", subCompetenceId: "marche", projectTitle: "Projet academique — evenement Tesla", projectLink: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view", type: "canva", label: "Orga. evenementielle", caption: "Organisation strategique d'un evenement corporate international." },
-    { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Projet academique — Analyse K-Way", projectLink: "https://www.canva.com/design/DAGfADJ7pK8/1gaH3eVoidephzvcQvKuxA/view", type: "canva", label: "Analyse e-commerce", caption: "Analyse de l'experience utilisateur et des leviers d'optimisation d'un site e-commerce." }
+    // --- MANAGEMENT ---
+    { competenceId: "management", subCompetenceId: "planification", projectTitle: "Projet academique — Tesla Europe", folder: "academic", file: "Gantt_Tesla.pdf", type: "pdf", label: "Planification Gantt", caption: "Planification structuree avec dependances." },
+    { competenceId: "management", subCompetenceId: "planification", projectTitle: "Projet academique — Tesla Europe", folder: "academic", file: "Analyse_Risques_Tesla.pdf", type: "pdf", label: "Analyse Risques", caption: "Identification preventive des scenarios critiques." },
+    { competenceId: "management", subCompetenceId: "planification", projectTitle: "Projet academique — evenement Tesla", projectLink: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view", type: "canva", label: "Orga. evenementielle", caption: "Organisation strategique d'un evenement corporate international." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accreditation Exposant", caption: "Accreditation officielle exposant professionnel." },
+    { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "salon funeraire photo entree et dans le salon.png", type: "image", label: "Photos Stand", caption: "Presence reelle sur evenement sectoriel strategique." }
   ]
 };
 
 // ─── MODIFICATION 1 : données des projets Digitag pour la modale ───
-// On définit les "preuves synthétiques" pour Digitag Memory et Digitag Pro
-// afin qu'ils s'ouvrent dans la lightbox au lieu de rediriger.
 const DIGITAG_MEMORY_PROOF = {
   type: "image",
   label: "DIGITAG MEMORY",
@@ -108,7 +138,6 @@ const DIGITAG_PRO_PROOF = {
   file: "photo fournisseurs plaque google.jpeg",
 };
 
-// --- UI ATOMS ---
 const GoldText = ({ children }) => (
   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9A84C] via-[#E8C97A] to-[#C9A84C]">{children}</span>
 );
@@ -169,12 +198,11 @@ const Home = ({ setPage, setSelectedProof }) => {
     { folder: "chroma", file: "vestes chroma finis et porte par moi meme.jpeg", label: "Veste CHROMA portee" },
     { folder: "digitag memory", file: "Photo plaque installee reelle.jpeg", label: "Digitag installee sur site" },
     { folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", label: "Production usine NFC", isPdf: true },
-    { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06 .png", label: "Dashboard Google Ads" },
+    { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", label: "Dashboard Google Ads" },
     { folder: "digitag memory", file: "badge pour le salon du funeraire.png", label: "Badge Salon Funeraire" },
     { folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", label: "Logiciel Sinistres" },
   ];
 
-  // ─── MODIFICATION 1 : projets avec proof pour modale au lieu de redirection externe ───
   const projects = [
     { title: "CHROMA", desc: "Chroma reinvente le vêtement comme une surface vivante qui reagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech", onClick: () => setPage('maitrise') },
     { title: "DIGITAG MEMORY", desc: "Une memoire connectee et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Memoire", onClick: () => setSelectedProof(DIGITAG_MEMORY_PROOF) },
@@ -244,14 +272,11 @@ const Home = ({ setPage, setSelectedProof }) => {
 
         {/* Backgrounds */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Grid subtil */}
           <div className="absolute inset-0 opacity-[0.025]" style={{
             backgroundImage: 'linear-gradient(#D7B56D 1px, transparent 1px), linear-gradient(90deg, #D7B56D 1px, transparent 1px)',
             backgroundSize: '80px 80px'
           }} />
-          {/* Halo gauche */}
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#D7B56D]/[0.06] blur-[120px] rounded-full" />
-          {/* Halo droit derrière photo */}
           <div className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[400px] h-[600px] bg-[#D7B56D]/[0.12] blur-[100px] rounded-full" />
         </div>
 
@@ -260,8 +285,6 @@ const Home = ({ setPage, setSelectedProof }) => {
 
             {/* Gauche — Texte (60%) */}
             <div className="flex flex-col items-start">
-
-              {/* Label */}
               <Reveal>
                 <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-[#D7B56D]/20 bg-[#D7B56D]/[0.06] backdrop-blur-sm">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#D7B56D] animate-pulse" />
@@ -269,26 +292,22 @@ const Home = ({ setPage, setSelectedProof }) => {
                 </div>
               </Reveal>
 
-              {/* Titre principal */}
               <Reveal delay={0.1}>
                 <h1 className="text-[clamp(3rem,7vw,6.5rem)] font-black tracking-[-0.03em] uppercase leading-[0.88] mb-4 text-white">
                   Roman<br />Layani
                 </h1>
               </Reveal>
 
-              {/* Sous-titre dore */}
               <Reveal delay={0.15}>
                 <div className="text-[clamp(1.1rem,2.5vw,1.8rem)] font-light tracking-wide text-neutral-400 mb-2 flex items-center gap-3 flex-wrap">
                   Produit <span className="text-[#D7B56D] font-bold">×</span> Tech <span className="text-[#D7B56D] font-bold">×</span> Acquisition
                 </div>
               </Reveal>
 
-              {/* Ligne doree */}
               <Reveal delay={0.2}>
                 <div className="w-24 h-[1.5px] bg-gradient-to-r from-[#D7B56D] to-transparent my-8" />
               </Reveal>
 
-              {/* Description */}
               <Reveal delay={0.25}>
                 <div className="space-y-3 mb-12 max-w-[540px]">
                   <p className="text-[1.05rem] md:text-[1.15rem] text-neutral-300 font-light leading-[1.75]">
@@ -300,7 +319,6 @@ const Home = ({ setPage, setSelectedProof }) => {
                 </div>
               </Reveal>
 
-              {/* CTAs */}
               <Reveal delay={0.35}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.button
@@ -327,25 +345,20 @@ const Home = ({ setPage, setSelectedProof }) => {
             <div className="flex justify-center lg:justify-end">
               <Reveal delay={0.2} y={30}>
                 <div className="relative w-full max-w-[340px] md:max-w-[400px] lg:max-w-[460px]">
-                  {/* Halo dore diffus */}
                   <div className="absolute -inset-8 bg-[#D7B56D]/15 blur-[70px] rounded-[50px] pointer-events-none" />
-                  {/* Cadre photo */}
                   <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
-                    {/* Overlay degrade bas */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
                     <img
-                      src="/portfolio2/Photo pro roman costume 2026.jpeg"
+                      src={encodeURI("/portfolio2/Photo pro roman costume 2026.jpeg")}
                       alt="Roman Layani"
                       className="w-full h-full object-cover"
                     />
-                    {/* Badge flottant */}
                     <div className="absolute bottom-6 left-6 z-20 flex flex-col gap-1">
                       <span className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black">Roman Layani</span>
                       <span className="text-[11px] text-white font-light">Entrepreneur Hybride · 2026</span>
                     </div>
                   </div>
 
-                  {/* Stat card flottante */}
                   <motion.div
                     initial={{ opacity: 0, x: 20, y: 10 }}
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
@@ -376,7 +389,6 @@ const Home = ({ setPage, setSelectedProof }) => {
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
           <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
             <div className="w-[1px] h-12 bg-gradient-to-b from-[#D7B56D] to-transparent" />
@@ -404,7 +416,6 @@ const Home = ({ setPage, setSelectedProof }) => {
           </Reveal>
 
           <div className="grid md:grid-cols-3 gap-5">
-            {/* Carte 1 : Google Ads */}
             <Reveal delay={0.1}>
               <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
                 className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
@@ -431,7 +442,6 @@ const Home = ({ setPage, setSelectedProof }) => {
               </motion.div>
             </Reveal>
 
-            {/* Carte 2 : Meta Ads */}
             <Reveal delay={0.15}>
               <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
                 className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
@@ -454,7 +464,6 @@ const Home = ({ setPage, setSelectedProof }) => {
               </motion.div>
             </Reveal>
 
-            {/* Carte 3 : International */}
             <Reveal delay={0.2}>
               <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
                 className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
@@ -549,9 +558,9 @@ const Home = ({ setPage, setSelectedProof }) => {
                   onClick={proj.onClick}
                   className="relative aspect-[16/10] rounded-[28px] overflow-hidden cursor-pointer group border border-white/[0.05] hover:border-[#D7B56D]/25 transition-all duration-600"
                 >
-                  {/* Image */}
                   <motion.img
-                    src={proj.img} alt={proj.title}
+                    src={encodeURI(proj.img)}
+                    alt={proj.title}
                     className="absolute inset-0 w-full h-full object-cover"
                     variants={{ hover: { scale: 1.06 } }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -559,18 +568,14 @@ const Home = ({ setPage, setSelectedProof }) => {
                   />
                   <motion.div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-600"
                     style={{ background: 'transparent' }}>
-                    <img src={proj.img} alt="" className="w-full h-full object-cover opacity-60" />
+                    <img src={encodeURI(proj.img)} alt="" className="w-full h-full object-cover opacity-60" />
                   </motion.div>
-
-                  {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/50 to-[#080808]/10" />
 
-                  {/* Tag */}
                   <div className="absolute top-6 left-6 px-3 py-1.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-sm">
                     <span className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black">{proj.tag}</span>
                   </div>
 
-                  {/* Content */}
                   <div className="absolute bottom-8 left-8 right-8 z-10">
                     <h4 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white mb-3 leading-tight">{proj.title}</h4>
                     <motion.p
@@ -582,7 +587,6 @@ const Home = ({ setPage, setSelectedProof }) => {
                     </motion.p>
                   </div>
 
-                  {/* Arrow */}
                   <div className="absolute top-6 right-6 w-9 h-9 rounded-full bg-[#D7B56D]/0 border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:bg-[#D7B56D] group-hover:border-[#D7B56D] transition-all duration-400">
                     <ArrowUpRight size={14} className="text-black" />
                   </div>
@@ -616,7 +620,6 @@ const Home = ({ setPage, setSelectedProof }) => {
                   whileHover={{ y: -6 }}
                   className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 group transition-all duration-500 overflow-hidden flex flex-col h-full shadow-lg"
                 >
-                  {/* Glow dore discret */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#D7B56D]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full group-hover:bg-[#D7B56D]/[0.08] transition-all duration-700 pointer-events-none" />
 
@@ -677,20 +680,17 @@ const Home = ({ setPage, setSelectedProof }) => {
                     </div>
                   ) : (
                     <img
-                      src={`/portfolio2/${p.folder}/${p.file}`}
+                      src={encodeURI(`/portfolio2/${p.folder}/${p.file}`)}
                       alt={p.label}
                       className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700"
                     />
                   )}
-                  {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
-                  {/* Label */}
                   <div className="absolute bottom-5 left-5 right-5">
                     <p className="text-[11px] font-black text-white uppercase tracking-wide leading-tight">{p.label}</p>
                   </div>
 
-                  {/* Hover arrow */}
                   <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#D7B56D] flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
                     <ArrowUpRight size={12} className="text-black" />
                   </div>
@@ -714,7 +714,6 @@ const Home = ({ setPage, setSelectedProof }) => {
             <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-black uppercase tracking-tighter leading-[0.92] text-white mb-16">
               Vous cherchez quelqu'un<br />capable de structurer<br />un projet de <GoldText>A à Z</GoldText> ?
             </h2>
-            {/* Ligne decorative */}
             <div className="w-px h-16 bg-gradient-to-b from-transparent via-[#D7B56D]/40 to-transparent mx-auto mb-12" />
             <motion.button
               whileHover={{ scale: 1.04 }}
@@ -751,8 +750,6 @@ const MasteryLayout = () => {
     });
     return groups;
   }, [activeSub]);
-
-  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : `/portfolio2/${proof.folder}/${proof.file}`;
 
   const renderAccordion = (isMobile = false) => (
     <div className="space-y-3">
@@ -911,23 +908,43 @@ const MasteryLayout = () => {
                         </div>
                         <div className="grid sm:grid-cols-2 gap-5 md:ml-11">
                           {projectData.items.map(p => (
-                            <motion.div key={p.file || p.projectLink} whileHover={{ y: -4 }} onClick={() => setSelectedProof(p)}
-                              className="group bg-[#0f0f0f] border border-white/[0.05] rounded-[24px] overflow-hidden cursor-pointer hover:border-[#D7B56D]/30 transition-all duration-400 flex flex-col">
+                            <motion.div 
+                              key={p.file || p.projectLink} 
+                              whileHover={{ y: -4 }} 
+                              onClick={() => p.type !== 'canva' && setSelectedProof(p)}
+                              className={`group bg-[#0f0f0f] border border-white/[0.05] rounded-[24px] overflow-hidden ${p.type !== 'canva' ? 'cursor-pointer' : ''} hover:border-[#D7B56D]/30 transition-all duration-400 flex flex-col`}>
+                              
                               <div className="aspect-[16/9] bg-black relative flex items-center justify-center overflow-hidden">
+                                
                                 {p.type === 'image' ? (
                                   <img src={getProofSrc(p)} alt={p.label} className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" />
+                                ) : p.type === 'canva' ? (
+                                  <iframe
+                                    src={getCanvaEmbedUrl(p.projectLink || '')}
+                                    title={p.label || "Document Canva"}
+                                    className="absolute inset-0 w-full h-full border-0 z-0"
+                                    allowFullScreen
+                                    loading="lazy"
+                                  />
                                 ) : (
                                   <div className="opacity-20 group-hover:opacity-80 transition-all duration-500 text-[#D7B56D]">
-                                    {p.type === 'pdf' ? <FileText size={48} /> : p.type === 'canva' ? <Presentation size={48} /> : <Video size={48} />}
+                                    {p.type === 'pdf' ? <FileText size={48} /> : <Video size={48} />}
                                   </div>
                                 )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90 z-10" />
-                                <div className="absolute bottom-5 left-5 z-20"><h5 className="text-base font-black leading-tight">{p.label}</h5></div>
-                                <div className="absolute top-5 right-5 z-20 w-8 h-8 rounded-full bg-[#D7B56D] text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400">
-                                  <ArrowUpRight size={14} />
-                                </div>
+
+                                {p.type !== 'canva' && (
+                                  <>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90 z-10 pointer-events-none" />
+                                    <div className="absolute top-5 right-5 z-20 w-8 h-8 rounded-full bg-[#D7B56D] text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 pointer-events-none">
+                                      <ArrowUpRight size={14} />
+                                    </div>
+                                    <div className="absolute bottom-5 left-5 z-20 pointer-events-none"><h5 className="text-base font-black leading-tight">{p.label}</h5></div>
+                                  </>
+                                )}
                               </div>
-                              <div className="p-5 flex-grow">
+                              
+                              <div className="p-5 flex-grow flex flex-col justify-center">
+                                {p.type === 'canva' && <h5 className="text-base font-black leading-tight mb-2 text-white">{p.label}</h5>}
                                 <p className="text-xs leading-relaxed text-neutral-500 group-hover:text-neutral-300 transition-colors font-light">{p.caption}</p>
                               </div>
                             </motion.div>
@@ -947,24 +964,14 @@ const MasteryLayout = () => {
         </div>
       </div>
 
-      {/* LIGHTBOX — partagée avec Home via prop */}
-      <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} getProofSrc={getProofSrc} />
+      <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} />
     </div>
   );
 };
 
 // ─── MODIFICATION 3 : Lightbox extraite en composant avec navigation Canva ───
-const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
+const Lightbox = ({ selectedProof, setSelectedProof }) => {
   const iframeRef = useRef(null);
-
-  // ─── MODIFICATION 3 : Construire l'URL embed Canva correcte ───
-  // Format officiel : https://www.canva.com/design/[ID]/[TOKEN]/view?embed
-  const getCanvaEmbedUrl = (url) => {
-    if (!url) return '';
-    // L'URL est déjà au bon format /view, on ajoute juste ?embed si pas déjà présent
-    if (url.includes('?embed')) return url;
-    return url.endsWith('/view') ? `${url}?embed` : `${url}&embed`;
-  };
 
   if (!selectedProof) return null;
 
@@ -987,19 +994,16 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
                   className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
                 />
               ) : selectedProof.type === 'canva' ? (
-                // ─── MODIFICATION 3 : iframe Canva native avec embed officiel ───
                 <div className="absolute inset-0 w-full h-full flex flex-col">
                   <iframe
                     ref={iframeRef}
-                    src={getCanvaEmbedUrl(selectedProof.projectLink)}
+                    src={getCanvaEmbedUrl(selectedProof.projectLink || '')}
                     className="w-full flex-1 border-0"
                     allowFullScreen
-                    allow="fullscreen"
-                    title={selectedProof.label}
+                    title={selectedProof.label || "Document Canva"}
                     loading="lazy"
                     style={{ minHeight: 0 }}
                   />
-                  {/* Barre de navigation Canva : prev/next via postMessage */}
                   <div className="flex items-center justify-center gap-4 py-3 bg-black/80 border-t border-white/[0.06] shrink-0">
                     <button
                       onClick={() => iframeRef.current?.contentWindow?.postMessage({ action: 'PREVIOUS_PAGE' }, '*')}
@@ -1022,14 +1026,15 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
               )}
 
               {/* Bouton ouvrir fichier */}
-{selectedProof.type !== 'canva' && (
-  <div className="absolute bottom-6 flex flex-col items-center gap-3 z-50">
-    <button onClick={() => window.open(getProofSrc(selectedProof), '_blank')}
-      className="px-8 py-3 bg-white text-black font-black rounded-full text-[10px] uppercase tracking-widest flex items-center gap-3 hover:bg-[#D7B56D] transition-colors shadow-xl">
-      Agrandir l'image <ExternalLink size={13} />
-    </button>
-  </div>
-)}
+              {selectedProof.type !== 'canva' && (
+                <div className="absolute bottom-6 flex flex-col items-center gap-3 z-50">
+                  <button onClick={() => window.open(getProofSrc(selectedProof), '_blank')}
+                    className="px-8 py-3 bg-white text-black font-black rounded-full text-[10px] uppercase tracking-widest flex items-center gap-3 hover:bg-[#D7B56D] transition-colors shadow-xl">
+                    Agrandir l'image <ExternalLink size={13} />
+                  </button>
+                </div>
+              )}
+            </div>
 
             {/* Zone texte */}
             <div className="p-8 lg:p-14 flex flex-col justify-center lg:w-1/2">
@@ -1054,7 +1059,6 @@ const Lightbox = ({ selectedProof, setSelectedProof, getProofSrc }) => {
                 })}
               </div>
 
-              {/* Lien externe pour Canva (optionnel, discret) */}
               {selectedProof.type === 'canva' && selectedProof.projectLink && (
                 <a href={selectedProof.projectLink} target="_blank" rel="noopener noreferrer"
                   className="mt-8 text-[10px] font-black text-neutral-600 hover:text-[#D7B56D] uppercase tracking-[0.3em] flex items-center gap-2 transition-colors">
@@ -1103,26 +1107,19 @@ const Contact = () => (
 // APP ROOT
 // ═══════════════════════════════════════════════════════════
 export default function PortfolioApp() {
-  // ─── MODIFICATION 2 : Persistance de la page via le hash URL ───
-  // Évite les erreurs d'hydratation Next.js (pas de localStorage, pas de mismatch SSR/CSR)
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedProof, setSelectedProof] = useState(null);
 
-  // Lire le hash au montage (côté client uniquement)
   useEffect(() => {
     const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#home': 'home' };
     const page = hashToPage[window.location.hash];
     if (page) setCurrentPage(page);
   }, []);
 
-  // Mettre à jour le hash quand la page change
   const setPage = (page) => {
     setCurrentPage(page);
     window.location.hash = page === 'home' ? '' : page;
   };
-
-  // Helper pour getProofSrc dans Home (même logique que dans MasteryLayout)
-  const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : `/portfolio2/${proof.folder}/${proof.file}`;
 
   return (
     <div className="font-sans antialiased bg-[#080808] text-white selection:bg-[#D7B56D]/20">
@@ -1138,8 +1135,8 @@ export default function PortfolioApp() {
         Roman Layani — Hybrid Entrepreneur — 2026
       </footer>
 
-      {/* ─── MODIFICATION 1 : Lightbox globale pour les clics depuis Home ─── */}
-      <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} getProofSrc={getProofSrc} />
+      {/* Lightbox globale pour les clics depuis Home */}
+      <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} />
     </div>
   );
 }

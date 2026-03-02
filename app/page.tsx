@@ -115,6 +115,7 @@ const PORTFOLIO_DATA = {
     { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accreditation Exposant", caption: "Accreditation officielle exposant professionnel." },
     { competenceId: "management", subCompetenceId: "marche", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "salon funeraire photo entree et dans le salon.png", type: "image", label: "Photos Stand", caption: "Presence reelle sur evenement sectoriel strategique." }
   ]
+
 };
 
 // ─── MODIFICATION 1 : données des projets Digitag pour la modale ───

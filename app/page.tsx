@@ -230,7 +230,7 @@ const PORTFOLIO_DATA = {
     { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Academiques", folder: "academic", file: "Analyse_Risques_Tesla.pdf", type: "pdf", label: "Tesla - Risques", caption: "Identification preventive des scenarios critiques." },
     { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view", type: "canva", label: "Tesla - Événementiel", caption: "Organisation strategique d'un evenement corporate international." },
     { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accreditation Exposant", caption: "Accreditation officielle exposant professionnel." },
-    { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Salon funeraire", folder: "digitag memory", file: "stand.png", type: "image", label: "Photos Stand", caption: "Presence reelle sur evenement sectoriel strategique." }
+    { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Salon funeraire", folder: "digitag memory", file: "salon funeraire photo entree et dans le salon.png", type: "image", label: "Photos Stand", caption: "Presence reelle sur evenement sectoriel strategique." }
   ]
 };
 

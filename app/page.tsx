@@ -179,7 +179,6 @@ const PORTFOLIO_DATA = {
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGZEHUiy_Y/ZM3fNtnR3snuqxnE9VNjhA/view", type: "canva", label: "SUÈNH - Charte Graphique", caption: "Creation d'une charte graphique complète et d'une identite visuelle." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAF2UL6QMwg/0pzuUz_o6BE3ioGj_bCh2w/view", type: "canva", label: "TC France - Identité", caption: "Creation d'une identite reseaux sociaux pour un public etudiant." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAG1wE1JUC4/L-O9vMTp2KJaZIeGTibAXw/view", type: "canva", label: "Camping - Charte Edito", caption: "Definition du ton et de la ligne editoriale pour les communications." },
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Lancement Boisson - Marketing", caption: "Analyse marketing complète : strategie de lancement et de positionnement." },
 
     // --- PRODUIT : INDUSTRIALISATION ---
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "CHROMA — Prototype → Usine → Produit final", folder: "chroma", file: "Maquette Echantillion n-1.jpg", type: "image", label: "Validation Materiaux", caption: "Première validation physique des materiaux." },
@@ -207,8 +206,8 @@ const PORTFOLIO_DATA = {
     { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Identification Usine", caption: "Identification et selection fournisseur strategique." },
     { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG PRO — Sourcing plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", type: "image", label: "Validation Qualite", caption: "Validation qualite en usine." },
     { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "DIGITAG MEMORY — Relation Fournisseurs", folder: "digitag memory", file: "controle du packaging digitag memory avant expedition.JPG", type: "image", label: "Inspection Agent", caption: "Contrôle qualité effectué par mon agent de sourcing à la sortie d'usine avant expédition internationale." },
-    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG MEMORY — Import & Stock", folder: "digitag memory", file: "photo stock 50 unités coffret digitag memory.jpeg", type: "image", label: "Réception Stock", caption: "Réception d'un lot de 50 coffrets et contrôle qualité physique post-importation avant commercialisation." },
     { competenceId: "supply", subCompetenceId: "sourcing", projectTitle: "REMAX — Production goodies", folder: "Remax", file: "video production sac de course remax fournisseur.mp4", type: "video", label: "Video Production", caption: "Suivi direct de la production chez le fournisseur." },
+    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG MEMORY — Import & Stock", folder: "digitag memory", file: "photo stock 50 unités coffret digitag memory.jpeg", type: "image", label: "Réception Stock", caption: "Réception d'un lot de 50 coffrets et contrôle qualité physique post-importation avant commercialisation." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG PRO — Expedition internationale", folder: "digitag pro", file: "plaques nfc google et instagram envoyer lituanie.png", type: "image", label: "Export Lituanie", caption: "Livraison internationale effective (export UE)." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Reception marchandise", folder: "Remax", file: "photo des portes cles recu .jpeg", type: "image", label: "Reception Stock", caption: "Reception physique marchandise importee." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Reception marchandise", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Contrôle Produit", caption: "Contrôle reception produits personnalises." },
@@ -226,10 +225,12 @@ const PORTFOLIO_DATA = {
     { competenceId: "sales", subCompetenceId: "nego", projectTitle: "REMAX — Closing & Mandats", folder: "Remax", file: "Logiciel pour saisie de bien pour faire mandat apres visite du bien et accrod avec le prorio .png", type: "image", label: "Saisie de Mandat", caption: "Outil de saisie de bien validant l'accord proprietaire et la prise de mandat." },
     
     // --- MANAGEMENT ---
-// --- MANAGEMENT ---
+    { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accreditation Exposant", caption: "Accreditation officielle exposant professionnel." },
+    { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Salon funeraire", folder: "digitag memory", file: "salon funeraire photo entree et dans le salon.png", type: "image", label: "Photos Stand", caption: "Presence reelle sur evenement sectoriel strategique." },
+
     { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Kit Commercial", projectLink: "/portfolio2/digitag pro/Explication Plaque nfc Avantages.pdf", folder: "digitag pro", file: "Explication Plaque nfc Avantages.jpg", type: "image", label: "Brochure Commerciale", caption: "Support de vente B2B détaillant la composition technique du produit et ses bénéfices pour le client.", isPdfButton: true },
-    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Lancement Boisson — Go-to-Market", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Stratégie de Lancement", caption: "Élaboration de la stratégie de mise en marché : positionnement, distribution et plan d'action commercial." },
- ]
+    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Académiques", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Lancement Boisson", caption: "Élaboration de la stratégie de mise en marché : positionnement, distribution et plan d'action commercial." },
+  ]
 };
 
 // ─── MODIFICATION 1 : données des projets Digitag pour la modale ───
@@ -1144,6 +1145,7 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
                   )}
                 </div>
               )}
+            </div>
 
             {/* Zone texte */}
             <div className="p-8 lg:p-14 flex flex-col justify-center lg:w-1/2">

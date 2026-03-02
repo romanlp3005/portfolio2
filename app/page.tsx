@@ -226,13 +226,8 @@ const PORTFOLIO_DATA = {
     { competenceId: "sales", subCompetenceId: "nego", projectTitle: "REMAX — Closing & Mandats", folder: "Remax", file: "Logiciel pour saisie de bien pour faire mandat apres visite du bien et accrod avec le prorio .png", type: "image", label: "Saisie de Mandat", caption: "Outil de saisie de bien validant l'accord proprietaire et la prise de mandat." },
     
     // --- MANAGEMENT ---
-    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Academiques", folder: "academic", file: "Gantt_Tesla.pdf", type: "pdf", label: "Tesla - Gantt", caption: "Planification structuree avec dependances." },
-    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Academiques", folder: "academic", file: "Analyse_Risques_Tesla.pdf", type: "pdf", label: "Tesla - Risques", caption: "Identification preventive des scenarios critiques." },
-    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view", type: "canva", label: "Tesla - Événementiel", caption: "Organisation strategique d'un evenement corporate international." },
-    { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Salon funeraire", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accreditation Exposant", caption: "Accreditation officielle exposant professionnel." },
-    { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Salon funeraire", folder: "digitag memory", file: "salon funeraire photo entree et dans le salon.png", type: "image", label: "Photos Stand", caption: "Presence reelle sur evenement sectoriel strategique." }
-  ]
-};
+{ competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Kit Commercial", folder: "digitag pro", file: "Explication Plaque nfc   Avantages.pdf", type: "pdf", label: "Brochure Commerciale", caption: "Support de vente B2B détaillant la composition technique du produit et ses bénéfices d'acquisition pour les prospects." },
+    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Académiques", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Stratégie de Lancement", caption: "Élaboration d'une stratégie de mise en marché pour une boisson : positionnement, distribution et plan d'action." },
 
 // ─── MODIFICATION 1 : données des projets Digitag pour la modale ───
 const DIGITAG_MEMORY_PROOF = {

@@ -1133,7 +1133,7 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
               {/* Bouton dynamique : Voir le site OU Agrandir l'image */}
               {selectedProof.type !== 'canva' && (
                 <div className="absolute bottom-6 flex flex-col items-center gap-3 z-50">
-                  {selectedProof.projectLink ? (
+                  {selectedProof.isWebsite ? (
                     <button onClick={() => window.open(selectedProof.projectLink, '_blank')}
                       className="px-8 py-3 bg-white text-black font-black rounded-full text-[10px] uppercase tracking-widest flex items-center gap-3 hover:bg-[#D7B56D] transition-colors shadow-xl">
                       Voir le site <ExternalLink size={13} />
@@ -1146,6 +1146,7 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
                   )}
                 </div>
               )}
+            </div>
 
             {/* Zone texte */}
             <div className="p-8 lg:p-14 flex flex-col justify-center lg:w-1/2">

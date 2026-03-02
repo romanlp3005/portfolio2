@@ -25,7 +25,7 @@ const SkillIcon = ({ name, size = "w-5 h-5" }) => {
   return Icon ? <Icon className={size} /> : null;
 };
 
-  // --- DATA ---
+// --- DATA ---
 const PORTFOLIO_DATA = {
   skills: [
     { id: 'produit', title: " Developper et industrialiser des produits innovants", level: 4.5, icon: "package", consistsOf: "Capacite à transformer une vision en un produit physique manufacture, package et prêt pour le marche de masse.", subskills: [{ id: 'branding', name: "1.1 Concevoir une marque et un positionnement", level: 4.5, consistsOf: "Creation de l'univers visuel, du logo, du packaging et de l'identite differenciante sur un marche sature." }, { id: 'industrialisation', name: "1.2 Passer du prototype à la production", level: 4.7, consistsOf: "Passage du prototype fait-main aux patrons industriels, sourcing usine et suivi qualite." }] },
@@ -46,13 +46,16 @@ const PORTFOLIO_DATA = {
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "idee charte graphique 3.jpeg", type: "image", label: "Charte Graphique 3", caption: "Ajustements esthetiques pour affiner le positionnement premium." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "dimensions veste.png", type: "image", label: "Specifications", caption: "Specifications techniques et proportions du produit." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", folder: "chroma", file: "2ieme prix de l etudiant entrepreuners de la promo tc et mmi projet chroma.jpeg", type: "image", label: "Prix Innovation", caption: "Reconnaissance academique officielle validant la credibilite du projet." },
+    
+    // NOUVEAU : Benchmark rapatrié dans CHROMA
+    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "CHROMA — Identite & Direction Artistique", projectLink: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view", type: "canva", label: "Benchmark Stratégique", caption: "Analyse du marché et du positionnement stratégique de la marque." },
+    
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "DIGITAG MEMORY — Concept & Packaging", projectObjective: "Transformer le souvenir en experience digitale permanente.", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "Photo prototype initial fais main.png", type: "image", label: "Prototype Artisanal", caption: "Prototype artisanal initial permettant de tester la faisabilite." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "DIGITAG MEMORY — Concept & Packaging", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "packaging fini et reçu.png", type: "image", label: "Packaging Industriel", caption: "Packaging industriel premium valide et reçu en production reelle." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "REMAX — Design supports physiques", projectObjective: "Renforcer la visibilite terrain via supports personnalises.", folder: "Remax", file: "photo des portes cles recu .jpeg", type: "image", label: "Portes-cles", caption: "Goodies conçus, produits et receptionnes pour diffusion locale." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "REMAX — Design supports physiques", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Sacs promotionnels", caption: "Sacs promotionnels designes, sources et produits en usine." },
     
-    // Regroupement de tous les projets académiques de Branding (Épuré)
-    { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view", type: "canva", label: "Chroma - Benchmark", caption: "Analyse du marche et du positionnement strategique d'une marque textile innovante." },
+    // Regroupement de tous les autres projets académiques de Branding
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAG7AdZHu28/PgAdCqwlU9W1g4ZDNM2ctA/view", type: "canva", label: "Veja - Strategie", caption: "Analyse approfondie de la strategie social media d'une marque internationale." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGZEHUiy_Y/ZM3fNtnR3snuqxnE9VNjhA/view", type: "canva", label: "SUÈNH - Charte Graphique", caption: "Creation d'une charte graphique complète et d'une identite visuelle." },
     { competenceId: "produit", subCompetenceId: "branding", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAF2UL6QMwg/0pzuUz_o6BE3ioGj_bCh2w/view", type: "canva", label: "TC France - Identité", caption: "Creation d'une identite reseaux sociaux pour un public etudiant." },
@@ -70,7 +73,6 @@ const PORTFOLIO_DATA = {
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor fini.png", type: "image", label: "Plaques Finies", caption: "Produit final prêt à être livre." },
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "DIGITAG PRO — Production plaques NFC", projectLink: "https://digitagpro.fr", folder: "digitag pro", file: "photo fournisseurs plaque google.jpeg", type: "image", label: "Sourcing Usine", caption: "Sourcing fournisseur specialise en plaques NFC." },
     
-    // Regroupement académique
     { competenceId: "produit", subCompetenceId: "industrialisation", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGy4RH5kPE/wXqGJhTMJA0ISbg9KwRsYA/view", type: "canva", label: "Jeu de societe - Process", caption: "Infographie des etapes pour commercialiser et proteger un produit." },
 
     // --- BUSINESS ---
@@ -80,7 +82,6 @@ const PORTFOLIO_DATA = {
     { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "trophee 1k club yomi denzel ecomerce.jpeg", type: "image", label: "Trophee 1K Club", caption: "Validation d'un palier de performance e-commerce significatif." },
     { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Boutique test — Validation & Performance", folder: "site internet", file: "dashbord stripe de paiments a linternational suisse belgique turquie luxembourg.png", type: "image", label: "Stripe International", caption: "Preuve de ventes internationales multi-pays." },
     
-    // Regroupement académique
     { competenceId: "business", subCompetenceId: "ecommerce", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGfADJ7pK8/1gaH3eVoidephzvcQvKuxA/view", type: "canva", label: "K-Way - Analyse UX", caption: "Analyse de l'experience utilisateur et des leviers d'optimisation d'un site e-commerce." },
 
     // --- SUPPLY ---
@@ -104,7 +105,6 @@ const PORTFOLIO_DATA = {
     { competenceId: "sales", subCompetenceId: "nego", projectTitle: "REMAX — Closing & Mandats", folder: "Remax", file: "Logiciel pour saisie de bien pour faire mandat apres visite du bien et accrod avec le prorio .png", type: "image", label: "Saisie de Mandat", caption: "Outil de saisie de bien validant l'accord proprietaire et la prise de mandat." },
     
     // --- MANAGEMENT ---
-    // Regroupement académique
     { competenceId: "management", subCompetenceId: "planification", projectTitle: "Projets Academiques", folder: "academic", file: "Gantt_Tesla.pdf", type: "pdf", label: "Tesla - Gantt", caption: "Planification structuree avec dependances." },
     { competenceId: "management", subCompetenceId: "planification", projectTitle: "Projets Academiques", folder: "academic", file: "Analyse_Risques_Tesla.pdf", type: "pdf", label: "Tesla - Risques", caption: "Identification preventive des scenarios critiques." },
     { competenceId: "management", subCompetenceId: "planification", projectTitle: "Projets Academiques", projectLink: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view", type: "canva", label: "Tesla - Événementiel", caption: "Organisation strategique d'un evenement corporate international." },
@@ -376,8 +376,8 @@ const Home = ({ setPage, setSelectedProof }) => {
                     className="absolute -right-6 bottom-1/4 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl"
                   >
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">International</div>
-                    <div className="text-lg font-black text-white">4 marches</div>
-                    <div className="text-[10px] text-neutral-500 mt-0.5">CH · BE · LU · TR</div>
+                    <div className="text-lg font-black text-white">6 marchés</div>
+                    <div className="text-[10px] text-neutral-500 mt-0.5">FR · CH · BE · LU · TR · LT</div>
                   </motion.div>
                 </div>
               </Reveal>
@@ -467,17 +467,17 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#D7B56D]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Ventes Internationales</div>
-                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-8">Marches actifs</div>
-                  <div className="flex flex-col gap-5">
-                    {[["🇨🇭", "Suisse"], ["🇧🇪", "Belgique"], ["🇱🇺", "Luxembourg"], ["🇹🇷", "Turquie"]].map(([flag, country], i) => (
+                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-6">Marches actifs</div>
+                  <div className="flex flex-col gap-3">
+                    {[["🇫🇷", "France"], ["🇨🇭", "Suisse"], ["🇧🇪", "Belgique"], ["🇱🇺", "Luxembourg"], ["🇹🇷", "Turquie"], ["🇱🇹", "Lituanie"]].map(([flag, country], i) => (
                       <motion.div key={i}
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-                        className="flex items-center gap-4 border-b border-white/[0.04] pb-4 last:border-0 last:pb-0">
-                        <span className="text-xl">{flag}</span>
-                        <span className="text-base font-light text-white">{country}</span>
+                        className="flex items-center gap-4 border-b border-white/[0.04] pb-3 last:border-0 last:pb-0">
+                        <span className="text-lg">{flag}</span>
+                        <span className="text-sm font-light text-white">{country}</span>
                         <div className="ml-auto w-1.5 h-1.5 rounded-full bg-[#D7B56D]/60" />
                       </motion.div>
                     ))}
@@ -908,7 +908,6 @@ const MasteryLayout = () => {
                             <motion.div 
                               key={p.file || p.projectLink} 
                               whileHover={{ y: -4 }} 
-                              /* TOUT EST CLIQUABLE MAINTENANT */
                               onClick={() => setSelectedProof(p)}
                               className="group bg-[#0f0f0f] border border-white/[0.05] rounded-[24px] overflow-hidden cursor-pointer hover:border-[#D7B56D]/30 transition-all duration-400 flex flex-col">
                               
@@ -920,7 +919,6 @@ const MasteryLayout = () => {
                                   <iframe
                                     src={getCanvaEmbedUrl(p.projectLink || '')}
                                     title={p.label || "Document Canva"}
-                                    /* pointer-events-none permet au clic de passer à travers pour ouvrir la lightbox */
                                     className="absolute inset-0 w-full h-full border-0 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                                     allowFullScreen
                                     loading="lazy"
@@ -931,7 +929,6 @@ const MasteryLayout = () => {
                                   </div>
                                 )}
 
-                                {/* Filtre noir, icône et titre au survol pour TOUS les projets */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90 z-10 pointer-events-none" />
                                 <div className="absolute top-5 right-5 z-20 w-8 h-8 rounded-full bg-[#D7B56D] text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 pointer-events-none">
                                   <ArrowUpRight size={14} />

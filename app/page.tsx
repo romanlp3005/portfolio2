@@ -228,6 +228,8 @@ const PORTFOLIO_DATA = {
     // --- MANAGEMENT ---
 { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Kit Commercial", folder: "digitag pro", file: "Explication Plaque nfc   Avantages.pdf", type: "pdf", label: "Brochure Commerciale", caption: "Support de vente B2B détaillant la composition technique du produit et ses bénéfices d'acquisition pour les prospects." },
     { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Académiques", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Stratégie de Lancement", caption: "Élaboration d'une stratégie de mise en marché pour une boisson : positionnement, distribution et plan d'action." },
+ ]
+};
 
 // ─── MODIFICATION 1 : données des projets Digitag pour la modale ───
 const DIGITAG_MEMORY_PROOF = {

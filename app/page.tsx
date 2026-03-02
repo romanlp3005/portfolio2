@@ -28,15 +28,73 @@ const SkillIcon = ({ name, size = "w-5 h-5" }) => {
 // --- DATA ---
 const PORTFOLIO_DATA = {
   skills: [
-    { id: 'produit', title: " Developper et industrialiser des produits innovants", level: 4.5, icon: "package", consistsOf: "Capacite à transformer une vision en un produit physique manufacture, package et prêt pour le marche de masse.", subskills: [{ id: 'branding', name: "1.1 Concevoir une marque et un positionnement", level: 4.5, consistsOf: "Creation de l'univers visuel, du logo, du packaging et de l'identite differenciante sur un marche sature." }, { id: 'industrialisation', name: "1.2 Passer du prototype à la production", level: 4.7, consistsOf: "Passage du prototype fait-main aux patrons industriels, sourcing usine et suivi qualite." }] },
-    { id: 'business', title: " Structurer un modèle economique et generer du CA", level: 4.2, icon: "trendingUp", consistsOf: "Conception de modèles economiques rentables et pilotage de la croissance via l'acquisition payante.", subskills: [{ id: 'pricing', name: "2.1 Construire une strategie de pricing et rentabilite", level: 4.0, consistsOf: "Calcul des marges et structuration des prix B2B/B2C." }, { id: 'acquisition', name: "2.2 Piloter l'acquisition payante", level: 4.3, consistsOf: "Mise en place et optimisation de campagnes publicitaires ROI-centric." }, { id: 'ecommerce', name: "2.3 Lancer et tester un e-commerce", level: 4.1, consistsOf: "Validation de marche rapide et scalabilite des operations de vente." }] },
-    { id: 'supply', title: " Gerer une chaîne d'approvisionnement internationale", level: 4.4, icon: "globe", consistsOf: "Gestion complète du flux mondial : sourcing, transport international et douanes.", subskills: [{ id: 'sourcing', name: "3.1 Sourcer et negocier", level: 4.3, consistsOf: "Identification de fournisseurs exclusifs et negociation des conditions de production." }, { id: 'logistique', name: "3.2 Gerer transport, douane et stock", level: 4.5, consistsOf: "Coordination du transit international et gestion physique des stocks." }] },
-    { id: 'tech', title: " Developper et automatiser des solutions technologiques", level: 4.6, icon: "terminal", consistsOf: "Ingenierie de solutions logicielles et integration d'IA pour optimiser les process metiers.", subskills: [{ id: 'software', name: "4.1 Creer des logiciels internes", level: 4.5, consistsOf: "Developpement d'outils metiers (gestion de sinistres, affichage vitrine)." }, { id: 'ia', name: "4.3 Automatiser via IA", level: 4.7, consistsOf: "Integration d'agents IA (GPT) pour la vente et le contenu." }] },
-    { id: 'sales', title: " Prospecter, negocier et conclure des ventes", level: 4.0, icon: "target", consistsOf: "Developpement commercial terrain et conclusion de transactions immobilières ou B2B.", subskills: [{ id: 'portefeuille', name: "5.1 Demarcher et developper un portefeuille", level: 4.0, consistsOf: "Ouverture de nouveaux marches et vente directe." }, { id: 'nego', name: "5.2 Negociation immobilière", level: 3.9, consistsOf: "Conduite de negociations de mandats et closing." }] },
-    { id: 'management', title: " Developper et structurer un projet entrepreneurial", level: 4.3, icon: "users", consistsOf: "Pilotage global de projets, recrutement et validation de marche sur le terrain.", subskills: [
-        { id: 'planification', name: "6.1 Planifier et gerer un projet", level: 4.5, consistsOf: "Structuration, ordonnancement (Gantt) et analyse des risques." },
-        { id: 'marche', name: "6.2 Valider le marche terrain", level: 4.4, consistsOf: "Presentation sur salons et recueil de feedbacks clients." }
-    ] }
+    { 
+      id: 'produit', 
+      title: " Concevoir et industrialiser des produits innovants", 
+      level: 4.5, 
+      icon: "package", 
+      consistsOf: "Capacite à transformer une vision en un produit physique manufacture, package et prêt pour le marche de masse.", 
+      subskills: [
+        { id: 'branding', name: "1.1 Concevoir une marque et un positionnement", level: 4.5, consistsOf: "Creation de l'univers visuel, du logo, du packaging et de l'identite differenciante sur un marche sature." }, 
+        { id: 'industrialisation', name: "1.2 Transformer un prototype en production industrielle", level: 4.7, consistsOf: "Passage du prototype fait-main aux patrons industriels, sourcing usine et suivi qualite." }
+      ] 
+    },
+    { 
+      id: 'business', 
+      title: " Structurer un modèle économique rentable", 
+      level: 4.2, 
+      icon: "trendingUp", 
+      consistsOf: "Conception de modèles economiques rentables et pilotage de la croissance via l'acquisition payante.", 
+      subskills: [
+        { id: 'pricing', name: "2.1 Construire une stratégie de pricing et de rentabilité", level: 4.0, consistsOf: "Calcul des marges et structuration des prix B2B/B2C." }, 
+        { id: 'acquisition', name: "2.2 Piloter l’acquisition payante et les performances marketing", level: 4.3, consistsOf: "Mise en place et optimisation de campagnes publicitaires ROI-centric." }, 
+        { id: 'ecommerce', name: "2.3 Lancer, tester et optimiser un e-commerce", level: 4.1, consistsOf: "Validation de marche rapide et scalabilite des operations de vente." }
+      ] 
+    },
+    { 
+      id: 'supply', 
+      title: " Gérer une chaîne d’approvisionnement internationale", 
+      level: 4.4, 
+      icon: "globe", 
+      consistsOf: "Gestion complète du flux mondial : sourcing, transport international et douanes.", 
+      subskills: [
+        { id: 'sourcing', name: "3.1 Sourcer, négocier et sécuriser des fournisseurs", level: 4.3, consistsOf: "Identification de fournisseurs exclusifs et negociation des conditions de production." }, 
+        { id: 'logistique', name: "3.2 Gérer transport, douane et stock", level: 4.5, consistsOf: "Coordination du transit international et gestion physique des stocks." }
+      ] 
+    },
+    { 
+      id: 'tech', 
+      title: " Développer et automatiser des systèmes technologiques", 
+      level: 4.6, 
+      icon: "terminal", 
+      consistsOf: "Ingenierie de solutions logicielles et integration d'IA pour optimiser les process metiers.", 
+      subskills: [
+        { id: 'software', name: "4.1 Développer des logiciels métiers internes", level: 4.5, consistsOf: "Developpement d'outils metiers (gestion de sinistres, affichage vitrine)." }, 
+        { id: 'ia', name: "4.2 Automatiser des processus via l’IA", level: 4.7, consistsOf: "Integration d'agents IA (GPT) pour la vente et le contenu." }
+      ] 
+    },
+    { 
+      id: 'sales', 
+      title: " Développer un portefeuille et conclure des ventes", 
+      level: 4.0, 
+      icon: "target", 
+      consistsOf: "Developpement commercial terrain et conclusion de transactions immobilières ou B2B.", 
+      subskills: [
+        { id: 'portefeuille', name: "5.1 Développer un portefeuille B2B", level: 4.0, consistsOf: "Ouverture de nouveaux marches et vente directe." }, 
+        { id: 'nego', name: "5.2 Négocier et conclure des mandats ou contrats", level: 3.9, consistsOf: "Conduite de negociations de mandats et closing." }
+      ] 
+    },
+    { 
+      id: 'management', 
+      title: " Analyser, structurer et piloter des projets entrepreneuriaux", 
+      level: 4.3, 
+      icon: "users", 
+      consistsOf: "Pilotage global de projets, recrutement et validation de marche sur le terrain.", 
+      subskills: [
+        { id: 'planification', name: "6.1 Planifier et gérer un projet stratégique", level: 4.5, consistsOf: "Structuration, ordonnancement (Gantt) et analyse des risques." },
+        { id: 'marche', name: "6.2 Valider un marché et tester la traction terrain", level: 4.4, consistsOf: "Presentation sur salons et recueil de feedbacks clients." }
+      ] 
+    }
   ],
   proofs: [
     // --- PRODUIT : BRANDING ---

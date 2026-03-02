@@ -911,8 +911,9 @@ const MasteryLayout = () => {
                             <motion.div 
                               key={p.file || p.projectLink} 
                               whileHover={{ y: -4 }} 
-                              onClick={() => p.type !== 'canva' && setSelectedProof(p)}
-                              className={`group bg-[#0f0f0f] border border-white/[0.05] rounded-[24px] overflow-hidden ${p.type !== 'canva' ? 'cursor-pointer' : ''} hover:border-[#D7B56D]/30 transition-all duration-400 flex flex-col`}>
+                              /* TOUT EST CLIQUABLE MAINTENANT */
+                              onClick={() => setSelectedProof(p)}
+                              className="group bg-[#0f0f0f] border border-white/[0.05] rounded-[24px] overflow-hidden cursor-pointer hover:border-[#D7B56D]/30 transition-all duration-400 flex flex-col">
                               
                               <div className="aspect-[16/9] bg-black relative flex items-center justify-center overflow-hidden">
                                 
@@ -922,7 +923,8 @@ const MasteryLayout = () => {
                                   <iframe
                                     src={getCanvaEmbedUrl(p.projectLink || '')}
                                     title={p.label || "Document Canva"}
-                                    className="absolute inset-0 w-full h-full border-0 z-0"
+                                    /* pointer-events-none permet au clic de passer à travers pour ouvrir la lightbox */
+                                    className="absolute inset-0 w-full h-full border-0 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                                     allowFullScreen
                                     loading="lazy"
                                   />
@@ -932,19 +934,17 @@ const MasteryLayout = () => {
                                   </div>
                                 )}
 
-                                {p.type !== 'canva' && (
-                                  <>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90 z-10 pointer-events-none" />
-                                    <div className="absolute top-5 right-5 z-20 w-8 h-8 rounded-full bg-[#D7B56D] text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 pointer-events-none">
-                                      <ArrowUpRight size={14} />
-                                    </div>
-                                    <div className="absolute bottom-5 left-5 z-20 pointer-events-none"><h5 className="text-base font-black leading-tight">{p.label}</h5></div>
-                                  </>
-                                )}
+                                {/* Filtre noir, icône et titre au survol pour TOUS les projets */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90 z-10 pointer-events-none" />
+                                <div className="absolute top-5 right-5 z-20 w-8 h-8 rounded-full bg-[#D7B56D] text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 pointer-events-none">
+                                  <ArrowUpRight size={14} />
+                                </div>
+                                <div className="absolute bottom-5 left-5 z-20 pointer-events-none">
+                                  <h5 className="text-base font-black leading-tight text-white drop-shadow-md">{p.label}</h5>
+                                </div>
                               </div>
                               
                               <div className="p-5 flex-grow flex flex-col justify-center">
-                                {p.type === 'canva' && <h5 className="text-base font-black leading-tight mb-2 text-white">{p.label}</h5>}
                                 <p className="text-xs leading-relaxed text-neutral-500 group-hover:text-neutral-300 transition-colors font-light">{p.caption}</p>
                               </div>
                             </motion.div>

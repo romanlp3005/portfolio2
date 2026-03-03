@@ -1323,7 +1323,7 @@ const Contact = () => (
 );
 
 // ═══════════════════════════════════════════════════════════
-// CONTACT (Formulaire sur-mesure "Headless")
+// CONTACT (Formulaire sur-mesure connecté à Google Forms)
 // ═══════════════════════════════════════════════════════════
 const Contact = () => {
   const [status, setStatus] = useState('idle'); // idle, submitting, success, error
@@ -1336,13 +1336,15 @@ const Contact = () => {
     const formData = new FormData(form);
 
     try {
+      // Envoi invisible vers Google Form
       await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfx8raubC6Sqt6hLv1cDhX9WXk5ZletFaqkNIZDTz5c0l8O7A/formResponse', {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'no-cors', // Contourne la sécurité CORS de Google
         body: formData
       });
       setStatus('success');
       form.reset();
+      // Remet le formulaire à zéro après 5 secondes
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
       setStatus('error');
@@ -1359,16 +1361,16 @@ const Contact = () => {
       <div className="max-w-[1200px] w-full mx-auto relative z-10 grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         
         {/* Colonne Gauche : Texte */}
-        <div className="lg:sticky lg:top-32">
+        <div className="pt-10">
           <div className="text-[10px] uppercase tracking-[0.5em] text-[#D7B56D] font-black mb-6">Prenons contact</div>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 uppercase leading-[0.85]">
             <GoldText>IMPACT</GoldText><br />START HERE.
           </h1>
           <p className="text-lg text-neutral-400 font-light mb-12 leading-relaxed">
-            Une opportunité professionnelle, un projet de collaboration, ou simplement l'envie d'échanger sur la Tech et l'Acquisition ? Laissez-moi un message.
+            Une opportunité professionnelle, un projet de collaboration, ou simplement l'envie d'échanger sur la Tech et l'Acquisition ? Laissez-moi un message, je réponds généralement sous 24h.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-6">
             <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 px-8 py-4 bg-[#0077b5]/10 border border-[#0077b5]/30 hover:bg-[#0077b5] text-white font-black rounded-2xl text-[10px] uppercase tracking-widest transition-all duration-300">
               <Linkedin size={16} /> LinkedIn
@@ -1386,7 +1388,7 @@ const Contact = () => {
             {status === 'success' ? (
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
-                className="flex flex-col items-center justify-center text-center py-16 h-full min-h-[400px]"
+                className="flex flex-col items-center justify-center text-center py-20 h-full"
               >
                 <div className="w-20 h-20 bg-[#D7B56D]/20 rounded-full flex items-center justify-center mb-6 border border-[#D7B56D]/50">
                   <ArrowRight size={32} className="text-[#D7B56D]" />
@@ -1398,50 +1400,54 @@ const Contact = () => {
               <motion.form 
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 onSubmit={handleSubmit} 
-                className="space-y-5"
+                className="space-y-6"
               >
-                <div className="grid md:grid-cols-2 gap-5">
+                {/* Ligne 1 : Prénom / Nom */}
+                <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Prénom *</label>
-                    <input type="text" required name="entry.REMPLACER_PRENOM" placeholder="Jean"
+                    <label className="text-[10px] font-black uppercase tracking-widest text-neutral-500 ml-1">Prénom *</label>
+                    <input type="text" required name="entry.2026023374" placeholder="Jean"
                       className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Nom *</label>
-                    <input type="text" required name="entry.REMPLACER_NOM" placeholder="Dupont"
-                      className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Adresse Email *</label>
-                    <input type="email" required name="entry.REMPLACER_EMAIL" placeholder="jean@email.com"
-                      className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Entreprise / Projet</label>
-                    <input type="text" name="entry.REMPLACER_ENTREPRISE" placeholder="Facultatif"
+                    <label className="text-[10px] font-black uppercase tracking-widest text-neutral-500 ml-1">Nom *</label>
+                    <input type="text" required name="entry.2010330153" placeholder="Dupont"
                       className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
                   </div>
                 </div>
 
+                {/* Ligne 2 : Email / Entreprise */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-neutral-500 ml-1">Email *</label>
+                    <input type="email" required name="entry.1636217091" placeholder="jean@email.com"
+                      className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-neutral-500 ml-1">Entreprise / Projet</label>
+                    <input type="text" name="entry.400784303" placeholder="Facultatif"
+                      className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
+                  </div>
+                </div>
+
+                {/* Ligne 3 : Lien */}
                 <div className="space-y-2">
-                  <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Lien utile (LinkedIn, Site web...)</label>
-                  <input type="url" name="entry.REMPLACER_LIEN" placeholder="https://..."
+                  <label className="text-[10px] font-black uppercase tracking-widest text-neutral-500 ml-1">Lien utile (LinkedIn, Site web...)</label>
+                  <input type="text" name="entry.1388183345" placeholder="https://"
                     className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
                 </div>
 
+                {/* Ligne 4 : Message */}
                 <div className="space-y-2">
-                  <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Votre message *</label>
-                  <textarea required name="entry.REMPLACER_MESSAGE" rows="4" placeholder="Comment puis-je vous aider ?"
+                  <label className="text-[10px] font-black uppercase tracking-widest text-neutral-500 ml-1">Message *</label>
+                  <textarea required name="entry.1618489640" rows="4" placeholder="Comment puis-je vous aider ?"
                     className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors resize-none" />
                 </div>
 
                 <button 
                   type="submit" 
                   disabled={status === 'submitting'}
-                  className="w-full bg-white text-black font-black uppercase tracking-[0.2em] text-[11px] py-5 rounded-xl hover:bg-[#D7B56D] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mt-2"
+                  className="w-full bg-white text-black font-black uppercase tracking-[0.2em] text-[11px] py-5 rounded-xl hover:bg-[#D7B56D] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mt-4"
                 >
                   {status === 'submitting' ? (
                     <span className="flex items-center gap-2">Envoi en cours <div className="w-3 h-3 border-2 border-black border-t-transparent rounded-full animate-spin" /></span>
@@ -1449,7 +1455,7 @@ const Contact = () => {
                     <>Envoyer le message <ArrowRight size={14} /></>
                   )}
                 </button>
-                {status === 'error' && <p className="text-red-500 text-xs text-center mt-2">Une erreur est survenue. Veuillez vérifier votre connexion.</p>}
+                {status === 'error' && <p className="text-red-500 text-xs text-center mt-2">Une erreur est survenue. Veuillez réessayer.</p>}
               </motion.form>
             )}
           </AnimatePresence>

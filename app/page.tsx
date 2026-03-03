@@ -1269,7 +1269,7 @@ export default function PortfolioApp() {
         </motion.main>
       </AnimatePresence>
       <footer className="py-16 border-t border-white/[0.04] text-center text-neutral-700 text-[9px] font-black uppercase tracking-[0.8em] bg-[#060606]">
-        Roman Layani — Hybrid Entrepreneur — 2026
+        Roman Layani Pujol Pujol Pujol — Hybrid Entrepreneur — 2026
       </footer>
 
       {/* Lightbox globale pour les clics depuis Home */}

@@ -1288,17 +1288,25 @@ const Contact = () => {
     
     const form = e.target;
     const formData = new FormData(form);
+    
+    // LA CORRECTION EST ICI : On convertit les données pour que Google les comprenne
+    const searchParams = new URLSearchParams();
+    for (const pair of formData.entries()) {
+      searchParams.append(pair[0], pair[1]);
+    }
 
     try {
-      // Envoi invisible vers Google Form
       await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfx8raubC6Sqt6hLv1cDhX9WXk5ZletFaqkNIZDTz5c0l8O7A/formResponse', {
         method: 'POST',
-        mode: 'no-cors', // Contourne la sécurité CORS de Google
-        body: formData
+        mode: 'no-cors', // Crucial pour contourner les sécurités Google
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: searchParams // On envoie les données converties
       });
+      
       setStatus('success');
       form.reset();
-      // Remet le formulaire à zéro après 5 secondes
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
       setStatus('error');

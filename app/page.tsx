@@ -400,14 +400,6 @@ const Home = ({ setPage, setSelectedProof }) => {
                   >
                     Explorer mes compétences
                   </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setPage('maitrise')}
-                    className="px-8 py-4 bg-transparent border border-[#D7B56D]/50 text-[#D7B56D] font-black rounded-full text-[11px] uppercase tracking-[0.25em] hover:bg-[#D7B56D]/10 transition-all duration-300"
-                  >
-                    Voir mon parcours
-                  </motion.button>
                 </div>
               </Reveal>
             </div>

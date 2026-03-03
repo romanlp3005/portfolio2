@@ -1323,49 +1323,139 @@ const Contact = () => (
 );
 
 // ═══════════════════════════════════════════════════════════
-// APP ROOT
+// CONTACT (Formulaire sur-mesure "Headless")
 // ═══════════════════════════════════════════════════════════
-export default function PortfolioApp() {
-  const [currentPage, setCurrentPage] = useState('home');
-  const [selectedProof, setSelectedProof] = useState(null);
+const Contact = () => {
+  const [status, setStatus] = useState('idle'); // idle, submitting, success, error
 
-  useEffect(() => {
-    const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#apropos': 'apropos', '#home': 'home' };
-    const page = hashToPage[window.location.hash];
-    if (page) setCurrentPage(page);
-  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    const form = e.target;
+    const formData = new FormData(form);
 
-  const setPage = (page) => {
-    setCurrentPage(page);
-    window.location.hash = page === 'home' ? '' : page;
+    try {
+      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfx8raubC6Sqt6hLv1cDhX9WXk5ZletFaqkNIZDTz5c0l8O7A/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      });
+      setStatus('success');
+      form.reset();
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      setStatus('error');
+    }
   };
 
   return (
-    <div className="font-sans antialiased bg-[#080808] text-white selection:bg-[#D7B56D]/20">
-      <Navbar currentPage={currentPage} setPage={setPage} />
-      <AnimatePresence mode="wait">
-        <motion.main key={currentPage} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-          {currentPage === 'home' && <Home setPage={setPage} setSelectedProof={setSelectedProof} />}
-          {currentPage === 'maitrise' && <MasteryLayout />}
-          {currentPage === 'apropos' && <Apropos />}
-          {currentPage === 'contact' && <Contact />}
-        </motion.main>
-      </AnimatePresence>
-      
-      {/* FOOTER AVEC LINKEDIN */}
-      <footer className="py-12 border-t border-white/[0.04] bg-[#060606] flex flex-col items-center justify-center gap-6">
-        <div className="text-neutral-700 text-[9px] font-black uppercase tracking-[0.8em] text-center">
-          Roman LAYANI-PUJOL — Hybrid Entrepreneur — 2026
-        </div>
-        <div className="flex gap-4">
-          <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-[#0077b5] transition-colors">
-            <Linkedin size={18} />
-          </a>
-        </div>
-      </footer>
+    <div className="bg-[#080808] min-h-screen flex items-center justify-center px-6 md:px-8 py-32 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+        <div className="w-[600px] h-[400px] bg-[#D7B56D]/[0.05] blur-[100px] rounded-full" />
+      </div>
 
-      {/* Lightbox globale pour les clics depuis Home */}
-      <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} />
+      <div className="max-w-[1200px] w-full mx-auto relative z-10 grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        
+        {/* Colonne Gauche : Texte */}
+        <div className="lg:sticky lg:top-32">
+          <div className="text-[10px] uppercase tracking-[0.5em] text-[#D7B56D] font-black mb-6">Prenons contact</div>
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 uppercase leading-[0.85]">
+            <GoldText>IMPACT</GoldText><br />START HERE.
+          </h1>
+          <p className="text-lg text-neutral-400 font-light mb-12 leading-relaxed">
+            Une opportunité professionnelle, un projet de collaboration, ou simplement l'envie d'échanger sur la Tech et l'Acquisition ? Laissez-moi un message.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 px-8 py-4 bg-[#0077b5]/10 border border-[#0077b5]/30 hover:bg-[#0077b5] text-white font-black rounded-2xl text-[10px] uppercase tracking-widest transition-all duration-300">
+              <Linkedin size={16} /> LinkedIn
+            </a>
+            <a href="mailto:romanlayani@gmail.com" className="flex items-center justify-center gap-3 px-8 py-4 bg-[#111] border border-white/10 hover:border-[#D7B56D]/50 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest transition-all duration-300">
+              <FileText size={14} /> romanlayani@gmail.com
+            </a>
+          </div>
+        </div>
+
+        {/* Colonne Droite : Formulaire Sur-Mesure */}
+        <div className="bg-[#0f0f0f] border border-white/[0.05] rounded-[32px] p-8 md:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] relative">
+          
+          <AnimatePresence mode="wait">
+            {status === 'success' ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
+                className="flex flex-col items-center justify-center text-center py-16 h-full min-h-[400px]"
+              >
+                <div className="w-20 h-20 bg-[#D7B56D]/20 rounded-full flex items-center justify-center mb-6 border border-[#D7B56D]/50">
+                  <ArrowRight size={32} className="text-[#D7B56D]" />
+                </div>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-3">Message envoyé</h3>
+                <p className="text-neutral-500 font-light">Je vous réponds dans les plus brefs délais.</p>
+              </motion.div>
+            ) : (
+              <motion.form 
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                onSubmit={handleSubmit} 
+                className="space-y-5"
+              >
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Prénom *</label>
+                    <input type="text" required name="entry.REMPLACER_PRENOM" placeholder="Jean"
+                      className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Nom *</label>
+                    <input type="text" required name="entry.REMPLACER_NOM" placeholder="Dupont"
+                      className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Adresse Email *</label>
+                    <input type="email" required name="entry.REMPLACER_EMAIL" placeholder="jean@email.com"
+                      className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Entreprise / Projet</label>
+                    <input type="text" name="entry.REMPLACER_ENTREPRISE" placeholder="Facultatif"
+                      className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Lien utile (LinkedIn, Site web...)</label>
+                  <input type="url" name="entry.REMPLACER_LIEN" placeholder="https://..."
+                    className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors" />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[9px] font-black uppercase tracking-widest text-neutral-500 ml-1">Votre message *</label>
+                  <textarea required name="entry.REMPLACER_MESSAGE" rows="4" placeholder="Comment puis-je vous aider ?"
+                    className="w-full bg-black border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-neutral-700 focus:outline-none focus:border-[#D7B56D] transition-colors resize-none" />
+                </div>
+
+                <button 
+                  type="submit" 
+                  disabled={status === 'submitting'}
+                  className="w-full bg-white text-black font-black uppercase tracking-[0.2em] text-[11px] py-5 rounded-xl hover:bg-[#D7B56D] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mt-2"
+                >
+                  {status === 'submitting' ? (
+                    <span className="flex items-center gap-2">Envoi en cours <div className="w-3 h-3 border-2 border-black border-t-transparent rounded-full animate-spin" /></span>
+                  ) : (
+                    <>Envoyer le message <ArrowRight size={14} /></>
+                  )}
+                </button>
+                {status === 'error' && <p className="text-red-500 text-xs text-center mt-2">Une erreur est survenue. Veuillez vérifier votre connexion.</p>}
+              </motion.form>
+            )}
+          </AnimatePresence>
+
+        </div>
+      </div>
     </div>
   );
-}
+};

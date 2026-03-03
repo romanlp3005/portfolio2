@@ -293,7 +293,7 @@ const Navbar = ({ currentPage, setPage }) => {
           <span className="text-[13px] font-black tracking-[0.25em] text-white uppercase">Roman<span className="text-neutral-500 font-light hidden sm:inline"> LAYANI-PUJOL</span></span>
         </button>
         <div className="flex gap-6 md:gap-10">
-          {[['home', 'Accueil'], ['maitrise', 'Compétences'], ['contact', 'Contact']].map(([id, label]) => (
+          {[['home', 'Accueil'], ['maitrise', 'Compétences'], ['apropos', 'À Propos'], ['contact', 'Contact']].map(([id, label]) => (
             <button key={id} onClick={() => { setPage(id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className={`text-[10px] uppercase tracking-[0.35em] font-bold transition-all duration-300 ${currentPage === id ? 'text-[#D7B56D]' : 'text-neutral-500 hover:text-neutral-200'}`}>
               {label}
@@ -485,6 +485,35 @@ const Home = ({ setPage, setSelectedProof }) => {
           <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
             <div className="w-[1px] h-12 bg-gradient-to-b from-[#D7B56D] to-transparent" />
           </motion.div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════
+          1.5 APERÇU : À PROPOS
+      ══════════════════════════════════ */}
+      <section className="py-24 px-8 border-t border-white/[0.04] bg-[#0a0a0a]">
+        <div className="max-w-[1400px] mx-auto text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-10">
+          <Reveal>
+            <div className="max-w-3xl">
+              <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Mon Histoire</div>
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white leading-[0.9] mb-6">
+                Créer de <GoldText>A à Z.</GoldText>
+              </h2>
+              <p className="text-neutral-400 font-light leading-relaxed text-base md:text-lg">
+                L'envie d'entreprendre m'a frappé à 15 ans. Aujourd'hui, j'ai fait le choix assumé d'être un profil "hybride" : concevoir le produit, maîtriser la technologie, et conclure les ventes sur le terrain. 
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => { setPage('apropos'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="whitespace-nowrap px-8 py-5 bg-[#111] border border-[#D7B56D]/30 text-white font-black rounded-full text-[11px] uppercase tracking-[0.25em] hover:bg-[#D7B56D] hover:text-black transition-all duration-300 shadow-xl"
+            >
+              Découvrir mon parcours <ArrowRight className="inline ml-2 -mt-0.5" size={14} />
+            </motion.button>
+          </Reveal>
         </div>
       </section>
 
@@ -764,6 +793,63 @@ const Home = ({ setPage, setSelectedProof }) => {
           </Reveal>
         </div>
       </section>
+    </div>
+  );
+};
+
+// ═══════════════════════════════════════════════════════════
+// A PROPOS PAGE
+// ═══════════════════════════════════════════════════════════
+const Apropos = () => {
+  return (
+    <div className="bg-[#080808] text-white min-h-screen pt-32 pb-40 px-8">
+      <div className="max-w-[1200px] mx-auto">
+        <Reveal>
+          <div className="text-center mb-20">
+            <div className="text-[10px] uppercase tracking-[0.5em] text-[#D7B56D] font-black mb-6">Mon Parcours</div>
+            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white leading-[0.85]">
+              De l'idée à <GoldText>l'exécution</GoldText>
+            </h1>
+          </div>
+        </Reveal>
+
+        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-24 items-start">
+          {/* Texte À propos */}
+          <Reveal delay={0.1}>
+            <div className="space-y-6 text-neutral-400 font-light leading-relaxed text-sm md:text-base bg-[#0f0f0f] p-8 md:p-10 rounded-[32px] border border-white/[0.05]">
+              <p>
+                L'envie d'entreprendre m'a frappé à 15 ans. Je voulais comprendre comment générer de la valeur par moi-même. J'ai lancé mes premiers sites e-commerce très tôt, ce qui m'a poussé à me former sérieusement pour atteindre la rentabilité et décrocher le trophée des 1000€ générés en 24h dès mes 17 ans.
+              </p>
+              <p>
+                Aujourd'hui, à 20 ans et en dernière année de <strong className="text-white font-bold">BUT Techniques de Commercialisation</strong>, j'ai fait le choix assumé d'être un profil "hybride".
+              </p>
+              <p>
+                Pourquoi ? Parce que ce qui m'anime, c'est de tout maîtriser : la technologie, la création physique du produit, son image de marque, jusqu'à sa vente sur le terrain. Je ne veux pas juste avoir une idée, je veux avoir la capacité technique et commerciale de la matérialiser.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Timeline */}
+          <div className="relative pl-4 md:pl-8 border-l border-white/[0.05] space-y-12 mt-8 lg:mt-0">
+            {[
+              { year: "2021 - 2023", title: "L'école du E-commerce", desc: "Lancement de mes premiers sites à 15 ans, formation intensive et obtention du Trophée 1K Club à 17 ans." },
+              { year: "2023 - 2024", title: "L'offensive B2B (Digitag Pro)", desc: "Lancement de Digitag Pro en 1ère année de BUT. Déploiement de solutions NFC et première vraie confrontation au terrain B2B." },
+              { year: "2024 - 2025", title: "R&D & Reconnaissance (Chroma)", desc: "Développement d'une marque textile tech de A à Z. Obtention du 2ème Prix de l'Étudiant Entrepreneur de ma promotion." },
+              { year: "2025 - 2026", title: "Alternance Tech & Sales (REMAX)", desc: "Intégration en alternance : création de logiciels métiers et d'agents IA pour automatiser les processus commerciaux." },
+              { year: "Début 2026", title: "L'aboutissement (Digitag Memory)", desc: "Lancement officiel après presque 1 an de travail sur l'écosystème complet (produit, branding, application)." }
+            ].map((item, i) => (
+              <Reveal key={i} delay={0.2 + (i * 0.1)}>
+                <div className="relative group">
+                  <div className="absolute -left-[21px] md:-left-[37px] top-1.5 w-2.5 h-2.5 md:w-3 md:h-3 bg-[#080808] border-2 border-[#D7B56D] rounded-full group-hover:scale-150 group-hover:bg-[#D7B56D] transition-all duration-300 shadow-[0_0_10px_rgba(215,181,109,0.5)]" />
+                  <div className="text-[10px] text-[#D7B56D] font-black uppercase tracking-widest mb-1">{item.year}</div>
+                  <h4 className="text-lg md:text-xl font-black text-white uppercase tracking-tight mb-2">{item.title}</h4>
+                  <p className="text-sm text-neutral-500 font-light leading-relaxed">{item.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -1145,7 +1231,7 @@ export default function PortfolioApp() {
   const [selectedProof, setSelectedProof] = useState(null);
 
   useEffect(() => {
-    const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#home': 'home' };
+    const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#apropos': 'apropos', '#home': 'home' };
     const page = hashToPage[window.location.hash];
     if (page) setCurrentPage(page);
   }, []);
@@ -1162,6 +1248,7 @@ export default function PortfolioApp() {
         <motion.main key={currentPage} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
           {currentPage === 'home' && <Home setPage={setPage} setSelectedProof={setSelectedProof} />}
           {currentPage === 'maitrise' && <MasteryLayout />}
+          {currentPage === 'apropos' && <Apropos />}
           {currentPage === 'contact' && <Contact />}
         </motion.main>
       </AnimatePresence>

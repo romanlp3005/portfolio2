@@ -290,10 +290,10 @@ const Navbar = ({ currentPage, setPage }) => {
       <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between">
         <button onClick={() => setPage('home')} className="flex items-center gap-2.5 group">
           <div className="w-1.5 h-1.5 rounded-full bg-[#D7B56D] group-hover:scale-150 transition-transform duration-300" />
-          <span className="text-[13px] font-black tracking-[0.25em] text-white uppercase">Roman<span className="text-neutral-500 font-light hidden sm:inline"> Layani</span></span>
+          <span className="text-[13px] font-black tracking-[0.25em] text-white uppercase">Roman<span className="text-neutral-500 font-light hidden sm:inline"> LAYANI-PUJOL</span></span>
         </button>
         <div className="flex gap-6 md:gap-10">
-          {[['home', 'Accueil'], ['maitrise', 'Competences'], ['contact', 'Contact']].map(([id, label]) => (
+          {[['home', 'Accueil'], ['maitrise', 'Compétences'], ['contact', 'Contact']].map(([id, label]) => (
             <button key={id} onClick={() => { setPage(id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className={`text-[10px] uppercase tracking-[0.35em] font-bold transition-all duration-300 ${currentPage === id ? 'text-[#D7B56D]' : 'text-neutral-500 hover:text-neutral-200'}`}>
               {label}
@@ -311,71 +311,26 @@ const Navbar = ({ currentPage, setPage }) => {
 const Home = ({ setPage, setSelectedProof }) => {
 
   const featuredProofs = [
-    { folder: "chroma", file: "vestes chroma finis et porte par moi meme.jpeg", label: "Veste CHROMA portee" },
-    { folder: "digitag memory", file: "Photo plaque installee reelle.jpeg", label: "Digitag installee sur site" },
+    { folder: "chroma", file: "vestes chroma finis et porte par moi meme.jpeg", label: "Veste CHROMA portée" },
+    { folder: "digitag memory", file: "Photo plaque installee reelle.jpeg", label: "Digitag installée sur site" },
     { folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", label: "Production usine NFC", isPdf: true },
     { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", label: "Dashboard Google Ads" },
-    { folder: "digitag memory", file: "badge pour le salon du funeraire.png", label: "Badge Salon Funeraire" },
+    { folder: "digitag memory", file: "badge pour le salon du funeraire.png", label: "Badge Salon Funéraire" },
     { folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", label: "Logiciel Sinistres" },
   ];
 
   const projects = [
-    { title: "CHROMA", desc: "Chroma reinvente le vêtement comme une surface vivante qui reagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech", onClick: () => setPage('maitrise') },
-    { title: "DIGITAG MEMORY", desc: "Une memoire connectee et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Memoire", onClick: () => setSelectedProof(DIGITAG_MEMORY_PROOF) },
-    { title: "DIGITAG PRO", desc: "Plaques NFC Google & reseaux pour acquisition B2B.", img: "/portfolio2/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC", onClick: () => setSelectedProof(DIGITAG_PRO_PROOF) },
+    { title: "CHROMA", desc: "Chroma réinvente le vêtement comme une surface vivante qui réagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech", onClick: () => setPage('maitrise') },
+    { title: "DIGITAG MEMORY", desc: "Une mémoire connectée et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Mémoire", onClick: () => setSelectedProof(DIGITAG_MEMORY_PROOF) },
+    { title: "DIGITAG PRO", desc: "Plaques NFC Google & réseaux pour acquisition B2B.", img: "/portfolio2/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC", onClick: () => setSelectedProof(DIGITAG_PRO_PROOF) },
     { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/portfolio2/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA", onClick: () => setPage('maitrise') },
   ];
 
   const systemBlocks = [
     { key: "package", title: "Produit", desc: "Prototype → design → industrialisation", color: "from-amber-900/20" },
-    { key: "globe", title: "Supply", desc: "Sourcing → negociation → import/export", color: "from-emerald-900/20" },
+    { key: "globe", title: "Supply", desc: "Sourcing → négociation → import/export", color: "from-emerald-900/20" },
     { key: "trendingUp", title: "Acquisition", desc: "Google Ads → Meta Ads → conversion", color: "from-blue-900/20" },
     { key: "terminal", title: "Tech & IA", desc: "Logiciels internes → GPT → automatisation", color: "from-violet-900/20" },
-  ];
-
-  const academicProjects = [
-    {
-      title: "Benchmark Chroma",
-      category: "Analyse & Positionnement",
-      desc: "Analyse du marche et du positionnement strategique d'une marque textile innovante, en coherence avec mon projet Chroma.",
-      link: "https://www.canva.com/design/DAGcQ-J9Xos/bghCpOkCMo0dagJwm3gACQ/view"
-    },
-    {
-      title: "etude de marche visionnaire",
-      category: "Analyse marche & validation",
-      desc: "etude approfondie du marche textile et des tendances emergentes.",
-      link: "https://www.canva.com/design/DAGWkEHzSIg/RrjDI0WuwxL3GZiBpqCgdg/view"
-    },
-    {
-      title: "Audit digital – GioiA Aperitivo",
-      category: "Audit & Strategie digitale",
-      desc: "Audit digital complet avec recommandations strategiques et axes d'optimisation.",
-      link: "https://www.canva.com/design/DAG-Uhz-9aM/MYAlyebATOSuqP7blmOlpw/view"
-    },
-    {
-      title: "Rapport digital – Jardin de Zazou",
-      category: "Developpement & Structuration",
-      desc: "Plan strategique de developpement digital pour une entreprise locale.",
-      link: "https://www.canva.com/design/DAG7xw_R1uM/wC9JJn3jyDkqACq-k9qEhQ/view"
-    },
-    {
-      title: "Strategie de Com – Veja",
-      category: "Strategie & Reseaux sociaux",
-      desc: "Analyse approfondie de la strategie social media d'une marque internationale.",
-      link: "https://www.canva.com/design/DAG7AdZHu28/PgAdCqwlU9W1g4ZDNM2ctA/view"
-    },
-    {
-      title: "evenement corporate – Tesla",
-      category: "Gestion de projet & Event",
-      desc: "Organisation strategique d'un evenement corporate international.",
-      link: "https://www.canva.com/design/DAGe3yN9UHs/IIjXNZLn1gMOWEiwdPb_wg/view"
-    },
-    {
-      title: "Analyse e-commerce – K-Way",
-      category: "Analyse UX & Performance",
-      desc: "Analyse de l'experience utilisateur et des leviers d'optimisation d'un site e-commerce.",
-      link: "https://www.canva.com/design/DAGfADJ7pK8/1gaH3eVoidephzvcQvKuxA/view"
-    }
   ];
 
   return (
@@ -410,7 +365,7 @@ const Home = ({ setPage, setSelectedProof }) => {
 
               <Reveal delay={0.1}>
                 <h1 className="text-[clamp(3rem,7vw,6.5rem)] font-black tracking-[-0.03em] uppercase leading-[0.88] mb-4 text-white">
-                  Roman<br />Layani
+                  Roman<br />LAYANI-PUJOL
                 </h1>
               </Reveal>
 
@@ -427,10 +382,10 @@ const Home = ({ setPage, setSelectedProof }) => {
               <Reveal delay={0.25}>
                 <div className="space-y-3 mb-12 max-w-[540px]">
                   <p className="text-[1.05rem] md:text-[1.15rem] text-neutral-300 font-light leading-[1.75]">
-                    Je developpe des produits physiques, je structure leur modèle economique et j'automatise les systèmes qui permettent leur croissance.
+                    Je développe des produits physiques, je structure leur modèle économique et j'automatise les systèmes qui permettent leur croissance.
                   </p>
                   <p className="text-[0.95rem] text-neutral-500 font-light italic leading-relaxed">
-                    De la conception à la production. De la production à la rentabilite.
+                    De la conception à la production. De la production à la rentabilité.
                   </p>
                 </div>
               </Reveal>
@@ -443,7 +398,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                     onClick={() => setPage('maitrise')}
                     className="px-8 py-4 bg-white text-black font-black rounded-full text-[11px] uppercase tracking-[0.25em] hover:bg-[#D7B56D] transition-colors duration-300 shadow-[0_8px_30px_rgba(255,255,255,0.12)]"
                   >
-                    Explorer mes competences
+                    Explorer mes compétences
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
@@ -466,11 +421,11 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
                     <img
                       src={encodeURI("/portfolio2/Photo pro roman costume 2026.jpeg")}
-                      alt="Roman Layani"
+                      alt="Roman LAYANI-PUJOL"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute bottom-6 left-6 z-20 flex flex-col gap-1">
-                      <span className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black">Roman Layani</span>
+                      <span className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black">Roman LAYANI-PUJOL</span>
                       <span className="text-[11px] text-white font-light">Entrepreneur Hybride · 2026</span>
                     </div>
                   </div>
@@ -542,20 +497,20 @@ const Home = ({ setPage, setSelectedProof }) => {
       </section>
 
       {/* ══════════════════════════════════
-          2. ReSULTATS CONCRETS
+          2. RÉSULTATS CONCRETS
       ══════════════════════════════════ */}
       <section className="py-28 md:py-36 px-8 border-t border-white/[0.04] bg-[#060606]">
         <div className="max-w-[1400px] mx-auto">
           <Reveal>
             <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Donnees reelles · verifiables</div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Données réelles · vérifiables</div>
                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                  Resultats <GoldText>concrets</GoldText>
+                  Résultats <GoldText>concrets</GoldText>
                 </h2>
               </div>
               <button onClick={() => setPage('maitrise')} className="text-[10px] uppercase tracking-[0.3em] font-black text-neutral-500 hover:text-[#D7B56D] transition-colors flex items-center gap-2">
-                Voir les resultats <ArrowRight size={12} />
+                Voir les résultats <ArrowRight size={12} />
               </button>
             </div>
           </Reveal>
@@ -611,7 +566,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#D7B56D]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Ventes Internationales</div>
-                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-6">Marches actifs</div>
+                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-6">Marchés actifs</div>
                   <div className="flex flex-col gap-3">
                     {[["🇫🇷", "France"], ["🇨🇭", "Suisse"], ["🇧🇪", "Belgique"], ["🇱🇺", "Luxembourg"], ["🇹🇷", "Turquie"], ["🇱🇹", "Lituanie"]].map(([flag, country], i) => (
                       <motion.div key={i}
@@ -642,7 +597,7 @@ const Home = ({ setPage, setSelectedProof }) => {
             <div className="mb-16">
               <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Architecture complète</div>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                Un système complet,<br />pas juste des idees.
+                Un système complet,<br />pas juste des idées.
               </h2>
             </div>
           </Reveal>
@@ -683,9 +638,9 @@ const Home = ({ setPage, setSelectedProof }) => {
           <Reveal>
             <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Projets reels · de A à Z</div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Projets réels · de A à Z</div>
                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                  Projets <GoldText>developpes</GoldText>
+                  Projets <GoldText>développés</GoldText>
                 </h2>
               </div>
             </div>
@@ -739,56 +694,6 @@ const Home = ({ setPage, setSelectedProof }) => {
       </section>
 
       {/* ══════════════════════════════════
-          4.5 PROJETS ACADeMIQUES & STRATeGIQUES
-      ══════════════════════════════════ */}
-      <section className="py-28 md:py-36 px-8 border-t border-white/[0.04] bg-[#080808]">
-        <div className="max-w-[1400px] mx-auto">
-          <Reveal>
-            <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Strategie & Analyse</div>
-                <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                  Projets <GoldText>Academiques</GoldText>
-                </h2>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {academicProjects.map((proj, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 group transition-all duration-500 overflow-hidden flex flex-col h-full shadow-lg"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#D7B56D]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full group-hover:bg-[#D7B56D]/[0.08] transition-all duration-700 pointer-events-none" />
-
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black mb-5 bg-[#D7B56D]/10 inline-block self-start px-3 py-1.5 rounded-full border border-[#D7B56D]/20">
-                      {proj.category}
-                    </div>
-                    <h4 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white mb-3 leading-tight">{proj.title}</h4>
-                    <p className="text-sm text-neutral-400 font-light leading-relaxed mb-10 flex-grow">
-                      {proj.desc}
-                    </p>
-                    <a
-                      href={proj.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-auto inline-flex items-center gap-3 text-[10px] uppercase tracking-widest font-black text-neutral-500 hover:text-[#D7B56D] transition-colors self-start border border-white/10 hover:border-[#D7B56D]/30 bg-white/[0.02] hover:bg-[#D7B56D]/10 px-5 py-3 rounded-full"
-                    >
-                      Voir le projet <ExternalLink size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </a>
-                  </div>
-                </motion.div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════
           5. PREUVES EN VEDETTE
       ══════════════════════════════════ */}
       <section className="py-28 md:py-36 px-8 border-t border-white/[0.04] bg-[#080808]">
@@ -796,7 +701,7 @@ const Home = ({ setPage, setSelectedProof }) => {
           <Reveal>
             <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Documentation reelle</div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Documentation réelle</div>
                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
                   Des preuves,<br />pas des promesses.
                 </h2>
@@ -996,7 +901,7 @@ const MasteryLayout = () => {
                       <GaugeLevel level={currentComp.level} />
                     </div>
                     <div className="border-t border-white/[0.05] pt-7">
-                      <h4 className="text-[10px] uppercase font-black text-neutral-600 tracking-widest mb-4">Sous-competences :</h4>
+                      <h4 className="text-[10px] uppercase font-black text-neutral-600 tracking-widest mb-4">Sous-compétences :</h4>
                       <div className="flex flex-wrap gap-3">
                         {currentComp.subskills.map(sub => (
                           <button key={sub.id} onClick={() => setActiveSub(sub.id)}
@@ -1091,7 +996,7 @@ const MasteryLayout = () => {
                       </div>
                     )) : (
                       <div className="py-24 text-center border border-white/[0.04] border-dashed rounded-[32px] opacity-30">
-                        <p className="text-neutral-600 font-mono text-sm uppercase tracking-widest">Aucune archive indexee.</p>
+                        <p className="text-neutral-600 font-mono text-sm uppercase tracking-widest">Aucune archive indexée.</p>
                       </div>
                     )}
                   </div>
@@ -1269,7 +1174,7 @@ export default function PortfolioApp() {
         </motion.main>
       </AnimatePresence>
       <footer className="py-16 border-t border-white/[0.04] text-center text-neutral-700 text-[9px] font-black uppercase tracking-[0.8em] bg-[#060606]">
-        Roman Layani Pujol Pujol Pujol — Hybrid Entrepreneur — 2026
+        Roman LAYANI-PUJOL — Hybrid Entrepreneur — 2026
       </footer>
 
       {/* Lightbox globale pour les clics depuis Home */}

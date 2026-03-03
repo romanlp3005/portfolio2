@@ -1277,52 +1277,6 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
 };
 
 // ═══════════════════════════════════════════════════════════
-// CONTACT (Version Premium avec Google Form)
-// ═══════════════════════════════════════════════════════════
-const Contact = () => (
-  <div className="bg-[#080808] min-h-screen flex items-center justify-center px-4 md:px-8 py-32 relative overflow-hidden">
-    <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-      <div className="w-[600px] h-[400px] bg-[#D7B56D]/[0.05] blur-[100px] rounded-full" />
-    </div>
-    <div className="text-center max-w-4xl relative z-10 w-full flex flex-col items-center">
-      <div className="text-[10px] uppercase tracking-[0.5em] text-[#D7B56D] font-black mb-6">Prenons contact</div>
-      <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-8 uppercase leading-[0.85]">
-        <GoldText>IMPACT</GoldText><br />START HERE.
-      </h1>
-      <p className="text-lg text-neutral-500 font-light mb-12 italic max-w-xl mx-auto leading-relaxed">
-        "Industrialiser l'innovation, automatiser la croissance, valider par la preuve."
-      </p>
-      
-      {/* INTÉGRATION DU GOOGLE FORM */}
-      <div className="w-full max-w-2xl bg-white rounded-[24px] overflow-hidden shadow-[0_20px_80px_rgba(215,181,109,0.15)] border border-white/10 mb-12">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfx8raubC6Sqt6hLv1cDhX9WXk5ZletFaqkNIZDTz5c0l8O7A/viewform?embedded=true" 
-          width="100%" 
-          height="850" 
-          frameBorder="0" 
-          marginHeight="0" 
-          marginWidth="0"
-          className="w-full"
-        >
-          Chargement…
-        </iframe>
-      </div>
-
-      {/* Boutons secondaires en dessous */}
-      <div className="flex flex-wrap items-center justify-center gap-6">
-        <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer"
-          className="flex items-center justify-center gap-3 px-8 py-4 bg-[#0077b5]/10 border border-[#0077b5]/30 hover:bg-[#0077b5] text-white font-black rounded-2xl text-[10px] uppercase tracking-widest transition-all duration-300">
-          <Linkedin size={16} /> LinkedIn
-        </a>
-        <a href="mailto:romanlayani@gmail.com" className="text-[10px] font-black text-neutral-500 hover:text-white transition-colors uppercase tracking-widest flex items-center gap-2">
-          <FileText size={14} /> romanlayani@gmail.com
-        </a>
-      </div>
-    </div>
-  </div>
-);
-
-// ═══════════════════════════════════════════════════════════
 // CONTACT (Formulaire sur-mesure connecté à Google Forms)
 // ═══════════════════════════════════════════════════════════
 const Contact = () => {
@@ -1465,3 +1419,51 @@ const Contact = () => {
     </div>
   );
 };
+
+// ═══════════════════════════════════════════════════════════
+// APP ROOT
+// ═══════════════════════════════════════════════════════════
+export default function PortfolioApp() {
+  const [currentPage, setCurrentPage] = useState('home');
+  const [selectedProof, setSelectedProof] = useState(null);
+
+  useEffect(() => {
+    const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#apropos': 'apropos', '#home': 'home' };
+    const page = hashToPage[window.location.hash];
+    if (page) setCurrentPage(page);
+  }, []);
+
+  const setPage = (page) => {
+    setCurrentPage(page);
+    window.location.hash = page === 'home' ? '' : page;
+  };
+
+  return (
+    <div className="font-sans antialiased bg-[#080808] text-white selection:bg-[#D7B56D]/20">
+      <Navbar currentPage={currentPage} setPage={setPage} />
+      <AnimatePresence mode="wait">
+        <motion.main key={currentPage} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+          {currentPage === 'home' && <Home setPage={setPage} setSelectedProof={setSelectedProof} />}
+          {currentPage === 'maitrise' && <MasteryLayout />}
+          {currentPage === 'apropos' && <Apropos />}
+          {currentPage === 'contact' && <Contact />}
+        </motion.main>
+      </AnimatePresence>
+      
+      {/* FOOTER AVEC LINKEDIN */}
+      <footer className="py-12 border-t border-white/[0.04] bg-[#060606] flex flex-col items-center justify-center gap-6">
+        <div className="text-neutral-700 text-[9px] font-black uppercase tracking-[0.8em] text-center">
+          Roman LAYANI-PUJOL — Hybrid Entrepreneur — 2026
+        </div>
+        <div className="flex gap-4">
+          <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-[#0077b5] transition-colors">
+            <Linkedin size={18} />
+          </a>
+        </div>
+      </footer>
+
+      {/* Lightbox globale pour les clics depuis Home */}
+      <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} />
+    </div>
+  );
+}

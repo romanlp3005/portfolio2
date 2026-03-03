@@ -7,7 +7,7 @@ import {
   ArrowRight, ChevronRight, FileText, Video, X,
   Globe, TrendingUp, Package, Terminal, Users, Target,
   Zap, ExternalLink, ArrowUpRight, Layers, Link as LinkIcon, Presentation,
-  ChevronLeft, ChevronRight as ChevronRightIcon
+  ChevronLeft, ChevronRight as ChevronRightIcon, Download, Linkedin, Calendar
 } from 'lucide-react';
 
 // --- HELPERS GLOBAUX (Sécurisés pour éviter les erreurs de compilation) ---
@@ -292,13 +292,18 @@ const Navbar = ({ currentPage, setPage }) => {
           <div className="w-1.5 h-1.5 rounded-full bg-[#D7B56D] group-hover:scale-150 transition-transform duration-300" />
           <span className="text-[13px] font-black tracking-[0.25em] text-white uppercase">Roman<span className="text-neutral-500 font-light hidden sm:inline"> LAYANI-PUJOL</span></span>
         </button>
-        <div className="flex gap-6 md:gap-10">
+        <div className="flex gap-6 md:gap-10 items-center">
           {[['home', 'Accueil'], ['maitrise', 'Compétences'], ['apropos', 'À Propos'], ['contact', 'Contact']].map(([id, label]) => (
             <button key={id} onClick={() => { setPage(id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className={`text-[10px] uppercase tracking-[0.35em] font-bold transition-all duration-300 ${currentPage === id ? 'text-[#D7B56D]' : 'text-neutral-500 hover:text-neutral-200'}`}>
               {label}
             </button>
           ))}
+          {/* BOUTON CV */}
+          <a href="/portfolio2/CV_Roman_LAYANI.pdf" target="_blank" rel="noopener noreferrer" 
+             className="hidden sm:flex text-[9px] uppercase tracking-[0.2em] font-black text-black bg-[#D7B56D] hover:bg-white px-5 py-2.5 rounded-full transition-colors items-center gap-2 shadow-[0_0_15px_rgba(215,181,109,0.3)]">
+            Mon CV <Download size={11} className="mb-0.5" />
+          </a>
         </div>
       </div>
     </nav>
@@ -1272,26 +1277,41 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
 };
 
 // ═══════════════════════════════════════════════════════════
-// CONTACT
+// CONTACT (Version Premium)
 // ═══════════════════════════════════════════════════════════
 const Contact = () => (
   <div className="bg-[#080808] min-h-screen flex items-center justify-center px-8 relative overflow-hidden">
     <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
       <div className="w-[600px] h-[400px] bg-[#D7B56D]/[0.05] blur-[100px] rounded-full" />
     </div>
-    <div className="text-center max-w-5xl relative z-10">
+    <div className="text-center max-w-5xl relative z-10 w-full">
       <div className="text-[10px] uppercase tracking-[0.5em] text-[#D7B56D] font-black mb-10">Prenons contact</div>
-      <h1 className="text-[clamp(4rem,12vw,11rem)] font-black tracking-tighter mb-10 uppercase leading-[0.82]">
+      <h1 className="text-[clamp(4rem,10vw,9rem)] font-black tracking-tighter mb-10 uppercase leading-[0.82]">
         <GoldText>IMPACT</GoldText><br />START HERE.
       </h1>
       <p className="text-xl text-neutral-500 font-light mb-14 italic max-w-2xl mx-auto leading-relaxed">
         "Industrialiser l'innovation, automatiser la croissance, valider par la preuve."
       </p>
-      <div className="w-px h-12 bg-gradient-to-b from-transparent via-[#D7B56D]/30 to-transparent mx-auto mb-12" />
-      <a href="mailto:contact@romanlayani.com"
-        className="text-xl md:text-4xl font-black transition-all underline decoration-[#D7B56D]/10 underline-offset-[20px] hover:decoration-[#D7B56D] hover:text-[#D7B56D]">
-        contact@romanlayani.com
-      </a>
+      
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12">
+        {/* Bouton Email */}
+        <a href="mailto:contact@romanlayani.com"
+          className="w-full md:w-auto flex items-center justify-center gap-3 px-8 py-5 bg-[#111] border border-white/10 hover:border-[#D7B56D]/50 text-white font-black rounded-2xl text-xs uppercase tracking-widest transition-all duration-300 group">
+          <FileText size={16} className="text-neutral-500 group-hover:text-[#D7B56D] transition-colors" /> contact@romanlayani.com
+        </a>
+
+        {/* Bouton Calendly */}
+        <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer"
+          className="w-full md:w-auto flex items-center justify-center gap-3 px-8 py-5 bg-white text-black font-black rounded-2xl text-xs uppercase tracking-widest hover:bg-[#D7B56D] transition-all duration-300 shadow-[0_10px_40px_rgba(255,255,255,0.1)]">
+          <Calendar size={16} /> Réserver un appel
+        </a>
+
+        {/* Bouton LinkedIn */}
+        <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer"
+          className="w-full md:w-auto flex items-center justify-center gap-3 px-8 py-5 bg-[#0077b5]/10 border border-[#0077b5]/30 hover:bg-[#0077b5] text-white font-black rounded-2xl text-xs uppercase tracking-widest transition-all duration-300">
+          <Linkedin size={16} /> LinkedIn
+        </a>
+      </div>
     </div>
   </div>
 );
@@ -1325,8 +1345,17 @@ export default function PortfolioApp() {
           {currentPage === 'contact' && <Contact />}
         </motion.main>
       </AnimatePresence>
-      <footer className="py-16 border-t border-white/[0.04] text-center text-neutral-700 text-[9px] font-black uppercase tracking-[0.8em] bg-[#060606]">
-        Roman LAYANI-PUJOL — Hybrid Entrepreneur — 2026
+      
+      {/* FOOTER AVEC LINKEDIN */}
+      <footer className="py-12 border-t border-white/[0.04] bg-[#060606] flex flex-col items-center justify-center gap-6">
+        <div className="text-neutral-700 text-[9px] font-black uppercase tracking-[0.8em] text-center">
+          Roman LAYANI-PUJOL — Hybrid Entrepreneur — 2026
+        </div>
+        <div className="flex gap-4">
+          <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-[#0077b5] transition-colors">
+            <Linkedin size={18} />
+          </a>
+        </div>
       </footer>
 
       {/* Lightbox globale pour les clics depuis Home */}

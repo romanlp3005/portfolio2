@@ -482,9 +482,9 @@ const Home = ({ setPage, setSelectedProof }) => {
                     transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     className="absolute -left-8 top-1/3 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl"
                   >
-                    <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Google Ads</div>
-                    <div className="text-2xl font-black text-white">ROAS 1,93</div>
-                    <div className="text-[10px] text-neutral-500 mt-0.5">sur 2 439  investis</div>
+                    <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Acquisition B2C</div>
+                    <div className="text-2xl font-black text-white">Google Ads</div>
+                    <div className="text-[10px] text-neutral-500 mt-0.5">Pilotage de budget</div>
                   </motion.div>
 
                   <motion.div
@@ -538,20 +538,16 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <div className="absolute top-0 right-0 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full group-hover:bg-[#D7B56D]/[0.08] transition-all duration-700" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Google Ads</div>
-                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">2 439<span className="text-xl text-neutral-600">,06 </span></div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">2 439<span className="text-xl text-neutral-600">,06 €</span></div>
                   <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-10">investis</div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">
                       <span className="text-xs text-neutral-500">Impressions</span>
                       <span className="text-sm font-bold text-white">318 549</span>
                     </div>
-                    <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">
-                      <span className="text-xs text-neutral-500">Conversions</span>
-                      <span className="text-sm font-bold text-white">873</span>
-                    </div>
                     <div className="flex justify-between items-center pt-1">
-                      <span className="text-xs text-neutral-500">ROAS</span>
-                      <span className="text-2xl font-black text-[#D7B56D]">1,93</span>
+                      <span className="text-xs text-neutral-500">Conversions</span>
+                      <span className="text-2xl font-black text-[#D7B56D]">873</span>
                     </div>
                   </div>
                 </div>

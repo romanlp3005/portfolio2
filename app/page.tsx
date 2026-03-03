@@ -537,6 +537,7 @@ const Home = ({ setPage, setSelectedProof }) => {
           </Reveal>
 
           <div className="grid md:grid-cols-3 gap-5">
+            {/* Carte 1 : Google Ads */}
             <Reveal delay={0.1}>
               <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
                 className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
@@ -559,13 +560,14 @@ const Home = ({ setPage, setSelectedProof }) => {
               </motion.div>
             </Reveal>
 
+            {/* Carte 2 : Meta Ads */}
             <Reveal delay={0.15}>
               <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
                 className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Meta Ads <span className="text-neutral-700">(test)</span></div>
-                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">229<span className="text-xl text-neutral-600">,90 </span></div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">229<span className="text-xl text-neutral-600">,90 €</span></div>
                   <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-10">investis</div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">
@@ -574,13 +576,14 @@ const Home = ({ setPage, setSelectedProof }) => {
                     </div>
                     <div className="flex justify-between items-center pt-1">
                       <span className="text-xs text-neutral-500">CPC moyen</span>
-                      <span className="text-sm font-bold text-white">0,44 </span>
+                      <span className="text-sm font-bold text-white">0,44 €</span>
                     </div>
                   </div>
                 </div>
               </motion.div>
             </Reveal>
 
+            {/* Carte 3 : Ventes Internationales */}
             <Reveal delay={0.2}>
               <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
                 className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
@@ -605,6 +608,76 @@ const Home = ({ setPage, setSelectedProof }) => {
                 </div>
               </motion.div>
             </Reveal>
+
+            {/* Carte 4 : Traction Marché */}
+            <Reveal delay={0.25}>
+              <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
+                className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full group-hover:bg-[#D7B56D]/[0.08] transition-all duration-700" />
+                <div className="relative z-10">
+                  <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Traction Marché</div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">300<span className="text-xl text-neutral-600">+</span></div>
+                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-10">clients générés</div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">
+                      <span className="text-xs text-neutral-500">Acquisition B2B</span>
+                      <span className="text-sm font-bold text-white">100+ comptes</span>
+                    </div>
+                    <div className="flex justify-between items-center pt-1">
+                      <span className="text-xs text-neutral-500">Ventes B2C</span>
+                      <span className="text-2xl font-black text-[#D7B56D]">200+ clients</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </Reveal>
+
+            {/* Carte 5 : Supply Chain */}
+            <Reveal delay={0.3}>
+              <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
+                className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full" />
+                <div className="relative z-10">
+                  <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Supply Chain</div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">1 000<span className="text-xl text-neutral-600">+</span></div>
+                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-10">Unités importées</div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">
+                      <span className="text-xs text-neutral-500">Sourcing</span>
+                      <span className="text-sm font-bold text-white">Fournisseurs Asie</span>
+                    </div>
+                    <div className="flex justify-between items-center pt-1">
+                      <span className="text-xs text-neutral-500">Gestion</span>
+                      <span className="text-sm font-bold text-[#D7B56D]">Transit & Douane</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </Reveal>
+
+            {/* Carte 6 : Innovation & Prix */}
+            <Reveal delay={0.35}>
+              <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: "easeOut" }}
+                className="relative bg-gradient-to-b from-[#111]/80 to-[#0a0a0a] border border-white/[0.06] hover:border-[#D7B56D]/30 rounded-[28px] p-8 overflow-hidden group transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D7B56D]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative z-10">
+                  <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Reconnaissance</div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">2<span className="text-xl text-neutral-600">ème</span></div>
+                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-10">Prix étudiant entrepreneur</div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">
+                      <span className="text-xs text-neutral-500">Projet</span>
+                      <span className="text-sm font-bold text-white">CHROMA (Textile Tech)</span>
+                    </div>
+                    <div className="flex justify-between items-center pt-1">
+                      <span className="text-xs text-neutral-500">Validation</span>
+                      <span className="text-sm font-bold text-[#D7B56D]">Jury Professionnel</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </Reveal>
+
           </div>
         </div>
       </section>

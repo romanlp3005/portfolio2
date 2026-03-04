@@ -31,7 +31,7 @@ const PORTFOLIO_DATA = {
   skills: [
     { 
       id: 'produit', 
-      title: "Concevoir et industrialiser des produits innovants", 
+      title: " Concevoir et industrialiser des produits innovants", 
       level: 4.5, 
       icon: "package", 
       consistsOf: "Capacité à transformer une vision en produit manufacturé, industrialisé et prêt pour le marché.", 
@@ -40,19 +40,19 @@ const PORTFOLIO_DATA = {
           id: 'branding', 
           name: "1.1 Concevoir une marque et un positionnement différenciant", 
           level: 4.5, 
-          consistsOf: "Création d'identité visuelle, packaging et proposition de valeur forte sur des marchés concurrentiels." 
+          consistsOf: " Création d'identité visuelle, packaging et proposition de valeur forte sur des marchés concurrentiels." 
         }, 
         { 
           id: 'industrialisation', 
           name: "1.2 Passer du prototype à la production industrielle", 
           level: 4.7, 
-          consistsOf: "Sourcing usine, validation technique, patronnage industriel et suivi qualité." 
+          consistsOf: " Sourcing usine, validation technique, patronnage industriel et suivi qualité." 
         }
       ] 
     },
     { 
       id: 'business', 
-      title: "Structurer une offre et générer de la croissance", 
+      title: " Structurer une offre et générer de la croissance", 
       level: 4.3, 
       icon: "trendingUp", 
       consistsOf: "Structuration d'offres cohérentes et pilotage de la croissance via acquisition et performance.", 
@@ -79,7 +79,7 @@ const PORTFOLIO_DATA = {
     },
     { 
       id: 'supply', 
-      title: "Gérer une chaîne d’approvisionnement internationale", 
+      title: " Gérer une chaîne d’approvisionnement internationale", 
       level: 4.4, 
       icon: "globe", 
       consistsOf: "Gestion complète du flux mondial : sourcing, production, transport et douanes.", 
@@ -100,7 +100,7 @@ const PORTFOLIO_DATA = {
     },
     { 
       id: 'tech', 
-      title: "Développer et automatiser des systèmes technologiques", 
+      title: " Développer et automatiser des systèmes technologiques", 
       level: 4.6, 
       icon: "terminal", 
       consistsOf: "Conception de logiciels métiers et intégration d’IA pour automatiser les process.", 
@@ -121,7 +121,7 @@ const PORTFOLIO_DATA = {
     },
     { 
       id: 'sales', 
-      title: "Développer un portefeuille et conclure des ventes", 
+      title: " Développer un portefeuille et conclure des ventes", 
       level: 4.1, 
       icon: "target", 
       consistsOf: "Prospection terrain, développement B2B et closing de contrats.", 
@@ -142,7 +142,7 @@ const PORTFOLIO_DATA = {
     },
     { 
       id: 'management', 
-      title: "Valider et structurer des opportunités entrepreneuriales", 
+      title: " Valider et structurer des opportunités entrepreneuriales", 
       level: 4.4, 
       icon: "users", 
       consistsOf: "Détection d’opportunités, validation terrain et structuration d’offres exploitables.", 

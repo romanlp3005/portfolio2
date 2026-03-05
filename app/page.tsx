@@ -522,6 +522,46 @@ const Home = ({ setPage, setSelectedProof }) => {
         </div>
       </section>
 
+{/* ══════════════════════════════════
+          1.7 GUIDE DE NAVIGATION (UX)
+      ══════════════════════════════════ */}
+      <section className="py-20 px-8 border-t border-white/[0.04] bg-[#080808]">
+        <div className="max-w-[1400px] mx-auto">
+          <Reveal>
+            <div className="mb-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Mode d'emploi</div>
+                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">
+                  Comment lire ce <GoldText>Portfolio</GoldText> ?
+                </h2>
+                <p className="text-neutral-400 font-light max-w-xl">
+                  Ce site n'est pas un simple CV, c'est une base de données interactive classée par expertise. Voici comment l'explorer efficacement :
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { step: "01", title: "L'Accueil (Synthèse)", desc: "Scrollez cette page pour avoir une vue d'ensemble de mes chiffres clés, mon écosystème de travail et les projets que j'ai développés de A à Z.", icon: <Globe size={40} strokeWidth={1} /> },
+              { step: "02", title: "Menu Compétences", desc: "Cliquez sur « Compétences » dans le menu. C'est le cœur du site : utilisez la barre de gauche pour naviguer entre mes différentes expertises (Produit, Tech, Sales...).", icon: <Layers size={40} strokeWidth={1} /> },
+              { step: "03", title: "Preuves Documentées", desc: "Dans chaque compétence, cliquez sur les cartes pour ouvrir les preuves réelles (PDF, photos usine, maquettes 3D interactives) en plein écran.", icon: <FileText size={40} strokeWidth={1} /> }
+            ].map((item, i) => (
+              <Reveal key={i} delay={0.1 * i}>
+                <div className="bg-[#0f0f0f] border border-white/[0.05] p-8 rounded-[24px] relative overflow-hidden group hover:border-[#D7B56D]/30 transition-all duration-400 h-full flex flex-col">
+                  <div className="absolute top-0 right-0 p-8 opacity-5 text-[#D7B56D] group-hover:scale-110 group-hover:opacity-10 transition-all duration-500 pointer-events-none">
+                    {item.icon}
+                  </div>
+                  <div className="text-[#D7B56D] font-black text-[10px] tracking-widest uppercase mb-6 bg-[#D7B56D]/10 w-fit px-3 py-1.5 rounded-full border border-[#D7B56D]/20">Étape {item.step}</div>
+                  <h3 className="text-xl font-black uppercase tracking-tight text-white mb-3">{item.title}</h3>
+                  <p className="text-sm text-neutral-400 font-light leading-relaxed">{item.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ══════════════════════════════════
           2. RÉSULTATS CONCRETS
       ══════════════════════════════════ */}

@@ -554,7 +554,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                   </div>
                   <div className="text-[#D7B56D] font-black text-[10px] tracking-widest uppercase mb-6 bg-[#D7B56D]/10 w-fit px-3 py-1.5 rounded-full border border-[#D7B56D]/20">Étape {item.step}</div>
                   <h3 className="text-xl font-black uppercase tracking-tight text-white mb-3">{item.title}</h3>
-                  <p className="text-sm text-neutral-400 font-light leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-neutral-200 font-light leading-relaxed">{item.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -756,7 +756,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                       <SkillIcon name={block.key} />
                     </div>
                     <h4 className="text-xl font-black uppercase tracking-tight text-white mb-3">{block.title}</h4>
-                    <p className="text-sm text-neutral-500 font-light leading-relaxed group-hover:text-neutral-400 transition-colors">{block.desc}</p>
+                    <p className="text-sm text-neutral-300 font-light leading-relaxed group-hover:text-white transition-colors">{block.desc}</p>
                     <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-widest text-neutral-600 group-hover:text-[#D7B56D] transition-colors">
                       <span>Explorer</span>
                       <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
@@ -961,7 +961,7 @@ const Apropos = () => {
                   <div className="absolute -left-[21px] md:-left-[37px] top-1.5 w-2.5 h-2.5 md:w-3 md:h-3 bg-[#080808] border-2 border-[#D7B56D] rounded-full group-hover:scale-150 group-hover:bg-[#D7B56D] transition-all duration-300 shadow-[0_0_10px_rgba(215,181,109,0.5)]" />
                   <div className="text-[10px] text-[#D7B56D] font-black uppercase tracking-widest mb-1">{item.year}</div>
                   <h4 className="text-lg md:text-xl font-black text-white uppercase tracking-tight mb-2">{item.title}</h4>
-                  <p className="text-sm text-neutral-500 font-light leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-neutral-300 font-light leading-relaxed">{item.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -1184,7 +1184,7 @@ const MasteryLayout = () => {
                               </div>
                               
                               <div className="p-5 flex-grow flex flex-col justify-center">
-                                <p className="text-xs leading-relaxed text-neutral-500 group-hover:text-neutral-300 transition-colors font-light">{p.caption}</p>
+                                <p className="text-xs leading-relaxed text-neutral-300 group-hover:text-white transition-colors font-light">{p.caption}</p>
                               </div>
                             </motion.div>
                           ))}

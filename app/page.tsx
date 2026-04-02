@@ -211,6 +211,7 @@ const PORTFOLIO_DATA = {
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG PRO — Expedition internationale", folder: "digitag pro", file: "plaques nfc google et instagram envoyer lituanie.png", type: "image", label: "Export Lituanie", caption: "Livraison internationale effective (export UE)." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Reception marchandise", folder: "Remax", file: "photo des portes cles recu .jpeg", type: "image", label: "Reception Stock", caption: "Reception physique marchandise importee." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Reception marchandise", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Contrôle Produit", caption: "Contrôle reception produits personnalises." },
+    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG PRO — Export & Stock", folder: "digitag pro", file: "stock plaque lituanie.jpeg", type: "image", label: "Stock Lituanie", caption: "Gestion de stock délocalisé et preuve d'exportation de nos plaques NFC sur le marché lituanien." },
 
     // --- TECH & IA ---
     { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Logiciel gestion sinistres", folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", type: "image", label: "Logiciel Sinistres", caption: "Application metier developpee pour automatiser le suivi des sinistres." },

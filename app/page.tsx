@@ -1016,7 +1016,7 @@ const MasteryLayout = () => {
                 <div className="p-3 space-y-1">
                   {skill.subskills.map(sub => (
                     <button key={sub.id} onClick={() => { setActiveSub(sub.id); if (isMobile) setIsMobileMenuOpen(false); }}
-                      className={`w-full text-left py-3 px-4 rounded-xl text-[11px] font-bold tracking-wide transition-all flex items-center justify-between ${activeSub === sub.id ? 'bg-[#D7B56D]/10 text-[#D7B56D]' : 'text-neutral-600 hover:text-white hover:bg-white/[0.04]'}`}>
+                      className={`w-full text-left py-3 px-4 rounded-xl text-[11px] font-bold tracking-wide transition-all flex items-center justify-between ${activeSub === sub.id ? 'bg-[#D7B56D]/10 text-[#D7B56D]' : 'text-neutral-300 hover:text-white hover:bg-white/[0.04]'}`}>
                       <span className="pr-4">{sub.name}</span>
                       <div className="flex items-center gap-3 shrink-0">
                         <span className={`text-[9px] font-mono px-2 py-0.5 rounded ${activeSub === sub.id ? 'text-[#D7B56D] bg-black/40' : 'text-neutral-700 bg-white/[0.04]'}`}>{sub.level}/5</span>
@@ -1088,7 +1088,7 @@ const MasteryLayout = () => {
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-[#D7B56D] mb-6"><Zap size={13} /> Vue d'ensemble</div>
                     <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-5">{currentComp.title}</h2>
-                    <p className="text-base md:text-lg text-neutral-400 font-light leading-relaxed max-w-3xl mb-10">{currentComp.consistsOf}</p>
+                    <p className="text-base md:text-lg text-neutral-200 font-light leading-relaxed max-w-3xl mb-10">{currentComp.consistsOf}</p>
                     <div className="bg-black/60 p-5 rounded-2xl border border-white/[0.04] inline-block min-w-[180px] mb-10">
                       <div className="flex justify-between items-center mb-3">
                         <span className="text-[10px] font-black text-neutral-600 uppercase tracking-widest">Note</span>
@@ -1101,7 +1101,7 @@ const MasteryLayout = () => {
                       <div className="flex flex-wrap gap-3">
                         {currentComp.subskills.map(sub => (
                           <button key={sub.id} onClick={() => setActiveSub(sub.id)}
-                            className="px-5 py-2.5 rounded-full border border-white/[0.08] text-xs font-bold text-neutral-500 hover:text-white hover:border-[#D7B56D]/40 transition-all flex items-center gap-3">
+                            className="px-5 py-2.5 rounded-full border border-white/[0.08] text-xs font-bold text-neutral-300 hover:text-white hover:border-[#D7B56D]/40 transition-all flex items-center gap-3">
                             {sub.name}
                             <span className="text-[#D7B56D] font-mono text-[9px] bg-[#D7B56D]/10 px-1.5 py-0.5 rounded">{sub.level}/5</span>
                           </button>

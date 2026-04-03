@@ -1277,7 +1277,7 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
             <div className="p-8 lg:p-14 flex flex-col justify-center lg:w-1/2">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-2 rounded-full bg-[#D7B56D] animate-pulse" />
-                <div className="text-[10px] font-black text-[#D7B56D] uppercase tracking-[0.4em]">Analyse Documentaire</div>
+                <div className="text-[10px] font-black text-[#D7B56D] uppercase tracking-[0.4em]">Preuve Concrète</div>
               </div>
               <h2 className="text-3xl md:text-4xl font-black mb-5 tracking-tighter">{selectedProof.label}</h2>
               <div className="text-sm text-neutral-500 uppercase tracking-widest mb-8 pb-6 border-b border-white/[0.06]">

@@ -427,66 +427,36 @@ const Home = ({ setPage, setSelectedProof }) => {
                     </div>
                   </div>
 
-                  {/* Étiquette 1 : Scale E-commerce (Haut Gauche) */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 20, y: 10 }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -left-10 top-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30"
-                  >
+                  {/* Étiquette 1 : Scale E-commerce */}
+                  <motion.div initial={{ opacity: 0, x: 20, y: 10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.8 }} className="absolute -left-10 top-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">E-commerce Scale</div>
                     <div className="text-xl font-black text-white">Trophée 1K Club</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5">1 000€ générés en 24h</div>
                   </motion.div>
 
-                  {/* Étiquette 2 : International (Haut Droit) - LA NOUVELLE */
-                  <motion.div
-                    initial={{ opacity: 0, x: -20, y: 10 }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.7, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -right-10 top-8 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30"
-                  >
+                  {/* Étiquette 2 : International */}
+                  <motion.div initial={{ opacity: 0, x: -20, y: 10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.7, duration: 0.8 }} className="absolute -right-10 top-8 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">International</div>
                     <div className="text-xl font-black text-white">5+ Pays actifs</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5">Export & Ventes directes</div>
                   </motion.div>
 
-                  {/* Étiquette 3 : Supply Chain (Milieu Droit) - CORRIGÉE */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20, y: 0 }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -right-12 top-[45%] bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30"
-                  >
+                  {/* Étiquette 3 : Supply Chain */}
+                  <motion.div initial={{ opacity: 0, x: -20, y: 0 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.8 }} className="absolute -right-12 top-[45%] bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Supply Chain</div>
                     <div className="text-xl font-black text-white">Sourcing Asie</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5">Importation & Flux Directs</div>
                   </motion.div>
 
-                  {/* Étiquette 4 : Tech (Bas Gauche) - MUSCLÉE */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 20, y: -10 }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.9, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -left-6 bottom-1/4 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30"
-                  >
+                  {/* Étiquette 4 : Product Tech */}
+                  <motion.div initial={{ opacity: 0, x: 20, y: -10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.9, duration: 0.8 }} className="absolute -left-6 bottom-1/4 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Product Tech</div>
                     <div className="text-xl font-black text-white">SaaS & Agents IA</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5">Systèmes d'automatisation</div>
                   </motion.div>
 
-                  {/* Étiquette 5 : Traction (Bas Droit) - OBLIGATOIRE */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20, y: -10 }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1.0, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -right-4 bottom-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30"
-                  >
+                  {/* Étiquette 5 : Traction Marché */}
+                  <motion.div initial={{ opacity: 0, x: -20, y: -10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 1.0, duration: 0.8 }} className="absolute -right-4 bottom-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Traction marché</div>
                     <div className="text-2xl font-black text-white">300+ clients</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5">100+ B2B · 200+ B2C</div>

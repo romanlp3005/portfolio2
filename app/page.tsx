@@ -441,11 +441,11 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="text-[10px] text-neutral-500 mt-0.5">Export & Ventes directes</div>
                   </motion.div>
 
-                  {/* Étiquette 3 : Supply Chain */}
+                  {/* Étiquette 3 : Supply Chain (Milieu Droit) - MAJ 2000 ARTICLES */}
                   <motion.div initial={{ opacity: 0, x: -20, y: 0 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.8 }} className="absolute -right-12 top-[45%] bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Supply Chain</div>
-                    <div className="text-xl font-black text-white">Sourcing Asie</div>
-                    <div className="text-[10px] text-neutral-500 mt-0.5">Importation & Flux Directs</div>
+                    <div className="text-xl font-black text-white">+2 000 articles</div>
+                    <div className="text-[10px] text-neutral-500 mt-0.5">Sourcing Asie & Flux Directs</div>
                   </motion.div>
 
                   {/* Étiquette 4 : Product Tech */}

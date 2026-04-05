@@ -1038,7 +1038,7 @@ const MasteryLayout = () => {
       <div className="max-w-[1500px] mx-auto">
         <header className="hidden lg:block mb-16">
           <Reveal>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.85]">ARCHITECTURE <br /><GoldText>D'EXPERTISE</GoldText></h1>
+            <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.85]">MES <br /><GoldText>COMPÉTENCES</GoldText></h1>
           </Reveal>
         </header>
 

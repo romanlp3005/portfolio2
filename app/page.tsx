@@ -1139,12 +1139,12 @@ const MasteryLayout = () => {
                               <div className="w-7 h-7 rounded-full bg-white/[0.04] border border-white/[0.08] flex shrink-0 items-center justify-center text-[10px] text-[#D7B56D]">0{idx + 1}</div>
                               {projectData.title}
                             </h4>
-                            {projectData.link && (
-                              <a href={projectData.link} target="_blank" rel="noopener noreferrer"
-                                className="text-[10px] flex shrink-0 items-center gap-2 text-[#D7B56D] border border-[#D7B56D]/25 rounded-full px-4 py-2 hover:bg-[#D7B56D] hover:text-black transition-all">
-                                Voir le site <LinkIcon size={11} />
-                              </a>
-                            )}
+                            {projectData.link && (projectData.link === 'https://digitagpro.fr' || projectData.link === 'https://digitagmemory.fr') && (
+  <a href={projectData.link} target="_blank" rel="noopener noreferrer"
+    className="text-[10px] flex shrink-0 items-center gap-2 text-[#D7B56D] border border-[#D7B56D]/25 rounded-full px-4 py-2 hover:bg-[#D7B56D] hover:text-black transition-all">
+    Voir le site <LinkIcon size={11} />
+  </a>
+)}
                           </div>
                           {projectData.objective && <p className="text-sm text-neutral-500 italic md:ml-11 border-l-2 border-[#D7B56D]/20 pl-4">{projectData.objective}</p>}
                         </div>

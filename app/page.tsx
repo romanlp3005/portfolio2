@@ -1382,7 +1382,7 @@ const Contact = () => {
         <div className="pt-10">
           <div className="text-[10px] uppercase tracking-[0.5em] text-[#D7B56D] font-black mb-6">Prenons contact</div>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 uppercase leading-[0.85]">
-            <GoldText>IMPACT</GoldText><br />START HERE.
+            <GoldText>PARLONS</GoldText><br />BUSINESS.
           </h1>
           <p className="text-lg text-neutral-400 font-light mb-12 leading-relaxed">
             Une opportunité professionnelle, un projet de collaboration, ou simplement l'envie d'échanger sur la Tech et l'Acquisition ? Laissez-moi un message, je réponds généralement sous 24h.

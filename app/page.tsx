@@ -1236,28 +1236,35 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
             {/* Zone média */}
             <div className="bg-black flex flex-col items-center justify-center relative group lg:w-1/2 min-h-[280px] lg:min-h-[520px]">
               {selectedProof.type === 'image' ? (
-                <img
-                  src={getProofSrc(selectedProof)}
-                  alt={selectedProof.label}
-                  className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
-                />
-              ) : selectedProof.type === 'canva' ? (
-                <div className="absolute inset-0 w-full h-full flex flex-col">
-                  <iframe
-                    ref={iframeRef}
-                    src={getCanvaEmbedUrl(selectedProof.projectLink || '')}
-                    className="w-full flex-1 border-0"
-                    allowFullScreen
-                    title={selectedProof.label || "Document Canva"}
-                    loading="lazy"
-                    style={{ minHeight: 0 }}
-                  />
-                </div>
-              ) : (
-                <div className="text-[#D7B56D]">
-                  {selectedProof.type === 'pdf' ? <FileText className="w-28 h-28" /> : <Video className="w-28 h-28" />}
-                </div>
-              )}
+  <img
+    src={getProofSrc(selectedProof)}
+    alt={selectedProof.label}
+    className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+  />
+) : selectedProof.type === 'video' ? (
+  <video 
+    src={getProofSrc(selectedProof)} 
+    controls 
+    autoPlay 
+    className="absolute inset-0 w-full h-full object-contain p-6 rounded-[32px]" 
+  />
+) : selectedProof.type === 'canva' ? (
+  <div className="absolute inset-0 w-full h-full flex flex-col">
+    <iframe
+      ref={iframeRef}
+      src={getCanvaEmbedUrl(selectedProof.projectLink || '')}
+      className="w-full flex-1 border-0"
+      allowFullScreen
+      title={selectedProof.label || "Document Canva"}
+      loading="lazy"
+      style={{ minHeight: 0 }}
+    />
+  </div>
+) : (
+  <div className="text-[#D7B56D]">
+    <FileText className="w-28 h-28" />
+  </div>
+)}
 
               {/* Bouton dynamique : Voir le site / Ouvrir le PDF / Agrandir l'image */}
               {selectedProof.type !== 'canva' && (

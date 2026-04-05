@@ -1159,20 +1159,29 @@ const MasteryLayout = () => {
                               <div className="aspect-[16/9] bg-black relative flex items-center justify-center overflow-hidden">
                                 
                                 {p.type === 'image' ? (
-                                  <img src={getProofSrc(p)} alt={p.label} className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" />
-                                ) : p.type === 'canva' ? (
-                                  <iframe
-                                    src={getCanvaEmbedUrl(p.projectLink || '')}
-                                    title={p.label || "Document Canva"}
-                                    className="absolute inset-0 w-full h-full border-0 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                                    allowFullScreen
-                                    loading="lazy"
-                                  />
-                                ) : (
-                                  <div className="opacity-20 group-hover:opacity-80 transition-all duration-500 text-[#D7B56D]">
-                                    {p.type === 'pdf' ? <FileText size={48} /> : <Video size={48} />}
-                                  </div>
-                                )}
+  <img src={getProofSrc(p)} alt={p.label} className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" />
+) : p.type === 'video' ? (
+  <>
+    <video src={getProofSrc(p)} className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" preload="metadata" muted playsInline />
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+      <div className="w-12 h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 group-hover:border-[#D7B56D]/50 transition-all duration-300">
+        <Video size={20} className="text-[#D7B56D]" />
+      </div>
+    </div>
+  </>
+) : p.type === 'canva' ? (
+  <iframe
+    src={getCanvaEmbedUrl(p.projectLink || '')}
+    title={p.label || "Document Canva"}
+    className="absolute inset-0 w-full h-full border-0 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+    allowFullScreen
+    loading="lazy"
+  />
+) : (
+  <div className="opacity-20 group-hover:opacity-80 transition-all duration-500 text-[#D7B56D]">
+    <FileText size={48} />
+  </div>
+)}
 
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90 z-10 pointer-events-none" />
                                 <div className="absolute top-5 right-5 z-20 w-8 h-8 rounded-full bg-[#D7B56D] text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 pointer-events-none">

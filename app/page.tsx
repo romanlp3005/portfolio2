@@ -453,7 +453,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="text-[10px] text-neutral-500 mt-0.5">Export & Ventes directes</div>
                   </motion.div>
 
-                  {/* Étiquette 3 : Supply Chain (Milieu Droit) */}
+                  {/* Étiquette 3 : Supply Chain (Milieu Droit) - CORRIGÉE */}
                   <motion.div
                     initial={{ opacity: 0, x: -20, y: 0 }}
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
@@ -466,7 +466,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="text-[10px] text-neutral-500 mt-0.5">Importation & Flux Directs</div>
                   </motion.div>
 
-                  {/* Étiquette 4 : Tech (Bas Gauche) */}
+                  {/* Étiquette 4 : Tech (Bas Gauche) - MUSCLÉE */}
                   <motion.div
                     initial={{ opacity: 0, x: 20, y: -10 }}
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
@@ -479,7 +479,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="text-[10px] text-neutral-500 mt-0.5">Systèmes d'automatisation</div>
                   </motion.div>
 
-                  {/* Étiquette 5 : Traction (Bas Droit) */}
+                  {/* Étiquette 5 : Traction (Bas Droit) - OBLIGATOIRE */}
                   <motion.div
                     initial={{ opacity: 0, x: -20, y: -10 }}
                     whileInView={{ opacity: 1, x: 0, y: 0 }}

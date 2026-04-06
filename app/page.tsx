@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 // --- HELPERS GLOBAUX (Sécurisés pour éviter les erreurs de compilation) ---
-const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : encodeURI(`/portfolio2/${proof.folder}/${proof.file}`);
+const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : encodeURI(`/${proof.folder}/${proof.file}`);
 
 const getCanvaEmbedUrl = (url) => {
   if (!url) return '';
@@ -228,7 +228,7 @@ const PORTFOLIO_DATA = {
     // --- MANAGEMENT ---
     { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Événementiel B2B", projectLink: "https://digitagmemory.fr", folder: "digitag memory", file: "badge pour le salon du funeraire.png", type: "image", label: "Accréditation Professionnelle", caption: "Infiltration d'un marché de niche très fermé (le funéraire). Validation de la crédibilité du projet pour exposer et pitcher la solution face aux leaders du secteur." },
     { competenceId: "management", subCompetenceId: "validation", projectTitle: "DIGITAG MEMORY — Événementiel B2B", folder: "digitag memory", file: "salon funeraire photo entree et dans le salon.png", type: "image", label: "Confrontation Terrain (Salon)", caption: "Présence active sur l'événement sectoriel. Une étape fondamentale pour recueillir des retours clients (feedbacks), créer des partenariats et ajuster l'offre finale." },
-    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Outils d'Aide à la Vente", projectLink: "/portfolio2/digitag pro/Explication Plaque nfc Avantages.pdf", folder: "digitag pro", file: "Explication Plaque nfc Avantages.jpg", type: "image", label: "Brochure Commerciale Structurée", caption: "Création d'un support d'aide à la vente (Sales Enablement) permettant de vulgariser la technologie NFC et d'expliquer instantanément les bénéfices ROI pour le client.", isPdfButton: true },
+    { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "DIGITAG PRO — Outils d'Aide à la Vente", projectLink: "/digitag pro/Explication Plaque nfc Avantages.pdf", folder: "digitag pro", file: "Explication Plaque nfc Avantages.jpg", type: "image", label: "Brochure Commerciale Structurée", caption: "Création d'un support d'aide à la vente (Sales Enablement) permettant de vulgariser la technologie NFC et d'expliquer instantanément les bénéfices ROI pour le client.", isPdfButton: true },
     { competenceId: "management", subCompetenceId: "deploiement", projectTitle: "Projets Académiques — Go-To-Market", projectLink: "https://www.canva.com/design/DAGgxxsPT6s/jHajMVYKM8CcYPjAwDSy0Q/view", type: "canva", label: "Stratégie de Lancement", caption: "Exercice de modélisation stratégique : élaboration complète d'un plan de mise en marché (positionnement, réseau de distribution, plan d'action commercial)." },
   ]
 };
@@ -300,7 +300,7 @@ const Navbar = ({ currentPage, setPage }) => {
             </button>
           ))}
           {/* BOUTON CV */}
-          <a href="/portfolio2/CV_Roman_LAYANI.pdf" target="_blank" rel="noopener noreferrer" 
+          <a href="/CV_Roman_LAYANI.pdf" target="_blank" rel="noopener noreferrer" 
              className="hidden sm:flex text-[9px] uppercase tracking-[0.2em] font-black text-black bg-[#D7B56D] hover:bg-white px-5 py-2.5 rounded-full transition-colors items-center gap-2 shadow-[0_0_15px_rgba(215,181,109,0.3)]">
             Mon CV <Download size={11} className="mb-0.5" />
           </a>
@@ -387,10 +387,10 @@ const Home = ({ setPage, setSelectedProof }) => {
   ];
 
   const projects = [
-    { title: "CHROMA", desc: "Chroma réinvente le vêtement comme une surface vivante qui réagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech", onClick: () => setPage('maitrise') },
-    { title: "DIGITAG MEMORY", desc: "Une mémoire connectée et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Mémoire", onClick: () => setSelectedProof(DIGITAG_MEMORY_PROOF) },
-    { title: "DIGITAG PRO", desc: "Plaques NFC Google & réseaux pour acquisition B2B.", img: "/portfolio2/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC", onClick: () => setSelectedProof(DIGITAG_PRO_PROOF) },
-    { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/portfolio2/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA", onClick: () => setPage('maitrise') },
+    { title: "CHROMA", desc: "Chroma réinvente le vêtement comme une surface vivante qui réagit à son environnement.", img: "/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech", onClick: () => setPage('maitrise') },
+    { title: "DIGITAG MEMORY", desc: "Une mémoire connectée et intemporelle : les souvenirs ne s'effacent jamais.", img: "/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Mémoire", onClick: () => setSelectedProof(DIGITAG_MEMORY_PROOF) },
+    { title: "DIGITAG PRO", desc: "Plaques NFC Google & réseaux pour acquisition B2B.", img: "/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC", onClick: () => setSelectedProof(DIGITAG_PRO_PROOF) },
+    { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA", onClick: () => setPage('maitrise') },
   ];
 
   const systemBlocks = [
@@ -484,7 +484,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                   <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
                     <img
-                      src={encodeURI("/portfolio2/Photo pro roman costume 2026.jpeg")}
+                      src={encodeURI("/Photo pro roman costume 2026.jpeg")}
                       alt="Roman LAYANI-PUJOL"
                       className="w-full h-full object-cover"
                     />
@@ -570,7 +570,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                       <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 12 }} className="flex gap-3 items-center">
                         {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
                           <div key={i} className="w-14 h-8 shrink-0 flex items-center justify-center overflow-hidden">
-                            <img src={encodeURI(`/portfolio2/logo entrprises clientes/logo ${num}.png`)} alt={`Client ${num}`} className="w-full h-full object-contain scale-[1.4] hover:scale-[1.6] transition-transform duration-300" />
+                            <img src={encodeURI(`/logo entrprises clientes/logo ${num}.png`)} alt={`Client ${num}`} className="w-full h-full object-contain scale-[1.4] hover:scale-[1.6] transition-transform duration-300" />
                           </div>
                         ))}
                       </motion.div>
@@ -911,8 +911,8 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <ExpandableProject 
     title="DIGITAG PRO" 
     isLong={true}
-    img="/portfolio2/digitag pro/digitag pro.png"
-    logo="/portfolio2/digitag pro/Logo_DIGITAGPRO-removebg.png"
+    img="/digitag pro/digitag pro.png"
+    logo="/digitag pro/Logo_DIGITAGPRO-removebg.png"
     link="https://digitagpro.fr"
     text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel."
   />
@@ -920,8 +920,8 @@ const Home = ({ setPage, setSelectedProof }) => {
   <ExpandableProject 
     title="DIGITAG MEMORY" 
     isLong={true}
-    img="/portfolio2/digitag memory/digitag memory.png"
-    logo="/portfolio2/digitag memory/Logo Digitag Memory blanc.png"
+    img="/digitag memory/digitag memory.png"
+    logo="/digitag memory/Logo Digitag Memory blanc.png"
     link="https://digitagmemory.fr"
     text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne un accès instantané à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs (photos, messages) dans un environnement strictement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe en ligne (B2C) et distribution via des pompes funèbres partenaires (B2B2C)."
   />
@@ -929,8 +929,8 @@ const Home = ({ setPage, setSelectedProof }) => {
   <ExpandableProject 
     title="CHROMA" 
     isLong={false}
-    img="/portfolio2/chroma/chroma.jpeg"
-    logo="/portfolio2/chroma/logo chroma.png"
+    img="/chroma/chroma.jpeg"
+    logo="/chroma/logo chroma.png"
     link={null}
     text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production industrielle en Asie. Projet récompensé par un 2ème Prix de l'Étudiant Entrepreneur."
   />
@@ -974,7 +974,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                     </div>
                   ) : (
                     <img
-                      src={encodeURI(`/portfolio2/${p.folder}/${p.file}`)}
+                      src={encodeURI(`/${p.folder}/${p.file}`)}
                       alt={p.label}
                       className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700"
                     />

@@ -321,27 +321,28 @@ const ExpandableProject = ({ title, text, link, img, logo, isLong = false }) => 
       
       {/* Container Photo + Logo */}
       <div className="relative mb-6">
-        {/* Photo du produit */}
+        {/* Photo du produit (on réduit un peu l'opacité par défaut pour faire ressortir le logo) */}
         <div className="relative aspect-[16/10] rounded-[22px] overflow-hidden border border-white/5 bg-black">
           <img 
             src={encodeURI(img)} 
             alt={title} 
-            className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/80 via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/90 via-transparent to-transparent opacity-70" />
         </div>
 
-        {/* LOGO FLOTTANT (Le badge) */}
-        <div className="absolute -bottom-3 -right-3 w-14 h-14 bg-[#141414] border border-white/10 rounded-2xl p-2.5 shadow-2xl z-20 flex items-center justify-center backdrop-blur-xl group-hover:border-[#D7B56D]/40 transition-colors">
+        {/* LOGO FLOTTANT — TAILLE AUGMENTÉE À w-28 h-28 */}
+        <div className="absolute -bottom-5 -right-5 w-28 h-28 bg-[#141414] border border-white/10 rounded-3xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-20 flex items-center justify-center backdrop-blur-xl group-hover:border-[#D7B56D]/50 transition-colors duration-300">
           <img 
             src={encodeURI(logo)} 
-            alt="Logo" 
+            alt={`Logo ${title}`} 
             className="w-full h-full object-contain" 
           />
         </div>
       </div>
 
-      <div className="px-2 flex flex-col flex-grow">
+      {/* Reste du texte (on ajoute un peu de padding-top pour ne pas gêner le gros logo) */}
+      <div className="px-2 pt-4 flex flex-col flex-grow relative z-10">
         <strong className="text-white text-base block mb-3 tracking-tight uppercase font-black">{title}</strong>
         
         <div className="flex-grow mb-5 flex flex-col items-start">
@@ -365,7 +366,7 @@ const ExpandableProject = ({ title, text, link, img, logo, isLong = false }) => 
         </div>
 
         {link && (
-          <a href={link} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase font-black tracking-widest text-white bg-white/5 border border-white/10 px-4 py-2.5 rounded-full hover:bg-[#D7B56D] hover:text-black transition-all flex items-center gap-2 w-fit mt-auto">
+          <a href={link} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase font-black tracking-widest text-white bg-white/5 border border-white/10 px-4 py-2.5 rounded-full hover:bg-[#D7B56D] hover:text-black transition-all flex items-center gap-2 w-fit mt-auto relative z-20">
             Visiter le site <ExternalLink size={12} />
           </a>
         )}

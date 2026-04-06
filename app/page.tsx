@@ -448,7 +448,27 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="text-[10px] text-neutral-500 mt-0.5">Sourcing Asie & Flux Directs</div>
                   </motion.div>
 
-                  {/* Étiquette 4  : CLIENTS B2B DÉFILANTS (Nettement plus petite et mieux dimensionnée) */}
+                  {/* Étiquette 5 : Traction (Bas Droit) */}
+                  <motion.div initial={{ opacity: 0, x: -20, y: -10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 1.0, duration: 0.8 }} className="absolute -right-4 bottom-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
+                    <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Traction marché</div>
+                    <div className="text-2xl font-black text-white">300+ clients</div>
+                    <div className="text-[10px] text-neutral-500 mt-0.5">100+ B2B · 200+ B2C</div>
+                  </motion.div>
+
+                  /* Étiquette : 2ÈME PRIX RECONNAISSANCE */}
+                    <motion.div 
+                      initial={{ opacity: 0, x: -20, y: -10 }} 
+                      whileInView={{ opacity: 1, x: 0, y: 0 }} 
+                      viewport={{ once: true }} 
+                      transition={{ delay: 0.7, duration: 0.8, ease: [0.22, 1, 0.36, 1] }} 
+                      className="bg-[#D7B56D] p-5 rounded-2xl shadow-2xl z-40 border border-[#D7B56D]/50"
+                    >
+                      <div className="text-[10px] uppercase tracking-[0.2em] text-[#111] font-black mb-1">RECONNAISSANCE</div>
+                      <div className="text-2xl font-black text-[#111] leading-tight">2ème Prix</div>
+                      <div className="text-xs text-[#111] font-medium">Étudiant Entrepreneur</div>
+                    </motion.div>
+
+                    {/* Étiquette : CLIENTS B2B DÉFILANTS (Nettement plus petite et mieux dimensionnée) */}
                     <motion.div 
                       initial={{ opacity: 0, x: 20, y: 10 }} 
                       whileInView={{ opacity: 1, x: 0, y: 0 }} 
@@ -483,26 +503,6 @@ const Home = ({ setPage, setSelectedProof }) => {
                       </div>
                     </motion.div>
                   </div>
-
-                  {/* Étiquette 5 : Traction (Bas Droit) */}
-                  <motion.div initial={{ opacity: 0, x: -20, y: -10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 1.0, duration: 0.8 }} className="absolute -right-4 bottom-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
-                    <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Traction marché</div>
-                    <div className="text-2xl font-black text-white">300+ clients</div>
-                    <div className="text-[10px] text-neutral-500 mt-0.5">100+ B2B · 200+ B2C</div>
-                  </motion.div>
-
-                  {/* Étiquette 6 : 2ÈME PRIX RECONNAISSANCE */}
-                    <motion.div 
-                      initial={{ opacity: 0, x: -20, y: -10 }} 
-                      whileInView={{ opacity: 1, x: 0, y: 0 }} 
-                      viewport={{ once: true }} 
-                      transition={{ delay: 0.7, duration: 0.8, ease: [0.22, 1, 0.36, 1] }} 
-                      className="bg-[#D7B56D] p-5 rounded-2xl shadow-2xl z-40 border border-[#D7B56D]/50"
-                    >
-                      <div className="text-[10px] uppercase tracking-[0.2em] text-[#111] font-black mb-1">RECONNAISSANCE</div>
-                      <div className="text-2xl font-black text-[#111] leading-tight">2ème Prix</div>
-                      <div className="text-xs text-[#111] font-medium">Étudiant Entrepreneur</div>
-                    </motion.div>
 
                 </div>
               </Reveal>

@@ -314,19 +314,31 @@ const Navbar = ({ currentPage, setPage }) => {
 // HOME PAGE — 6 SECTIONS
 // ═══════════════════════════════════════════════════════════
 
-const ExpandableProject = ({ title, text, link, img, isLong = false }) => {
+const ExpandableProject = ({ title, text, link, img, logo, isLong = false }) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="bg-[#0f0f0f] border border-white/[0.05] rounded-[32px] p-5 hover:border-[#D7B56D]/30 transition-all duration-500 flex flex-col h-full group">
       
-      {/* Image du projet */}
-      <div className="relative aspect-[16/10] rounded-[22px] overflow-hidden mb-6 border border-white/5 bg-black">
-        <img 
-          src={encodeURI(img)} 
-          alt={title} 
-          className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-transparent opacity-60" />
+      {/* Container Photo + Logo */}
+      <div className="relative mb-6">
+        {/* Photo du produit */}
+        <div className="relative aspect-[16/10] rounded-[22px] overflow-hidden border border-white/5 bg-black">
+          <img 
+            src={encodeURI(img)} 
+            alt={title} 
+            className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/80 via-transparent to-transparent opacity-60" />
+        </div>
+
+        {/* LOGO FLOTTANT (Le badge) */}
+        <div className="absolute -bottom-3 -right-3 w-14 h-14 bg-[#141414] border border-white/10 rounded-2xl p-2.5 shadow-2xl z-20 flex items-center justify-center backdrop-blur-xl group-hover:border-[#D7B56D]/40 transition-colors">
+          <img 
+            src={encodeURI(logo)} 
+            alt="Logo" 
+            className="w-full h-full object-contain" 
+          />
+        </div>
       </div>
 
       <div className="px-2 flex flex-col flex-grow">
@@ -896,28 +908,31 @@ const Home = ({ setPage, setSelectedProof }) => {
               <div className="grid md:grid-cols-3 gap-8 md:gap-12 text-sm text-neutral-400 font-light leading-relaxed">
                 
                 <ExpandableProject 
-                  title="DIGITAG PRO" 
-                  isLong={true}
-                  img="/portfolio2/digitag pro/digitag pro.png"
-                  link="https://digitagpro.fr"
-                  text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel."
-                />
+    title="DIGITAG PRO" 
+    isLong={true}
+    img="/portfolio2/digitag pro/digitag pro.jpeg"
+    logo="/portfolio2/digitag pro/Logo DIGITAGPRO.png"
+    link="https://digitagpro.fr"
+    text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel."
+  />
 
-                <ExpandableProject 
-                  title="DIGITAG MEMORY" 
-                  isLong={true}
-                  img="/portfolio2/digitag memory/digitag memory.png"
-                  link="https://digitagmemory.fr"
-                  text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne accès à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs dans un environnement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe (B2C) et via pompes funèbres (B2B2C)."
-                />
+  <ExpandableProject 
+    title="DIGITAG MEMORY" 
+    isLong={true}
+    img="/portfolio2/digitag memory/digitag memory.png"
+    logo="/portfolio2/digitag memory/Logo Digitag Memory blanc.png"
+    link="https://digitagmemory.fr"
+    text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne un accès instantané à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs (photos, messages) dans un environnement strictement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe en ligne (B2C) et distribution via des pompes funèbres partenaires (B2B2C)."
+  />
 
-                <ExpandableProject 
-                  title="CHROMA" 
-                  isLong={false}
-                  img="/portfolio2/chroma/chroma.jpeg"
-                  link={null}
-                  text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production industrielle en Asie. Projet récompensé par un 2ème Prix de l'Étudiant Entrepreneur."
-                />
+  <ExpandableProject 
+    title="CHROMA" 
+    isLong={false}
+    img="/portfolio2/chroma/chroma.jpeg"
+    logo="/portfolio2/chroma/logo chroma.png"
+    link={null}
+    text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production industrielle en Asie. Projet récompensé par un 2ème Prix de l'Étudiant Entrepreneur."
+  />
 
               </div>
             </div>

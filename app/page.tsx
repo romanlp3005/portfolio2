@@ -508,6 +508,8 @@ const Home = ({ setPage, setSelectedProof }) => {
                       </div>
                     </motion.div>
                   </div>
+
+                    </div>
                     
                 </div>
               </Reveal>

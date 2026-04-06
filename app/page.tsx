@@ -898,7 +898,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <ExpandableProject 
                   title="DIGITAG PRO" 
                   isLong={true}
-                  img="/digitag pro/digitag pro.jpeg"
+                  img="/portfolio2/digitag pro/digitag pro.jpeg"
                   link="https://digitagpro.fr"
                   text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel."
                 />
@@ -906,7 +906,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <ExpandableProject 
                   title="DIGITAG MEMORY" 
                   isLong={true}
-                  img="/digitag memory/digitag memory.png"
+                  img="/portfolio2/digitag memory/digitag memory.png"
                   link="https://digitagmemory.fr"
                   text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne accès à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs dans un environnement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe (B2C) et via pompes funèbres (B2B2C)."
                 />
@@ -914,7 +914,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <ExpandableProject 
                   title="CHROMA" 
                   isLong={false}
-                  img="/chroma/chroma.jpeg"
+                  img="/portfolio2/chroma/chroma.jpeg"
                   link={null}
                   text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production industrielle en Asie. Projet récompensé par un 2ème Prix de l'Étudiant Entrepreneur."
                 />

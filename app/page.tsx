@@ -12,7 +12,6 @@ import {
 
 // --- HELPERS GLOBAUX (Sécurisés pour éviter les erreurs de compilation) ---
 const getProofSrc = (proof) => proof.type === 'canva' ? proof.projectLink : encodeURI(`/${proof.folder}/${proof.file}`);
-
 const getCanvaEmbedUrl = (url) => {
   if (!url) return '';
   if (!url.includes('canva.com')) return url; // Supporte la 3D et autres sites

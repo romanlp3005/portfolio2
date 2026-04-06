@@ -361,6 +361,13 @@ const Home = ({ setPage, setSelectedProof }) => {
     { folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", label: "Logiciel Sinistres" },
   ];
 
+  const projects = [
+    { title: "CHROMA", desc: "Chroma réinvente le vêtement comme une surface vivante qui réagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech", onClick: () => setPage('maitrise') },
+    { title: "DIGITAG MEMORY", desc: "Une mémoire connectée et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Mémoire", onClick: () => setSelectedProof(DIGITAG_MEMORY_PROOF) },
+    { title: "DIGITAG PRO", desc: "Plaques NFC Google & réseaux pour acquisition B2B.", img: "/portfolio2/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC", onClick: () => setSelectedProof(DIGITAG_PRO_PROOF) },
+    { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/portfolio2/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA", onClick: () => setPage('maitrise') },
+  ];
+
   const systemBlocks = [
     { key: "package", title: "Produit", desc: "Prototype → design → industrialisation", color: "from-amber-900/20" },
     { key: "globe", title: "Supply", desc: "Sourcing → négociation → import/export", color: "from-emerald-900/20" },
@@ -867,7 +874,7 @@ const Home = ({ setPage, setSelectedProof }) => {
       <section className="py-28 md:py-36 px-8 border-t border-white/[0.04] bg-[#060606]">
         <div className="max-w-[1400px] mx-auto">
           <Reveal>
-            <div className="max-w-6xl">
+            <div className="max-w-6xl mb-16">
               <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">L'écosystème de mes entreprises</div>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9] mb-12">
                 Projets <GoldText>fondateurs</GoldText>
@@ -880,26 +887,72 @@ const Home = ({ setPage, setSelectedProof }) => {
                   title="DIGITAG PRO" 
                   isLong={true}
                   link="https://digitagpro.fr"
-                  text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain (taux de scan, performance par agence)."
+                  text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard, menus digitaux...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel (taux de scan par point de vente, croissance de la note, performance par agence)."
                 />
 
                 <ExpandableProject 
                   title="DIGITAG MEMORY" 
                   isLong={true}
                   link="https://digitagmemory.fr"
-                  text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne accès à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs dans un environnement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe (B2C) et via pompes funèbres (B2B2C)."
+                  text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne un accès instantané à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs (photos, messages) dans un environnement strictement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe en ligne (B2C) et distribution via des pompes funèbres partenaires (B2B2C)."
                 />
 
                 <ExpandableProject 
                   title="CHROMA" 
                   isLong={false}
                   link={null}
-                  text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production industrielle en Asie."
+                  text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production en Asie."
                 />
 
               </div>
             </div>
           </Reveal>
+
+          {/* La grille avec les images de tes projets */}
+          <div className="grid md:grid-cols-2 gap-5">
+            {projects.map((proj, i) => (
+              <Reveal key={i} delay={i * 0.07}>
+                <motion.div
+                  whileHover="hover"
+                  onClick={proj.onClick}
+                  className="relative aspect-[16/10] rounded-[28px] overflow-hidden cursor-pointer group border border-white/[0.05] hover:border-[#D7B56D]/25 transition-all duration-600"
+                >
+                  <motion.img
+                    src={encodeURI(proj.img)}
+                    alt={proj.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    variants={{ hover: { scale: 1.06 } }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ opacity: 0.45 }}
+                  />
+                  <motion.div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-600"
+                    style={{ background: 'transparent' }}>
+                    <img src={encodeURI(proj.img)} alt="" className="w-full h-full object-cover opacity-60" />
+                  </motion.div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/50 to-[#080808]/10" />
+
+                  <div className="absolute top-6 left-6 px-3 py-1.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-sm">
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black">{proj.tag}</span>
+                  </div>
+
+                  <div className="absolute bottom-8 left-8 right-8 z-10">
+                    <h4 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white mb-3 leading-tight">{proj.title}</h4>
+                    <motion.p
+                      className="text-sm text-neutral-400 font-light max-w-sm leading-relaxed"
+                      variants={{ hover: { y: -4 } }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {proj.desc}
+                    </motion.p>
+                  </div>
+
+                  <div className="absolute top-6 right-6 w-9 h-9 rounded-full bg-[#D7B56D]/0 border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:bg-[#D7B56D] group-hover:border-[#D7B56D] transition-all duration-400">
+                    <ArrowUpRight size={14} className="text-black" />
+                  </div>
+                </motion.div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -982,6 +1035,9 @@ const Home = ({ setPage, setSelectedProof }) => {
           </Reveal>
         </div>
       </section>
+    </div>
+  );
+};
 
 // ═══════════════════════════════════════════════════════════
 // A PROPOS PAGE

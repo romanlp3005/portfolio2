@@ -442,7 +442,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                   {/* Étiquette 2 : International (Haut Droit) */}
                   <motion.div initial={{ opacity: 0, x: -20, y: 10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.7, duration: 0.8 }} className="absolute -right-10 top-8 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Expansion</div>
-                    <div className="text-xl font-black text-white">5+ Pays actifs</div>
+                    <div className="text-xl font-black text-white">5+ Pays livrés</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5">Ventes réalisées dans ces pays</div>
                   </motion.div>
 

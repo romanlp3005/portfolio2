@@ -427,21 +427,6 @@ const Home = ({ setPage, setSelectedProof }) => {
                     </div>
                   </div>
 
-                  <div className="relative w-full max-w-[340px] md:max-w-[400px] lg:max-w-[460px]">
-                  <div className="absolute -inset-8 bg-[#D7B56D]/15 blur-[70px] rounded-[50px] pointer-events-none" />
-                  <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
-                    <img
-                      src={encodeURI("/portfolio2/Photo pro roman costume 2026.jpeg")}
-                      alt="Roman LAYANI-PUJOL"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute bottom-6 left-6 z-20 flex flex-col gap-1">
-                      <span className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black">Roman LAYANI-PUJOL</span>
-                      <span className="text-[11px] text-white font-light">Entrepreneur Hybride · 2026</span>
-                    </div>
-                  </div>
-
                   {/* Étiquette 1 : Scale E-commerce (Haut Gauche) */}
                   <motion.div initial={{ opacity: 0, x: 20, y: 10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.8 }} className="absolute -left-10 top-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">E-commerce Scale</div>

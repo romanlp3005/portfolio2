@@ -492,7 +492,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                       {/* La Bulle d'info (invisible par défaut, visible au survol "group-hover") */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-[#0f0f0f] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none">
                         <p className="text-[9px] text-neutral-300 leading-relaxed font-light normal-case tracking-normal text-center">
-                          Plaques NFC vendues et installées directement auprès de <strong className="text-white">franchises et agences locales</strong> de ces réseaux. (Preuves en images dans la section Compétences).
+                          Précision importante : mes solutions équipent des points de vente et agences locales de ces réseaux, et en aucun cas l'ensemble du groupe. Photos disponibles dans mes compétences."
                         </p>
                         {/* Le petit triangle en bas de la bulle */}
                         <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#0f0f0f] border-b border-r border-white/10 rotate-45" />

@@ -850,7 +850,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <div className="border-l-2 border-white/10 pl-6 hover:border-[#D7B56D]/50 transition-colors flex flex-col">
                   <strong className="text-white text-base block mb-3 tracking-tight">DIGITAG PRO</strong>
                   <p className="flex-grow mb-5">
-                    Acquisition B2B. Plaques NFC intelligentes installées chez les commerçants pour générer instantanément des avis Google et des abonnés sur les réseaux sociaux.
+                    Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard, menus digitaux...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel (taux de scan par point de vente, croissance de la note, performance par agence).
                   </p>
                   <a href="https://digitagpro.fr" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase font-black tracking-widest text-[#D7B56D] hover:text-white flex items-center gap-2 transition-colors w-fit">
                     Visiter le site <ExternalLink size={12} />
@@ -861,7 +861,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <div className="border-l-2 border-white/10 pl-6 hover:border-[#D7B56D]/50 transition-colors flex flex-col">
                   <strong className="text-white text-base block mb-3 tracking-tight">DIGITAG MEMORY</strong>
                   <p className="flex-grow mb-5">
-                    Secteur funéraire. Médaillons NFC intemporels fixés sur les sépultures, permettant aux familles de conserver et de partager une biographie digitale du défunt.
+                    Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne un accès instantané à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs (photos, messages) dans un environnement strictement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe en ligne (B2C) et distribution via des pompes funèbres partenaires (B2B2C).
                   </p>
                   <a href="https://digitagmemory.fr" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase font-black tracking-widest text-[#D7B56D] hover:text-white flex items-center gap-2 transition-colors w-fit">
                     Visiter le site <ExternalLink size={12} />

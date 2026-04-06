@@ -454,26 +454,27 @@ const Home = ({ setPage, setSelectedProof }) => {
                     whileInView={{ opacity: 1, x: 0, y: 0 }} 
                     viewport={{ once: true }} 
                     transition={{ delay: 0.9, duration: 0.8, ease: [0.22, 1, 0.36, 1] }} 
-                    className="absolute -left-6 bottom-1/4 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30 w-64 overflow-hidden"
+                    className="absolute -left-6 bottom-1/4 bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-5 shadow-2xl z-30 w-80 overflow-hidden"
                   >
-                    <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-3">Solutions NFC déployées</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-[#D7B56D] font-black mb-4">Solutions NFC déployées</div>
                     <div className="flex w-full overflow-hidden relative group">
-                      {/* Gradients pour adoucir l'apparition/disparition des logos */}
-                      <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#111] to-transparent z-10" />
-                      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#111] to-transparent z-10" />
+                      {/* Gradients pour adoucir les bords */}
+                      <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-[#111] to-transparent z-10" />
+                      <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-[#111] to-transparent z-10" />
 
                       <motion.div 
                         animate={{ x: ["0%", "-50%"] }} 
-                        transition={{ repeat: Infinity, ease: "linear", duration: 12 }} 
-                        className="flex gap-8 whitespace-nowrap items-center"
+                        transition={{ repeat: Infinity, ease: "linear", duration: 15 }} 
+                        className="flex gap-10 whitespace-nowrap items-center"
                       >
-                        {/* Boucle avec encodeURI pour gérer parfaitement les espaces */}
+                        {/* Boucle sur les 5 logos (répétés pour défilement infini) */}
                         {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
                           <img 
                             key={i} 
                             src={encodeURI(`/portfolio2/logo entrprises clientes/logo ${num}.png`)} 
-                            alt={`Partenaire ${num}`}
-                            className="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-40 group-hover:opacity-100 transition-all duration-500 grayscale" 
+                            alt={`Client ${num}`}
+                            // h-10 (40px) sur mobile et h-12 (48px) sur desktop pour que ce soit gros
+                            className="h-10 md:h-12 w-auto object-contain grayscale opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500" 
                           />
                         ))}
                       </motion.div>

@@ -314,38 +314,50 @@ const Navbar = ({ currentPage, setPage }) => {
 // HOME PAGE — 6 SECTIONS
 // ═══════════════════════════════════════════════════════════
 
-// Mini-composant pour les textes qui se déroulent
-const ExpandableProject = ({ title, text, link, isLong = false }) => {
+const ExpandableProject = ({ title, text, link, img, isLong = false }) => {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="border-l-2 border-white/10 pl-6 hover:border-[#D7B56D]/50 transition-colors flex flex-col h-full">
-      <strong className="text-white text-base block mb-3 tracking-tight">{title}</strong>
+    <div className="bg-[#0f0f0f] border border-white/[0.05] rounded-[32px] p-5 hover:border-[#D7B56D]/30 transition-all duration-500 flex flex-col h-full group">
       
-      <div className="flex-grow mb-5 flex flex-col items-start">
-        <motion.div layout transition={{ duration: 0.3, ease: "easeInOut" }}>
-          <p className={`text-neutral-400 font-light leading-relaxed ${!expanded && isLong ? 'line-clamp-4' : ''}`}>
-            {text}
-          </p>
-        </motion.div>
-        
-        {isLong && (
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="mt-3 text-[10px] uppercase font-black tracking-widest text-neutral-500 hover:text-[#D7B56D] flex items-center gap-1.5 transition-colors"
-          >
-            {expanded ? "Réduire" : "Lire la suite"}
-            <motion.div animate={{ rotate: expanded ? -90 : 90 }} transition={{ duration: 0.3 }}>
-              <ChevronRight size={12} />
-            </motion.div>
-          </button>
-        )}
+      {/* Image du projet */}
+      <div className="relative aspect-[16/10] rounded-[22px] overflow-hidden mb-6 border border-white/5 bg-black">
+        <img 
+          src={encodeURI(img)} 
+          alt={title} 
+          className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-transparent opacity-60" />
       </div>
 
-      {link && (
-        <a href={link} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase font-black tracking-widest text-[#D7B56D] hover:text-white flex items-center gap-2 transition-colors w-fit mt-auto">
-          Visiter le site <ExternalLink size={12} />
-        </a>
-      )}
+      <div className="px-2 flex flex-col flex-grow">
+        <strong className="text-white text-base block mb-3 tracking-tight uppercase font-black">{title}</strong>
+        
+        <div className="flex-grow mb-5 flex flex-col items-start">
+          <motion.div layout transition={{ duration: 0.3, ease: "easeInOut" }}>
+            <p className={`text-neutral-400 font-light leading-relaxed text-sm ${!expanded && isLong ? 'line-clamp-4' : ''}`}>
+              {text}
+            </p>
+          </motion.div>
+          
+          {isLong && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="mt-3 text-[10px] uppercase font-black tracking-widest text-[#D7B56D]/60 hover:text-[#D7B56D] flex items-center gap-1.5 transition-colors"
+            >
+              {expanded ? "Réduire" : "Lire la suite"}
+              <motion.div animate={{ rotate: expanded ? -90 : 90 }} transition={{ duration: 0.3 }}>
+                <ChevronRight size={12} />
+              </motion.div>
+            </button>
+          )}
+        </div>
+
+        {link && (
+          <a href={link} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase font-black tracking-widest text-white bg-white/5 border border-white/10 px-4 py-2.5 rounded-full hover:bg-[#D7B56D] hover:text-black transition-all flex items-center gap-2 w-fit mt-auto">
+            Visiter le site <ExternalLink size={12} />
+          </a>
+        )}
+      </div>
     </div>
   );
 };
@@ -886,22 +898,25 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <ExpandableProject 
                   title="DIGITAG PRO" 
                   isLong={true}
+                  img="/portfolio2/digitag pro.jpeg"
                   link="https://digitagpro.fr"
-                  text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard, menus digitaux...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel (taux de scan par point de vente, croissance de la note, performance par agence)."
+                  text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel."
                 />
 
                 <ExpandableProject 
                   title="DIGITAG MEMORY" 
                   isLong={true}
+                  img="/portfolio2/digitag memory.png"
                   link="https://digitagmemory.fr"
-                  text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne un accès instantané à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs (photos, messages) dans un environnement strictement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe en ligne (B2C) et distribution via des pompes funèbres partenaires (B2B2C)."
+                  text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne accès à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs dans un environnement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe (B2C) et via pompes funèbres (B2B2C)."
                 />
 
                 <ExpandableProject 
                   title="CHROMA" 
                   isLong={false}
+                  img="/portfolio2/chroma.jpeg"
                   link={null}
-                  text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production en Asie."
+                  text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production industrielle en Asie. Projet récompensé par un 2ème Prix de l'Étudiant Entrepreneur."
                 />
 
               </div>

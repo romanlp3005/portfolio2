@@ -837,16 +837,50 @@ const Home = ({ setPage, setSelectedProof }) => {
       <section className="py-28 md:py-36 px-8 border-t border-white/[0.04] bg-[#060606]">
         <div className="max-w-[1400px] mx-auto">
           <Reveal>
-            <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">Projets réels · de A à Z</div>
-                <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">
-                  Projets <GoldText>développés</GoldText>
-                </h2>
+            <div className="max-w-6xl mb-16">
+              <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">L'écosystème de mes entreprises</div>
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9] mb-12">
+                Projets <GoldText>fondateurs</GoldText>
+              </h2>
+              
+              {/* 3 Colonnes d'explications claires avec liens */}
+              <div className="grid md:grid-cols-3 gap-8 md:gap-12 text-sm text-neutral-400 font-light leading-relaxed">
+                
+                {/* DIGITAG PRO */}
+                <div className="border-l-2 border-white/10 pl-6 hover:border-[#D7B56D]/50 transition-colors flex flex-col">
+                  <strong className="text-white text-base block mb-3 tracking-tight">DIGITAG PRO</strong>
+                  <p className="flex-grow mb-5">
+                    Acquisition B2B. Plaques NFC intelligentes installées chez les commerçants pour générer instantanément des avis Google et des abonnés sur les réseaux sociaux.
+                  </p>
+                  <a href="https://digitagpro.fr" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase font-black tracking-widest text-[#D7B56D] hover:text-white flex items-center gap-2 transition-colors w-fit">
+                    Visiter le site <ExternalLink size={12} />
+                  </a>
+                </div>
+
+                {/* DIGITAG MEMORY */}
+                <div className="border-l-2 border-white/10 pl-6 hover:border-[#D7B56D]/50 transition-colors flex flex-col">
+                  <strong className="text-white text-base block mb-3 tracking-tight">DIGITAG MEMORY</strong>
+                  <p className="flex-grow mb-5">
+                    Secteur funéraire. Médaillons NFC intemporels fixés sur les sépultures, permettant aux familles de conserver et de partager une biographie digitale du défunt.
+                  </p>
+                  <a href="https://digitagmemory.fr" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase font-black tracking-widest text-[#D7B56D] hover:text-white flex items-center gap-2 transition-colors w-fit">
+                    Visiter le site <ExternalLink size={12} />
+                  </a>
+                </div>
+
+                {/* CHROMA */}
+                <div className="border-l-2 border-white/10 pl-6 hover:border-[#D7B56D]/50 transition-colors flex flex-col">
+                  <strong className="text-white text-base block mb-3 tracking-tight">CHROMA</strong>
+                  <p className="flex-grow">
+                    Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D jusqu'au sourcing usine en Asie.
+                  </p>
+                </div>
+
               </div>
             </div>
           </Reveal>
 
+          {/* La grille avec les images de tes projets */}
           <div className="grid md:grid-cols-2 gap-5">
             {projects.map((proj, i) => (
               <Reveal key={i} delay={i * 0.07}>

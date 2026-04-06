@@ -449,16 +449,33 @@ const Home = ({ setPage, setSelectedProof }) => {
                   </motion.div>
 
                   {/* Étiquette 4 : CLIENTS B2B DÉFILANTS (Bas Gauche) */}
-                  <motion.div initial={{ opacity: 0, x: 20, y: -10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.9, duration: 0.8 }} className="absolute -left-6 bottom-1/4 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30 w-56 overflow-hidden">
-                    <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-2">Solutions NFC déployées</div>
-                    <div className="flex w-full overflow-hidden relative">
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20, y: -10 }} 
+                    whileInView={{ opacity: 1, x: 0, y: 0 }} 
+                    viewport={{ once: true }} 
+                    transition={{ delay: 0.9, duration: 0.8 }} 
+                    className="absolute -left-6 bottom-1/4 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30 w-64 overflow-hidden"
+                  >
+                    <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-3">Solutions NFC déployées</div>
+                    <div className="flex w-full overflow-hidden relative group">
+                      {/* Gradients pour adoucir l'apparition/disparition des logos */}
+                      <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#111] to-transparent z-10" />
+                      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#111] to-transparent z-10" />
+
                       <motion.div 
                         animate={{ x: ["0%", "-50%"] }} 
-                        transition={{ repeat: Infinity, ease: "linear", duration: 10 }} 
-                        className="flex gap-4 whitespace-nowrap text-sm font-black text-white"
+                        transition={{ repeat: Infinity, ease: "linear", duration: 12 }} 
+                        className="flex gap-8 whitespace-nowrap items-center"
                       >
-                        <span>RENAULT • SPORT 2000 • BARBOUR • INTERSPORT • RE/MAX • </span>
-                        <span>RENAULT • SPORT 2000 • BARBOUR • INTERSPORT • RE/MAX • </span>
+                        {/* Boucle avec les chemins exacts et sécurisés pour le web */}
+                        {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
+                          <img 
+                            key={i} 
+                            src={`/logo%20entrprises%20clientes/logo%20${num}.png`} 
+                            alt={`Partenaire ${num}`}
+                            className="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-40 group-hover:opacity-100 transition-all duration-500 grayscale" 
+                          />
+                        ))}
                       </motion.div>
                     </div>
                   </motion.div>

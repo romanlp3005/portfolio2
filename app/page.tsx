@@ -4,7 +4,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowRight, ChevronRight, FileText, Video, X,
+  ArrowRight, ChevronRight, FileText, Video, X, Info,
   Globe, TrendingUp, Package, Terminal, Users, Target,
   Zap, ExternalLink, ArrowUpRight, Layers, Link as LinkIcon, Presentation,
   ChevronLeft, ChevronRight as ChevronRightIcon, Download, Linkedin, Calendar
@@ -473,16 +473,34 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="text-[9px] text-[#111]/80 font-bold mt-0.5">Étudiant Entrepreneur</div>
                   </motion.div>
 
-                  {/* Étiquette 6 : CLIENTS B2B DÉFILANTS (Bas Gauche - RÉDUITE ET SÉPARÉE) */}
+                  {/* Étiquette 6 : CLIENTS B2B DÉFILANTS (Bas Gauche) */}
                   <motion.div 
                     initial={{ opacity: 0, x: 20, y: 10 }} 
                     whileInView={{ opacity: 1, x: 0, y: 0 }} 
                     viewport={{ once: true }} 
                     transition={{ delay: 0.9, duration: 0.8 }} 
-                    className="absolute bottom-[15%] -left-6 bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-3 shadow-2xl w-48 overflow-hidden z-30"
+                    // J'ai enlevé "overflow-hidden" ici pour que la bulle puisse s'afficher au-dessus
+                    className="absolute bottom-[15%] -left-6 bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-3 shadow-2xl w-52 z-30"
                   >
-                    <div className="text-[8px] uppercase tracking-[0.2em] text-[#D7B56D] font-black mb-2 text-center">NFC déployées</div>
-                    <div className="flex w-full overflow-hidden relative">
+                    {/* En-tête avec Titre + Icône Info + Bulle (Tooltip) */}
+                    <div className="flex items-center justify-center gap-1.5 mb-2 relative group">
+                      <div className="text-[8px] uppercase tracking-[0.2em] text-[#D7B56D] font-black">Points de vente équipés</div>
+                      
+                      {/* Icône Info */}
+                      <Info size={10} className="text-neutral-500 cursor-help hover:text-[#D7B56D] transition-colors" />
+                      
+                      {/* La Bulle d'info (invisible par défaut, visible au survol "group-hover") */}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-[#0f0f0f] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none">
+                        <p className="text-[9px] text-neutral-300 leading-relaxed font-light normal-case tracking-normal text-center">
+                          Plaques NFC vendues et installées directement auprès de <strong className="text-white">franchises et agences locales</strong> de ces réseaux. (Preuves en images dans la section Compétences).
+                        </p>
+                        {/* Le petit triangle en bas de la bulle */}
+                        <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#0f0f0f] border-b border-r border-white/10 rotate-45" />
+                      </div>
+                    </div>
+                    
+                    {/* Le défilement des logos (avec overflow-hidden placé juste ici) */}
+                    <div className="flex w-full overflow-hidden relative rounded-lg">
                       <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[#111] to-transparent z-10 pointer-events-none" />
                       <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-[#111] to-transparent z-10 pointer-events-none" />
                       

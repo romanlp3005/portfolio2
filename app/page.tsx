@@ -912,7 +912,7 @@ const Home = ({ setPage, setSelectedProof }) => {
     title="DIGITAG PRO" 
     isLong={true}
     img="/portfolio2/digitag pro/digitag pro.png"
-    logo="/portfolio2/digitag pro/Logo DIGITAGPRO.png"
+    logo="/portfolio2/digitag pro/Logo_DIGITAGPRO-removebg.png"
     link="https://digitagpro.fr"
     text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel."
   />

@@ -454,28 +454,30 @@ const Home = ({ setPage, setSelectedProof }) => {
                     whileInView={{ opacity: 1, x: 0, y: 0 }} 
                     viewport={{ once: true }} 
                     transition={{ delay: 0.9, duration: 0.8, ease: [0.22, 1, 0.36, 1] }} 
-                    className="absolute -left-6 bottom-1/4 bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-5 shadow-2xl z-30 w-80 overflow-hidden"
+                    className="absolute -left-6 bottom-1/4 bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-5 shadow-2xl z-30 w-[280px] overflow-hidden"
                   >
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-[#D7B56D] font-black mb-4">Solutions NFC déployées</div>
-                    <div className="flex w-full overflow-hidden relative group">
-                      {/* Gradients pour adoucir les bords */}
-                      <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-[#111] to-transparent z-10" />
-                      <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-[#111] to-transparent z-10" />
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-[#D7B56D] font-black mb-4 text-center">Solutions NFC déployées</div>
+                    
+                    <div className="flex w-full overflow-hidden relative">
+                      {/* Gradients plus prononcés pour cacher l'entrée et la sortie des logos */}
+                      <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#111] to-transparent z-10 pointer-events-none" />
+                      <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#111] to-transparent z-10 pointer-events-none" />
 
                       <motion.div 
                         animate={{ x: ["0%", "-50%"] }} 
                         transition={{ repeat: Infinity, ease: "linear", duration: 15 }} 
-                        className="flex gap-10 whitespace-nowrap items-center"
+                        className="flex gap-6 items-center"
                       >
-                        {/* Boucle sur les 5 logos (répétés pour défilement infini) */}
+                        {/* Boucle sur les logos */}
                         {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
-                          <img 
-                            key={i} 
-                            src={encodeURI(`/portfolio2/logo entrprises clientes/logo ${num}.png`)} 
-                            alt={`Client ${num}`}
-                            // h-10 (40px) sur mobile et h-12 (48px) sur desktop pour que ce soit gros
-                            className="h-10 md:h-12 w-auto object-contain grayscale opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500" 
-                          />
+                          <div key={i} className="w-28 h-20 shrink-0 flex items-center justify-center overflow-hidden">
+                            <img 
+                              src={encodeURI(`/portfolio2/logo entrprises clientes/logo ${num}.png`)} 
+                              alt={`Client ${num}`}
+                              /* LE SECRET EST ICI : object-contain + scale-[2] (zoom x2) pour éliminer le vide autour du logo */
+                              className="w-full h-full object-contain scale-[2] hover:scale-[2.2] transition-transform duration-300" 
+                            />
+                          </div>
                         ))}
                       </motion.div>
                     </div>

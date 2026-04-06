@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/portfolio2", // Indique à Next.js qu'il est dans un sous-dossier sur GitHub
+  basePath: "", 
 };
 
 export default nextConfig;

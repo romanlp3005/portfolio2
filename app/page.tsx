@@ -671,7 +671,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#D7B56D]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Ventes Internationales</div>
-                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-6">Marchés actifs</div>
+                  <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-6">Pays livrés</div>
                   <div className="flex flex-col gap-3">
                     {[["🇫🇷", "France"], ["🇨🇭", "Suisse"], ["🇧🇪", "Belgique"], ["🇱🇺", "Luxembourg"], ["🇹🇷", "Turquie"], ["🇱🇹", "Lituanie"]].map(([flag, country], i) => (
                       <motion.div key={i}

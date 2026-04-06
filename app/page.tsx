@@ -409,11 +409,16 @@ const Home = ({ setPage, setSelectedProof }) => {
               </Reveal>
             </div>
 
-            {/* Droite — Photo (40%) */}
+                 {/* Droite — Photo (40%) */}
             <div className="flex justify-center lg:justify-end">
               <Reveal delay={0.2} y={30}>
+                
                 <div className="relative w-full max-w-[340px] md:max-w-[400px] lg:max-w-[460px]">
+                  
+                  {/* Halo lumineux derrière la photo */}
                   <div className="absolute -inset-8 bg-[#D7B56D]/15 blur-[70px] rounded-[50px] pointer-events-none" />
+                  
+                  {/* Conteneur de l'image de profil */}
                   <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
                     <img
@@ -455,46 +460,41 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="text-[10px] text-neutral-500 mt-0.5">100+ B2B · 200+ B2C</div>
                   </motion.div>
 
-                  {/* BLOC GAUCHE GROUPÉ : Superposition Prix + Logos B2B pour éviter qu'ils se montent dessus */}
-                  <div className="absolute top-[40%] -left-12 flex flex-col items-start gap-4 z-40">
-                    
-                    {/* Étiquette 5 : 2ÈME PRIX RECONNAISSANCE */}
-                    <motion.div 
-                      initial={{ opacity: 0, x: 20, y: 0 }} 
-                      whileInView={{ opacity: 1, x: 0, y: 0 }} 
-                      viewport={{ once: true }} 
-                      transition={{ delay: 1.1, duration: 0.8 }} 
-                      className="bg-[#D7B56D] p-4 rounded-2xl shadow-[0_0_30px_rgba(215,181,109,0.3)] border border-white/20"
-                    >
-                      <div className="text-[9px] uppercase tracking-widest text-[#111] font-black mb-1">Reconnaissance</div>
-                      <div className="text-lg font-black text-[#111] leading-tight">2ème Prix</div>
-                      <div className="text-[9px] text-[#111]/80 font-bold mt-0.5">Étudiant Entrepreneur</div>
-                    </motion.div>
+                  {/* Étiquette 5 : 2ÈME PRIX RECONNAISSANCE (Milieu Gauche - REMONTÉE) */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -20, y: 0 }} 
+                    whileInView={{ opacity: 1, x: 0, y: 0 }} 
+                    viewport={{ once: true }} 
+                    transition={{ delay: 1.1, duration: 0.8 }} 
+                    className="absolute top-[35%] -left-12 bg-[#D7B56D] p-4 rounded-2xl shadow-[0_0_30px_rgba(215,181,109,0.3)] border border-white/20 z-40"
+                  >
+                    <div className="text-[9px] uppercase tracking-widest text-[#111] font-black mb-1">Reconnaissance</div>
+                    <div className="text-lg font-black text-[#111] leading-tight">2ème Prix</div>
+                    <div className="text-[9px] text-[#111]/80 font-bold mt-0.5">Étudiant Entrepreneur</div>
+                  </motion.div>
 
-                    {/* Étiquette 6 : CLIENTS B2B DÉFILANTS */}
-                    <motion.div 
-                      initial={{ opacity: 0, x: 20, y: -10 }} 
-                      whileInView={{ opacity: 1, x: 0, y: 0 }} 
-                      viewport={{ once: true }} 
-                      transition={{ delay: 0.9, duration: 0.8 }} 
-                      className="bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-4 shadow-2xl w-56 overflow-hidden"
-                    >
-                      <div className="text-[9px] uppercase tracking-[0.2em] text-[#D7B56D] font-black mb-3 text-center">Solutions NFC déployées</div>
-                      <div className="flex w-full overflow-hidden relative">
-                        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#111] to-transparent z-10 pointer-events-none" />
-                        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#111] to-transparent z-10 pointer-events-none" />
-                        <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 12 }} className="flex gap-4 items-center">
-                          {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
-                            <div key={i} className="w-20 h-12 shrink-0 flex items-center justify-center overflow-hidden">
-                              <img src={encodeURI(`/portfolio2/logo entrprises clientes/logo ${num}.png`)} alt={`Client ${num}`} className="w-full h-full object-contain scale-[1.5] hover:scale-[1.7] transition-transform duration-300" />
-                            </div>
-                          ))}
-                        </motion.div>
-                      </div>
-                    </motion.div>
-                  </div>
-
+                  {/* Étiquette 6 : CLIENTS B2B DÉFILANTS (Bas Gauche - RÉDUITE ET SÉPARÉE) */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20, y: 10 }} 
+                    whileInView={{ opacity: 1, x: 0, y: 0 }} 
+                    viewport={{ once: true }} 
+                    transition={{ delay: 0.9, duration: 0.8 }} 
+                    className="absolute bottom-[15%] -left-6 bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-3 shadow-2xl w-48 overflow-hidden z-30"
+                  >
+                    <div className="text-[8px] uppercase tracking-[0.2em] text-[#D7B56D] font-black mb-2 text-center">NFC déployées</div>
+                    <div className="flex w-full overflow-hidden relative">
+                      <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[#111] to-transparent z-10 pointer-events-none" />
+                      <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-[#111] to-transparent z-10 pointer-events-none" />
+                      
+                      <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 12 }} className="flex gap-3 items-center">
+                        {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
+                          <div key={i} className="w-14 h-8 shrink-0 flex items-center justify-center overflow-hidden">
+                            <img src={encodeURI(`/portfolio2/logo entrprises clientes/logo ${num}.png`)} alt={`Client ${num}`} className="w-full h-full object-contain scale-[1.4] hover:scale-[1.6] transition-transform duration-300" />
+                          </div>
+                        ))}
+                      </motion.div>
                     </div>
+                  </motion.div>
                     
                 </div>
               </Reveal>

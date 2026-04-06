@@ -427,6 +427,21 @@ const Home = ({ setPage, setSelectedProof }) => {
                     </div>
                   </div>
 
+                  <div className="relative w-full max-w-[340px] md:max-w-[400px] lg:max-w-[460px]">
+                  <div className="absolute -inset-8 bg-[#D7B56D]/15 blur-[70px] rounded-[50px] pointer-events-none" />
+                  <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent z-10" />
+                    <img
+                      src={encodeURI("/portfolio2/Photo pro roman costume 2026.jpeg")}
+                      alt="Roman LAYANI-PUJOL"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-6 left-6 z-20 flex flex-col gap-1">
+                      <span className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black">Roman LAYANI-PUJOL</span>
+                      <span className="text-[11px] text-white font-light">Entrepreneur Hybride · 2026</span>
+                    </div>
+                  </div>
+
                   {/* Étiquette 1 : Scale E-commerce (Haut Gauche) */}
                   <motion.div initial={{ opacity: 0, x: 20, y: 10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.8 }} className="absolute -left-10 top-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">E-commerce Scale</div>
@@ -448,62 +463,52 @@ const Home = ({ setPage, setSelectedProof }) => {
                     <div className="text-[10px] text-neutral-500 mt-0.5">Sourcing Asie & Flux Directs</div>
                   </motion.div>
 
-                  {/* Étiquette 5 : Traction (Bas Droit) */}
+                  {/* Étiquette 4 : Traction (Bas Droit) */}
                   <motion.div initial={{ opacity: 0, x: -20, y: -10 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true }} transition={{ delay: 1.0, duration: 0.8 }} className="absolute -right-4 bottom-10 bg-[#111]/90 backdrop-blur-xl border border-[#D7B56D]/20 rounded-2xl p-4 shadow-2xl z-30">
                     <div className="text-[9px] uppercase tracking-widest text-[#D7B56D] font-black mb-1">Traction marché</div>
                     <div className="text-2xl font-black text-white">300+ clients</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5">100+ B2B · 200+ B2C</div>
                   </motion.div>
 
-                  /* Étiquette : 2ÈME PRIX RECONNAISSANCE */}
+                  {/* BLOC GAUCHE GROUPÉ : Superposition Prix + Logos B2B pour éviter qu'ils se montent dessus */}
+                  <div className="absolute top-[40%] -left-12 flex flex-col items-start gap-4 z-40">
+                    
+                    {/* Étiquette 5 : 2ÈME PRIX RECONNAISSANCE */}
                     <motion.div 
-                      initial={{ opacity: 0, x: -20, y: -10 }} 
+                      initial={{ opacity: 0, x: 20, y: 0 }} 
                       whileInView={{ opacity: 1, x: 0, y: 0 }} 
                       viewport={{ once: true }} 
-                      transition={{ delay: 0.7, duration: 0.8, ease: [0.22, 1, 0.36, 1] }} 
-                      className="bg-[#D7B56D] p-5 rounded-2xl shadow-2xl z-40 border border-[#D7B56D]/50"
+                      transition={{ delay: 1.1, duration: 0.8 }} 
+                      className="bg-[#D7B56D] p-4 rounded-2xl shadow-[0_0_30px_rgba(215,181,109,0.3)] border border-white/20"
                     >
-                      <div className="text-[10px] uppercase tracking-[0.2em] text-[#111] font-black mb-1">RECONNAISSANCE</div>
-                      <div className="text-2xl font-black text-[#111] leading-tight">2ème Prix</div>
-                      <div className="text-xs text-[#111] font-medium">Étudiant Entrepreneur</div>
+                      <div className="text-[9px] uppercase tracking-widest text-[#111] font-black mb-1">Reconnaissance</div>
+                      <div className="text-lg font-black text-[#111] leading-tight">2ème Prix</div>
+                      <div className="text-[9px] text-[#111]/80 font-bold mt-0.5">Étudiant Entrepreneur</div>
                     </motion.div>
 
-                    {/* Étiquette : CLIENTS B2B DÉFILANTS (Nettement plus petite et mieux dimensionnée) */}
+                    {/* Étiquette 6 : CLIENTS B2B DÉFILANTS */}
                     <motion.div 
-                      initial={{ opacity: 0, x: 20, y: 10 }} 
+                      initial={{ opacity: 0, x: 20, y: -10 }} 
                       whileInView={{ opacity: 1, x: 0, y: 0 }} 
                       viewport={{ once: true }} 
-                      transition={{ delay: 0.9, duration: 0.8, ease: [0.22, 1, 0.36, 1] }} 
-                      className="bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-4 shadow-2xl z-30 w-60 overflow-hidden"
+                      transition={{ delay: 0.9, duration: 0.8 }} 
+                      className="bg-[#111]/95 backdrop-blur-xl border border-[#D7B56D]/30 rounded-2xl p-4 shadow-2xl w-56 overflow-hidden"
                     >
                       <div className="text-[9px] uppercase tracking-[0.2em] text-[#D7B56D] font-black mb-3 text-center">Solutions NFC déployées</div>
-                      
                       <div className="flex w-full overflow-hidden relative">
-                        {/* Gradients pour adoucir les bords de défilement */}
-                        <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-[#111] to-transparent z-10 pointer-events-none" />
-                        <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-[#111] to-transparent z-10 pointer-events-none" />
-
-                        <motion.div 
-                          animate={{ x: ["0%", "-50%"] }} 
-                          transition={{ repeat: Infinity, ease: "linear", duration: 12 }} 
-                          className="flex gap-4 items-center"
-                        >
-                          {/* Boucle sur les 5 logos (répétés pour défilement infini) */}
+                        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#111] to-transparent z-10 pointer-events-none" />
+                        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#111] to-transparent z-10 pointer-events-none" />
+                        <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 12 }} className="flex gap-4 items-center">
                           {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
-                            <div key={i} className="w-20 h-16 shrink-0 flex items-center justify-center overflow-hidden">
-                              <img 
-                                src={encodeURI(`/portfolio2/logo entrprises clientes/logo ${num}.png`)} 
-                                alt={`Client ${num}`}
-                                /* Échelle réduite de scale-[2] à scale-[1.5] pour logos plus compacts */
-                                className="w-full h-full object-contain scale-[1.5] hover:scale-[1.7] transition-transform duration-300" 
-                              />
+                            <div key={i} className="w-20 h-12 shrink-0 flex items-center justify-center overflow-hidden">
+                              <img src={encodeURI(`/portfolio2/logo entrprises clientes/logo ${num}.png`)} alt={`Client ${num}`} className="w-full h-full object-contain scale-[1.5] hover:scale-[1.7] transition-transform duration-300" />
                             </div>
                           ))}
                         </motion.div>
                       </div>
                     </motion.div>
                   </div>
-
+                    
                 </div>
               </Reveal>
             </div>

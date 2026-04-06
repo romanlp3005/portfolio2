@@ -907,52 +907,6 @@ const Home = ({ setPage, setSelectedProof }) => {
               </div>
             </div>
           </Reveal>
-
-          {/* La grille avec les images de tes projets */}
-          <div className="grid md:grid-cols-2 gap-5">
-            {projects.map((proj, i) => (
-              <Reveal key={i} delay={i * 0.07}>
-                <motion.div
-                  whileHover="hover"
-                  onClick={proj.onClick}
-                  className="relative aspect-[16/10] rounded-[28px] overflow-hidden cursor-pointer group border border-white/[0.05] hover:border-[#D7B56D]/25 transition-all duration-600"
-                >
-                  <motion.img
-                    src={encodeURI(proj.img)}
-                    alt={proj.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    variants={{ hover: { scale: 1.06 } }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    style={{ opacity: 0.45 }}
-                  />
-                  <motion.div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-600"
-                    style={{ background: 'transparent' }}>
-                    <img src={encodeURI(proj.img)} alt="" className="w-full h-full object-cover opacity-60" />
-                  </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/50 to-[#080808]/10" />
-
-                  <div className="absolute top-6 left-6 px-3 py-1.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-sm">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-[#D7B56D] font-black">{proj.tag}</span>
-                  </div>
-
-                  <div className="absolute bottom-8 left-8 right-8 z-10">
-                    <h4 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white mb-3 leading-tight">{proj.title}</h4>
-                    <motion.p
-                      className="text-sm text-neutral-400 font-light max-w-sm leading-relaxed"
-                      variants={{ hover: { y: -4 } }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {proj.desc}
-                    </motion.p>
-                  </div>
-
-                  <div className="absolute top-6 right-6 w-9 h-9 rounded-full bg-[#D7B56D]/0 border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:bg-[#D7B56D] group-hover:border-[#D7B56D] transition-all duration-400">
-                    <ArrowUpRight size={14} className="text-black" />
-                  </div>
-                </motion.div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

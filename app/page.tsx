@@ -361,13 +361,6 @@ const Home = ({ setPage, setSelectedProof }) => {
     { folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", label: "Logiciel Sinistres" },
   ];
 
-  const projects = [
-    { title: "CHROMA", desc: "Chroma réinvente le vêtement comme une surface vivante qui réagit à son environnement.", img: "/portfolio2/chroma/vestes chroma finis et porte par moi meme.jpeg", tag: "Textile Tech", onClick: () => setPage('maitrise') },
-    { title: "DIGITAG MEMORY", desc: "Une mémoire connectée et intemporelle : les souvenirs ne s'effacent jamais.", img: "/portfolio2/digitag memory/Photo plaque installee reelle.jpeg", tag: "NFC · Mémoire", onClick: () => setSelectedProof(DIGITAG_MEMORY_PROOF) },
-    { title: "DIGITAG PRO", desc: "Plaques NFC Google & réseaux pour acquisition B2B.", img: "/portfolio2/digitag pro/photo fournisseurs plaque google.jpeg", tag: "B2B · NFC", onClick: () => setSelectedProof(DIGITAG_PRO_PROOF) },
-    { title: "REMAX — TECH & IA", desc: "Automatisation, GPT, logiciels internes au service de l'immobilier.", img: "/portfolio2/Remax/screen du logiciel de gestions dees sinstres.png", tag: "Tech · IA", onClick: () => setPage('maitrise') },
-  ];
-
   const systemBlocks = [
     { key: "package", title: "Produit", desc: "Prototype → design → industrialisation", color: "from-amber-900/20" },
     { key: "globe", title: "Supply", desc: "Sourcing → négociation → import/export", color: "from-emerald-900/20" },

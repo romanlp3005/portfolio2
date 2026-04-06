@@ -484,7 +484,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                   >
                     {/* En-tête avec Titre + Icône Info + Bulle (Tooltip) */}
                     <div className="flex items-center justify-center gap-1.5 mb-2 relative group">
-                      <div className="text-[8px] uppercase tracking-[0.2em] text-[#D7B56D] font-black">Points de vente équipés</div>
+                      <div className="text-[8px] uppercase tracking-[0.2em] text-[#D7B56D] font-black">Points de vente connus équipé</div>
                       
                       {/* Icône Info */}
                       <Info size={10} className="text-neutral-500 cursor-help hover:text-[#D7B56D] transition-colors" />

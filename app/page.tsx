@@ -867,7 +867,7 @@ const Home = ({ setPage, setSelectedProof }) => {
       <section className="py-28 md:py-36 px-8 border-t border-white/[0.04] bg-[#060606]">
         <div className="max-w-[1400px] mx-auto">
           <Reveal>
-            <div className="max-w-6xl mb-16">
+            <div className="max-w-6xl">
               <div className="text-[10px] uppercase tracking-[0.4em] text-[#D7B56D] font-black mb-4">L'écosystème de mes entreprises</div>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9] mb-12">
                 Projets <GoldText>fondateurs</GoldText>
@@ -880,26 +880,28 @@ const Home = ({ setPage, setSelectedProof }) => {
                   title="DIGITAG PRO" 
                   isLong={true}
                   link="https://digitagpro.fr"
-                  text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard, menus digitaux...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain en temps réel (taux de scan par point de vente, croissance de la note, performance par agence)."
+                  text="Acquisition B2B et digitalisation. Plaques NFC et QR premium destinées aux indépendants et réseaux de franchises. Un simple scan booste la collecte d'avis Google ou intègre des outils métiers (prises de RDV, vCard...). Pour offrir des solutions de A à Z, je complète le matériel par des logiciels/SaaS sur mesure. Par exemple : coupler les plaques à un tableau de bord centralisé permettant au siège de gérer l'e-réputation et d'analyser les KPIs terrain (taux de scan, performance par agence)."
                 />
 
                 <ExpandableProject 
                   title="DIGITAG MEMORY" 
                   isLong={true}
                   link="https://digitagmemory.fr"
-                  text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne un accès instantané à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs (photos, messages) dans un environnement strictement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe en ligne (B2C) et distribution via des pompes funèbres partenaires (B2B2C)."
+                  text="Innovation dans le secteur funéraire. Création de plaques mémorielles connectées (NFC/QR) pour monuments funéraires, reliées à une application web sur mesure. Un simple scan donne accès à un espace d'hommage interactif. La famille peut y consulter la biographie du défunt et recueillir des souvenirs collaboratifs dans un environnement sécurisé (serveurs en France, modération intégrée). Stratégie hybride : vente directe (B2C) et via pompes funèbres (B2B2C)."
                 />
 
                 <ExpandableProject 
                   title="CHROMA" 
                   isLong={false}
                   link={null}
-                  text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production en Asie."
+                  text="Textile Tech. Création d'une marque de vêtements thermochromiques (qui réagissent à la chaleur). Gestion de A à Z : du R&D matériel jusqu'au sourcing usine et à la production industrielle en Asie."
                 />
 
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
 
       {/* ══════════════════════════════════
           5. PREUVES EN VEDETTE
@@ -980,9 +982,6 @@ const Home = ({ setPage, setSelectedProof }) => {
           </Reveal>
         </div>
       </section>
-    </div>
-  );
-};
 
 // ═══════════════════════════════════════════════════════════
 // A PROPOS PAGE

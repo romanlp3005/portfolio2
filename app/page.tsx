@@ -1653,6 +1653,10 @@ export default function PortfolioApp() {
 
   return (
     <div className="font-sans antialiased bg-[#080808] text-white selection:bg-[#D7B56D]/20">
+      <style>{`
+        body { -ms-overflow-style: none; scrollbar-width: none; }
+        body::-webkit-scrollbar { display: none; }
+      `}</style>
       <Navbar currentPage={currentPage} setPage={setPage} />
       <AnimatePresence mode="wait">
         <motion.main key={currentPage} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>

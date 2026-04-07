@@ -1654,8 +1654,8 @@ export default function PortfolioApp() {
   return (
     <div className="font-sans antialiased bg-[#080808] text-white selection:bg-[#D7B56D]/20">
       <style>{`
-        body { -ms-overflow-style: none; scrollbar-width: none; }
-        body::-webkit-scrollbar { display: none; }
+        html, body { -ms-overflow-style: none !important; scrollbar-width: none !important; }
+        ::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
       `}</style>
       <Navbar currentPage={currentPage} setPage={setPage} />
       <AnimatePresence mode="wait">

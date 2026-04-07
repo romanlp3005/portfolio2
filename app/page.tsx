@@ -327,12 +327,11 @@ const ExpandableProject = ({ title, text, link, img, logo, isLong = false }) => 
             src={encodeURI(img)} 
             alt={title} 
             className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-          />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/90 via-transparent to-transparent opacity-70" />
         </div>
 
         {/* LOGO FLOTTANT — TAILLE AUGMENTÉE À w-28 h-28 */}
-<div className="absolute -bottom-3 -right-3 w-20 h-20 bg-[#141414] border border-white/10 rounded-2xl p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] z-20 flex items-center justify-center backdrop-blur-xl group-hover:border-[#D7B56D]/50 transition-colors duration-300">
+<div className="absolute -bottom-3 -right-3 w-20 h-20 bg-[#141414] border border-white/10 rounded-2xl p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] z-20 flex items-center justify-center backdrop-blur-xl group-hover:border-[#D7B56D]/50 transition-colors duration-300"
   <img 
     src={encodeURI(logo)} 
     alt={`Logo ${title}`} 

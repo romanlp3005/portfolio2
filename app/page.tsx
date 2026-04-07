@@ -1098,7 +1098,7 @@ const MasteryLayout = () => {
       {PORTFOLIO_DATA.skills.map(skill => (
         <div key={skill.id} className="bg-white/[0.02] border border-white/[0.05] rounded-2xl overflow-hidden">
           <button
-            onClick={() => { if (activeComp !== skill.id) { setActiveComp(skill.id); setActiveSub(null); } else { setActiveSub(null); if (isMobile) setIsMobileMenuOpen(false); } }}
+            onClick={() => { if (activeComp !== skill.id) { setActiveComp(skill.id); setActiveSub(null); } else { setActiveSub(null); if (isMobile) setIsMobileMenuOpen(false); }}
             className={`w-full flex items-center justify-between p-5 transition-all duration-300 ${activeComp === skill.id ? 'bg-[#111] border-b border-[#D7B56D]/20 text-white' : 'hover:bg-white/[0.03] text-neutral-500'}`}
           >
             <div className="flex items-center gap-3 flex-grow pr-4">

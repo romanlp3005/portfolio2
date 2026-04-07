@@ -326,8 +326,7 @@ const ExpandableProject = ({ title, text, link, img, logo, isLong = false }) => 
           <img 
             src={encodeURI(img)} 
             alt={title} 
-            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
-          />
+            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/90 via-transparent to-transparent opacity-70" />
         </div>
 

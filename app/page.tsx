@@ -1628,13 +1628,13 @@ const ConfidentialityToast = () => {
             </div>
             <div className="flex-grow">
               <div className="flex justify-between items-start mb-1">
-                <p className="text-[9px] uppercase font-black tracking-widest text-[#D7B56D]">Accès Sécurisé</p>
+                <p className="text-[9px] uppercase font-black tracking-widest text-[#D7B56D]">CADRE DE CONFIDENTIALITÉ</p>
                 <button onClick={() => setIsVisible(false)} className="text-neutral-600 hover:text-white transition-colors -mt-1 -mr-1">
                   <X size={14} />
                 </button>
               </div>
               <p className="text-[11px] text-neutral-300 leading-relaxed font-light">
-                Les données stratégiques et visuels de ce portfolio sont confidentiels et protégés.
+                Contenu strictement confidentiel. L'exploitation des données et le téléchargement des documents présentés sont soumis à mon autorisation préalable.
               </p>
             </div>
           </div>

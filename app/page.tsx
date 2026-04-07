@@ -781,7 +781,7 @@ const Home = ({ setPage, setSelectedProof }) => {
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#D7B56D]/[0.04] blur-3xl rounded-full" />
                 <div className="relative z-10">
                   <div className="text-[10px] uppercase tracking-[0.35em] font-black text-neutral-500 mb-7 group-hover:text-[#D7B56D] transition-colors">Supply Chain</div>
-                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">1 000<span className="text-xl text-neutral-600">+</span></div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-1 tracking-tight">2 000<span className="text-xl text-neutral-600">+</span></div>
                   <div className="text-[10px] uppercase tracking-widest text-neutral-600 mb-10">Unités importées</div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center border-b border-white/[0.04] pb-3">

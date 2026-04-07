@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Roman Layani — Portfolio",
+  title: "Roman Layani-Pujol — Portfolio",
   description: "Portfolio business, startups, projets académiques.",
 };
 

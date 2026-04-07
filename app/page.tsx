@@ -1098,7 +1098,7 @@ const MasteryLayout = () => {
       {PORTFOLIO_DATA.skills.map(skill => (
         <div key={skill.id} className="bg-white/[0.02] border border-white/[0.05] rounded-2xl overflow-hidden">
           <button
-            onClick={() => { if (activeComp !== skill.id) { setActiveComp(skill.id); setActiveSub(null); } else { setActiveSub(null); if (isMobile) setIsMobileMenuOpen(false); }}
+            onClick={() => { if (activeComp !== skill.id) { setActiveComp(skill.id); setActiveSub(null); } else { setActiveSub(null); if (isMobile) setIsMobileMenuOpen(false); }}}
             className={`w-full flex items-center justify-between p-5 transition-all duration-300 ${activeComp === skill.id ? 'bg-[#111] border-b border-[#D7B56D]/20 text-white' : 'hover:bg-white/[0.03] text-neutral-500'}`}
           >
             <div className="flex items-center gap-3 flex-grow pr-4">
@@ -1115,7 +1115,7 @@ const MasteryLayout = () => {
               <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden bg-[#0f0f0f]">
                 <div className="p-3 space-y-1">
                   {skill.subskills.map(sub => (
-                    <button key={sub.id} onClick={() => {    setActiveSub(sub.id);    window.scrollTo(0, 0); // Remonte en haut   if (isMobile) setIsMobileMenuOpen(false);  }}
+                    <button key={sub.id} onClick={() => { setActiveSub(sub.id); window.scrollTo(0, 0); if (isMobile) setIsMobileMenuOpen(false); }}}
                       className={`w-full text-left py-3 px-4 rounded-xl text-[11px] font-bold tracking-wide transition-all flex items-center justify-between ${activeSub === sub.id ? 'bg-[#D7B56D]/10 text-[#D7B56D]' : 'text-neutral-300 hover:text-white hover:bg-white/[0.04]'}`}>
                       <span className="pr-4">{sub.name}</span>
                       <div className="flex items-center gap-3 shrink-0">

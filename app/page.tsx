@@ -210,7 +210,7 @@ const PORTFOLIO_DATA = {
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG PRO — Transit B2B", folder: "digitag pro", file: "plaques nfc google et instagram envoyer lituanie.png", type: "image", label: "Exportation UE", caption: "Maîtrise de la logistique sortante : expédition et suivi des commandes de plaques connectées vendues à des professionnels jusqu'en Lituanie." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "DIGITAG PRO — Transit B2B", folder: "digitag pro", file: "stock plaque lituanie.jpeg", type: "image", label: "Gestion Stock Délocalisé", caption: "Organisation et suivi d'un point de stockage délocalisé pour soutenir le développement rapide des opérations commerciales sur le marché balte." },
     { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Réception de Marchandise", folder: "Remax", file: "photo des portes cles recu .jpeg", type: "image", label: "Contrôle Post-Import", caption: "Inventaire et contrôle de conformité lors de la réception des milliers de produits importés avant leur distribution dans le réseau d'agences." },
-    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Réception de Marchandise", folder: "Remax", file: "photo sac de course reçcu.jpeg", type: "image", label: "Gestion D'approvisionnement", caption: "Sécurisation de la chaîne logistique permettant d'équiper en continu les collaborateurs sur le terrain avec des supports promotionnels conformes." },
+    { competenceId: "supply", subCompetenceId: "logistique", projectTitle: "REMAX — Réception de Marchandise", folder: "Remax", file: "photo sac de course recu.jpeg", type: "image", label: "Gestion D'approvisionnement", caption: "Sécurisation de la chaîne logistique permettant d'équiper en continu les collaborateurs sur le terrain avec des supports promotionnels conformes." },
 
     // --- TECH & IA ---
     { competenceId: "tech", subCompetenceId: "software", projectTitle: "REMAX — Ingénierie Logicielle (SaaS)", folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", type: "image", label: "Développement Full-Stack", caption: "Création d'un SaaS (Software as a Service) métier de gestion de sinistres. Front-end fluide en React.js, API robuste sous Node.js/Express connectée à une base PostgreSQL. Déploiement auto-hébergé via Docker et Coolify sur serveur Debian." },
@@ -382,7 +382,7 @@ const Home = ({ setPage, setSelectedProof }) => {
   { folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", label: "Production usine NFC", skill: "produit", sub: "industrialisation" },
   { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", label: "Dashboard Google Ads", skill: "business", sub: "acquisition" },
   { folder: "digitag memory", file: "badge pour le salon du funeraire.png", label: "Badge Salon Funéraire", skill: "management", sub: "validation" },
-  { folder: "Remax", file: "photo sac de course reçcu.jpeg", label: "Production Sacs RE/MAX", skill: "supply", sub: "logistique" },
+  { folder: "Remax", file: "photo sac de course recu.jpeg", label: "Production Sacs RE/MAX", skill: "supply", sub: "logistique" },
 ];
 
   const projects = [
@@ -981,8 +981,7 @@ const Home = ({ setPage, setSelectedProof }) => {
       </div>
     </motion.div>
   </Reveal>
-))}
-            ))}
+          ))}
           </div>
         </div>
       </section>

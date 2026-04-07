@@ -1170,7 +1170,7 @@ const MasteryLayout = () => {
         </AnimatePresence>
 
         <div className="grid lg:grid-cols-[380px_1fr] gap-12 lg:gap-16 items-start">
-          <div className="hidden lg:block lg:sticky lg:top-32 h-[calc(100vh-10rem)] overflow-y-auto pr-2 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="hidden lg:block lg:sticky lg:top-32">
             <div className="text-[10px] uppercase font-black tracking-[0.4em] text-neutral-600 mb-5 flex items-center gap-2">
               <Layers size={13} className="text-[#D7B56D]" /> Navigation
             </div>

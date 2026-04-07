@@ -326,7 +326,7 @@ const ExpandableProject = ({ title, text, link, img, logo, isLong = false }) => 
           <img 
             src={encodeURI(img)} 
             alt={title} 
-            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/90 via-transparent to-transparent opacity-70" />
         </div>
@@ -378,12 +378,12 @@ const ExpandableProject = ({ title, text, link, img, logo, isLong = false }) => 
 const Home = ({ setPage, setSelectedProof }) => {
 
   const featuredProofs = [
-    { folder: "chroma", file: "vestes chroma finis et porte par moi meme.jpeg", label: "Veste CHROMA portée" },
-    { folder: "digitag memory", file: "Photo plaque installee reelle.jpeg", label: "Digitag installée sur site" },
-    { folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", label: "Production usine NFC", isPdf: true },
-    { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", label: "Dashboard Google Ads" },
-    { folder: "Remax", file: "photo sac de course reçcu.jpeg", label: "Production Sacs RE/MAX" },
-    { folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", label: "Logiciel Sinistres" },
+    { folder: "chroma", file: "vestes chroma finis et porte par moi meme.jpeg", label: "Veste CHROMA portée", skill: "produit", sub: "industrialisation" },
+    { folder: "digitag memory", file: "Photo plaque installee reelle.jpeg", label: "Digitag installée sur site", skill: "produit", sub: "branding" },
+    { folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", label: "Production usine NFC", skill: "produit", sub: "industrialisation" },
+    { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", label: "Dashboard Google Ads", skill: "business", sub: "acquisition" },
+    { folder: "digitag memory", file: "badge pour le salon du funeraire.png", label: "Badge Salon Funéraire", skill: "management", sub: "validation" },
+    { folder: "Remax", file: "photo sac de course reçcu.jpeg", label: "Production Sacs RE/MAX", skill: "supply", sub: "logistique" },
   ];
 
   const projects = [
@@ -962,34 +962,33 @@ const Home = ({ setPage, setSelectedProof }) => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {featuredProofs.map((p, i) => (
-              <Reveal key={i} delay={i * 0.06}>
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  onClick={() => setPage('maitrise')}
-                  className="relative aspect-[4/3] rounded-[20px] overflow-hidden cursor-pointer group border border-white/[0.05] hover:border-[#D7B56D]/30 transition-all duration-400 bg-[#0f0f0f]"
-                >
-                  {p.isPdf ? (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <FileText size={40} className="text-[#D7B56D]/20 group-hover:text-[#D7B56D]/60 transition-colors duration-400" />
-                    </div>
-                  ) : (
-                    <img
-                      src={encodeURI(`/${p.folder}/${p.file}`)}
-                      alt={p.label}
-                      className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-
-                  <div className="absolute bottom-5 left-5 right-5">
-                    <p className="text-[11px] font-black text-white uppercase tracking-wide leading-tight">{p.label}</p>
-                  </div>
-
-                  <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#D7B56D] flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
-                    <ArrowUpRight size={12} className="text-black" />
-                  </div>
-                </motion.div>
-              </Reveal>
+  <Reveal key={i} delay={i * 0.06}>
+    <motion.div
+      whileHover={{ y: -5 }}
+      onClick={() => {
+        // 1. On remonte tout en haut immédiatement
+        window.scrollTo(0, 0); 
+        // 2. On change de page
+        setPage('maitrise');
+      }}
+      className="relative aspect-[4/3] rounded-[20px] overflow-hidden cursor-pointer group border border-white/[0.05] hover:border-[#D7B56D]/30 transition-all duration-400 bg-[#0f0f0f]"
+    >
+      {/* L'image s'affichera maintenant pour TOUS les éléments, y compris les sacs */}
+      <img
+        src={encodeURI(`/${p.folder}/${p.file}`)}
+        alt={p.label}
+        className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+      <div className="absolute bottom-5 left-5 right-5">
+        <p className="text-[11px] font-black text-white uppercase tracking-wide leading-tight">{p.label}</p>
+      </div>
+      <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#D7B56D] flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
+        <ArrowUpRight size={12} className="text-black" />
+      </div>
+    </motion.div>
+  </Reveal>
+))}
             ))}
           </div>
         </div>

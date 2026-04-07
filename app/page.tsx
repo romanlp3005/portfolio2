@@ -1177,7 +1177,7 @@ const MasteryLayout = () => {
             {renderAccordion(false)}
           </div>
 
-          <div className="space-y-10">
+          <div id="titre-competence" className="space-y-10 scroll-mt-32">
             <AnimatePresence mode="wait">
               {!activeSub && (
                 <motion.div key={`overview-${activeComp}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}

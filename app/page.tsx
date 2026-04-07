@@ -382,7 +382,7 @@ const Home = ({ setPage, setSelectedProof }) => {
     { folder: "digitag memory", file: "Photo plaque installee reelle.jpeg", label: "Digitag installée sur site" },
     { folder: "digitag pro", file: "plaque nfc google facebook instagram tripadvisor chez a l usine chez le fournisseur.png", label: "Production usine NFC", isPdf: true },
     { folder: "site internet", file: "tableau example de mes depenses googles ads sur une boutique ecomerce total 2439.06.png", label: "Dashboard Google Ads" },
-    { folder: "digitag memory", file: "badge pour le salon du funeraire.png", label: "Badge Salon Funéraire" },
+    { folder: "Remax", file: "photo sac de course reçcu.jpeg", label: "Production Sacs RE/MAX" },
     { folder: "Remax", file: "screen du logiciel de gestions dees sinstres.png", label: "Logiciel Sinistres" },
   ];
 

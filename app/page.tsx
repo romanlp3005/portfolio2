@@ -7,7 +7,8 @@ import {
   ArrowRight, ChevronRight, FileText, Video, X, Info,
   Globe, TrendingUp, Package, Terminal, Users, Target,
   Zap, ExternalLink, ArrowUpRight, Layers, Link as LinkIcon, Presentation,
-  ChevronLeft, ChevronRight as ChevronRightIcon, Download, Linkedin, Calendar
+  ChevronLeft, ChevronRight as ChevronRightIcon, Download, Linkedin, Calendar,
+  Lock
 } from 'lucide-react';
 
 // --- HELPERS GLOBAUX (Sécurisés pour éviter les erreurs de compilation) ---
@@ -1595,6 +1596,54 @@ const Contact = () => {
 // ═══════════════════════════════════════════════════════════
 // APP ROOT
 // ═══════════════════════════════════════════════════════════
+const ConfidentialityToast = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Apparaît après 2 secondes
+    const timer = setTimeout(() => setIsVisible(true), 2000);
+    // Disparaît automatiquement après 12 secondes
+    const hideTimer = setTimeout(() => setIsVisible(false), 14000);
+    
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, y: 50, x: 20 }}
+          animate={{ opacity: 1, y: 0, x: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[1000] max-w-[280px] bg-[#0f0f0f]/90 backdrop-blur-2xl border border-[#D7B56D]/30 p-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+        >
+          <div className="flex gap-4">
+            <div className="shrink-0 mt-1">
+              <div className="w-8 h-8 rounded-xl bg-[#D7B56D]/10 flex items-center justify-center text-[#D7B56D] border border-[#D7B56D]/20">
+                <Lock size={14} />
+              </div>
+            </div>
+            <div className="flex-grow">
+              <div className="flex justify-between items-start mb-1">
+                <p className="text-[9px] uppercase font-black tracking-widest text-[#D7B56D]">Accès Sécurisé</p>
+                <button onClick={() => setIsVisible(false)} className="text-neutral-600 hover:text-white transition-colors -mt-1 -mr-1">
+                  <X size={14} />
+                </button>
+              </div>
+              <p className="text-[11px] text-neutral-300 leading-relaxed font-light">
+                Les données stratégiques et visuels de ce portfolio sont confidentiels et protégés.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 export default function PortfolioApp() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedProof, setSelectedProof] = useState(null);
@@ -1636,6 +1685,9 @@ export default function PortfolioApp() {
 
       {/* Lightbox globale pour les clics depuis Home */}
       <Lightbox selectedProof={selectedProof} setSelectedProof={setSelectedProof} />
+      <ConfidentialityToast /> 
     </div>
   );
 }
+
+

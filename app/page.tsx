@@ -1634,7 +1634,7 @@ const ConfidentialityToast = () => {
                 </button>
               </div>
               <p className="text-[11px] text-neutral-300 leading-relaxed font-light">
-                Contenu strictement confidentiel. L'exploitation des données et le téléchargement des documents présentés sont soumis à mon autorisation préalable.
+                Ce portfolio contient des données stratégiques réelles. Merci de respecter la confidentialité des documents. Tout usage ou partage est soumis à mon autorisation.
               </p>
             </div>
           </div>

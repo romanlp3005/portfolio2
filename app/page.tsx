@@ -321,26 +321,27 @@ const ExpandableProject = ({ title, text, link, img, logo, isLong = false }) => 
       
       {/* Container Photo + Logo */}
       <div className="relative mb-6">
-        {/* Photo du produit (on réduit un peu l'opacité par défaut pour faire ressortir le logo) */}
+        {/* Photo du produit */}
         <div className="relative aspect-[16/10] rounded-[22px] overflow-hidden border border-white/5 bg-black">
           <img 
             src={encodeURI(img)} 
             alt={title} 
-            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/90 via-transparent to-transparent opacity-70" />
         </div>
 
-        {/* LOGO FLOTTANT — TAILLE AUGMENTÉE À w-28 h-28 */}
-<div className="absolute -bottom-3 -right-3 w-20 h-20 bg-[#141414] border border-white/10 rounded-2xl p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] z-20 flex items-center justify-center backdrop-blur-xl group-hover:border-[#D7B56D]/50 transition-colors duration-300">
-  <img 
-    src={encodeURI(logo)} 
-    alt={`Logo ${title}`} 
-    className="w-full h-full object-contain" 
-  />
-</div>
+        {/* LOGO FLOTTANT - CADRE REDUIT */}
+        <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-[#141414] border border-white/10 rounded-2xl p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] z-20 flex items-center justify-center backdrop-blur-xl group-hover:border-[#D7B56D]/50 transition-colors duration-300">
+          <img 
+            src={encodeURI(logo)} 
+            alt={`Logo ${title}`} 
+            className="w-full h-full object-contain" 
+          />
+        </div>
       </div>
 
-      {/* Reste du texte (on ajoute un peu de padding-top pour ne pas gêner le gros logo) */}
+      {/* Reste du texte */}
       <div className="px-2 pt-4 flex flex-col flex-grow relative z-10">
         <strong className="text-white text-base block mb-3 tracking-tight uppercase font-black">{title}</strong>
         

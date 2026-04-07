@@ -1115,7 +1115,7 @@ const MasteryLayout = () => {
               <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden bg-[#0f0f0f]">
                 <div className="p-3 space-y-1">
                   {skill.subskills.map(sub => (
-                    <button key={sub.id} onClick={() => { setActiveSub(sub.id); if (isMobile) setIsMobileMenuOpen(false); }}
+                    <button key={sub.id} onClick={() => { setActiveSub(sub.id); if (isMobile) setIsMobileMenuOpen(false); document.getElementById('titre-competence')?.scrollIntoView({ behavior: 'smooth' }); }}
                       className={`w-full text-left py-3 px-4 rounded-xl text-[11px] font-bold tracking-wide transition-all flex items-center justify-between ${activeSub === sub.id ? 'bg-[#D7B56D]/10 text-[#D7B56D]' : 'text-neutral-300 hover:text-white hover:bg-white/[0.04]'}`}>
                       <span className="pr-4">{sub.name}</span>
                       <div className="flex items-center gap-3 shrink-0">

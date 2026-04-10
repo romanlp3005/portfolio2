@@ -1326,31 +1326,28 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
   return (
     <AnimatePresence>
       {selectedProof && (
-<motion.div initial={{ scale: 0.96, y: 20 }} animate={{ scale: 1, y: 0 }}
-            className="max-w-6xl w-full bg-[#0f0f0f] rounded-[40px] overflow-hidden border border-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.9)] flex flex-col lg:flex-row relative"
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-6 md:p-12"
+          onClick={() => setSelectedProof(null)}>
+          <motion.div initial={{ scale: 0.96, y: 20 }} animate={{ scale: 1, y: 0 }}
+            className="max-w-6xl w-full bg-[#0f0f0f] rounded-[40px] overflow-hidden border border-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.9)] flex flex-col lg:flex-row"
             onClick={e => e.stopPropagation()}>
 
-            {/* NOUVEAU BOUTON DE FERMETURE DORÉ */}
-            <button 
-              onClick={() => setSelectedProof(null)}
-              className="absolute top-5 right-5 md:top-8 md:right-8 w-10 h-10 bg-[#D7B56D] rounded-full flex items-center justify-center text-[#111] hover:bg-white hover:scale-110 transition-all duration-300 z-50 shadow-[0_0_20px_rgba(215,181,109,0.4)]"
-            >
-              <X size={20} strokeWidth={2.5} />
-            </button>
-
-  {selectedProof.type === 'image' ? (
-                <img
-                  src={getProofSrc(selectedProof)}
-                  alt={selectedProof.label}
-                  className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
-                />
-              ) : selectedProof.type === 'video' ? (
-                <video 
-                  src={getProofSrc(selectedProof)} 
-                  controls 
-                  autoPlay 
-                  className="absolute inset-0 w-full h-full object-contain p-6 rounded-[32px]" 
-                />
+            {/* Zone média */}
+            <div className="bg-black flex flex-col items-center justify-center relative group lg:w-1/2 min-h-[280px] lg:min-h-[520px]">
+              {selectedProof.type === 'image' ? (
+  <img
+    src={getProofSrc(selectedProof)}
+    alt={selectedProof.label}
+    className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+  />
+) : selectedProof.type === 'video' ? (
+  <video 
+    src={getProofSrc(selectedProof)} 
+    controls 
+    autoPlay 
+    className="absolute inset-0 w-full h-full object-contain p-6 rounded-[32px]" 
+  />
 ) : selectedProof.type === 'canva' ? (
   <div className="absolute inset-0 w-full h-full flex flex-col">
     <iframe

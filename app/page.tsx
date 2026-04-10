@@ -1640,9 +1640,21 @@ export default function PortfolioApp() {
   const [selectedProof, setSelectedProof] = useState(null);
 
   useEffect(() => {
-    const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#apropos': 'apropos', '#home': 'home' };
-    const page = hashToPage[window.location.hash];
-    if (page) setCurrentPage(page);
+    const handleHashChange = () => {
+      const hashToPage = { '#maitrise': 'maitrise', '#contact': 'contact', '#apropos': 'apropos', '': 'home' };
+      // On lit le hash, et si c'est vide ou inconnu, on met 'home' par défaut
+      const page = hashToPage[window.location.hash] || 'home';
+      setCurrentPage(page);
+    };
+
+    // On vérifie au premier chargement
+    handleHashChange();
+
+    // On écoute quand l'utilisateur clique sur le bouton "Retour" ou "Suivant" du navigateur
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Nettoyage de l'écouteur
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const setPage = (page) => {

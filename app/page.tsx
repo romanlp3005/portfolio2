@@ -1333,6 +1333,13 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
             className="max-w-6xl w-full bg-[#0f0f0f] rounded-[40px] overflow-hidden border border-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.9)] flex flex-col lg:flex-row"
             onClick={e => e.stopPropagation()}>
 
+            <button 
+              onClick={() => setSelectedProof(null)}
+              className="absolute top-5 right-5 md:top-8 md:right-8 w-10 h-10 bg-[#D7B56D] rounded-full flex items-center justify-center text-[#111] hover:bg-white hover:scale-110 transition-all duration-300 z-50 shadow-[0_0_20px_rgba(215,181,109,0.4)]"
+            >
+              <X size={20} strokeWidth={2.5} />
+            </button>
+
             {/* Zone média */}
             <div className="bg-black flex flex-col items-center justify-center relative group lg:w-1/2 min-h-[280px] lg:min-h-[520px]">
               {selectedProof.type === 'image' ? (
@@ -1419,11 +1426,7 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
                   Ouvrir dans Canva <ExternalLink size={11} />
                 </a>
               )}
-
-              <button onClick={() => setSelectedProof(null)}
-                className="mt-12 text-[10px] font-black text-neutral-600 hover:text-white uppercase tracking-[0.4em] flex items-center gap-3 transition-all">
-                <X size={13} /> Fermer
-              </button>
+              
             </div>
           </motion.div>
         </motion.div>

@@ -300,7 +300,7 @@ const Navbar = ({ currentPage, setPage }) => {
             </button>
           ))}
           {/* BOUTON CV */}
-          <a href="/cv 2026 roman.pdf" target="_blank" rel="noopener noreferrer"
+          <a href="/cv_2026_roman.pdf" target="_blank" rel="noopener noreferrer"
              className="hidden sm:flex text-[9px] uppercase tracking-[0.2em] font-black text-black bg-[#D7B56D] hover:bg-white px-5 py-2.5 rounded-full transition-colors items-center gap-2 shadow-[0_0_15px_rgba(215,181,109,0.3)]">
             Mon CV <Download size={11} className="mb-0.5" />
           </a>

@@ -1332,15 +1332,16 @@ const Lightbox = ({ selectedProof, setSelectedProof }) => {
 
             {/* Zone média */}
             <div className="bg-black flex flex-col items-center justify-center relative group lg:w-1/2 min-h-[280px] lg:min-h-[520px]">
-              {selectedProof.type === 'image' ? (              
+              
               <button 
                 onClick={() => setSelectedProof(null)}
                 className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 bg-[#D7B56D] rounded-full flex items-center justify-center text-[#111] hover:bg-white hover:scale-110 transition-all duration-300 z-50 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
               >
                 <X size={20} strokeWidth={2.5} />
               </button>
-   {selectedProof.type === 'image' ? (     
-  <img
+
+              {selectedProof.type === 'image' ? (
+                <img
     src={getProofSrc(selectedProof)}
     alt={selectedProof.label}
     className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
